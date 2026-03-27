@@ -24,11 +24,18 @@ const messages = {
       },
       steps: {
         start: 'Start',
-        startSubtitle: 'create your character',
+        startSubtitle: 'name, class, etc.',
         something: 'Something',
         somethingSubtitle: 'choose a class to preview steps',
         finish: 'Profit!',
         finishSubtitle: 'get your sheet',
+      },
+      start: {
+        title: 'The foundation of your character',
+        nameLabel: 'Name',
+        pronounsLabel: 'Pronouns',
+        classLabel: 'Class',
+        subclassLabel: 'Subclass',
       }
     }
   }

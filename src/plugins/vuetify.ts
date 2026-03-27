@@ -29,7 +29,7 @@ export default createVuetify({
       dark: {
         colors: {
           primary: colors.green.accent3,
-          secondary: colors.purple.lighten2,
+          secondary: colors.purple.lighten2
         },
       },
     },

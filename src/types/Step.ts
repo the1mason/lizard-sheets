@@ -3,4 +3,5 @@ export type Step = {
     isDone: boolean;
     isUnlocked: boolean;
     hasError: boolean;
+    icon?: string;
 }

@@ -50,7 +50,27 @@ function getDefaultState(): BuilderState {
     return {
         isBlank: true,
         currentStep: "start",
-        steps: [],
+        steps: [
+            {
+                value: "start",
+                isDone: false,
+                isUnlocked: true,
+                hasError: false
+            },
+            {
+                value: "something",
+                isDone: false,
+                isUnlocked: false,
+                hasError: false,
+                icon: "mdi-help"
+            },
+            {
+                value: "finish",
+                isDone: false,
+                isUnlocked: false,
+                hasError: false
+            },
+        ],
         data: {
             id: crypto.randomUUID(),
             version: 1,
