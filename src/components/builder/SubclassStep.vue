@@ -9,7 +9,7 @@
           <game-card :color="isSelected ? 'secondaryBg' : undefined" size="large" @click="toggle">
             <v-col class="px-3" align="center">
               <h2>{{ $t(`game.subclasses.${subclass}.name`) }}</h2>
-              <p class="font-weight-thin text-body-medium">{{ $t(`game.subclasses.${subclass}.description`) }}</p>
+              <markdown class="text-left" :source="$t(`game.subclasses.${subclass}.description`)"/>
             </v-col>
           </game-card>
         </v-item>
@@ -24,6 +24,7 @@
 import type {BuilderState} from "@/stores/builderStore.ts";
 import {onMounted, ref, watch} from "vue";
 import GameCard from "@/components/common/GameCard.vue";
+import Markdown from "@/components/common/Markdown.vue";
 
 const emit = defineEmits<{
   (e: "setState", state: BuilderState): void

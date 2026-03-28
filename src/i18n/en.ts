@@ -149,7 +149,7 @@
             },
             poisoners: {
                 name: "Poisoners Guild",
-                description: "",
+                description: ""
             },
             executioners: {
                 name: "Executioners Guild",
@@ -245,11 +245,23 @@
             },
             knowledge: {
                 name: "School of Knowledge",
-                description: "",
+                description: `
+<p style=\"text-align: center;\"><b>SPELLCAST:</b> <i>KNOWLEDGE</i></p>
+
+**Prepared**: Take an additional domain card of your level or lower from a domain you have access to.  
+
+**Adept:** When you Utilize an Experience, you can **mark a Stress** instead of spending a Hope. If you do, double your Experience modifier for that roll.  
+                `,
             },
             war: {
                 name: "School of War",
-                description: "",
+                description: `
+<p style=\"text-align: center;\"><b>SPELLCAST:</b> <i>KNOWLEDGE</i></p>
+
+**Battlemage**: You’ve focused your studies on becoming an unconquerable force on the battlefield. Gain an additional Hit Point slot.  
+
+**Face Your Fear:** When you succeed with Fear on an attack roll, you deal an extra 1d10 magic damage.  
+`,
             }
         }
     }

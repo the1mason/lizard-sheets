@@ -36,7 +36,7 @@
                   </template>
                 </v-tooltip>
               </v-row>
-              <p class="font-weight-thin text-body-medium">{{ $t(`game.classes.${characterClass.id}.description`) }}</p>
+              <p class="text-body-medium text-left">{{ $t(`game.classes.${characterClass.id}.description`) }}</p>
             </v-col>
           </game-card>
         </v-item>
