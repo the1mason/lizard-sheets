@@ -1,0 +1,11 @@
+﻿export type Domain =
+    "arcana"
+    | "blade"
+    | "bone"
+    | "codex"
+    | "dread"
+    | "grace"
+    | "midnight"
+    | "sage"
+    | "splendor"
+    | "valor"

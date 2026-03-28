@@ -1,5 +1,5 @@
 import {defineStore} from "pinia";
-import type {Character} from "@/types/store/character.ts";
+import type {Character} from "@/types/game/character.ts";
 import {computed, ref} from "vue";
 import type {Step} from "@/types/Step.ts";
 
