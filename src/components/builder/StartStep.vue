@@ -16,7 +16,7 @@
 
   <h3 class="ma-0 mb-3">{{ $t('builder.start.class') }}</h3>
   <v-item-group v-model="characterClass" @update:model-value="onChooseClass()">
-  <v-row gap="8">
+    <v-row gap="8" align-content="center" justify="center">
       <template v-for="characterClass in classes">
         <v-item v-slot="{isSelected, toggle}" :value="characterClass">
           <game-card :color="isSelected ? 'secondaryBg' : undefined" size="small" @click="toggle">
@@ -25,12 +25,14 @@
               <v-row justify="center">
                 <v-tooltip :text="$t('game.domains.' + characterClass.domain1)" bottom>
                   <template v-slot:activator="{ props }">
-                    <img v-bind="props" :src="`../../src/assets/domains/${characterClass.domain1}.svg`" height="20" :alt="characterClass.domain1" />
+                    <img v-bind="props" :src="`../../src/assets/domains/${characterClass.domain1}.svg`" height="20"
+                         :alt="characterClass.domain1"/>
                   </template>
                 </v-tooltip>
                 <v-tooltip :text="$t('game.domains.' + characterClass.domain2)" bottom>
                   <template v-slot:activator="{ props }">
-                    <img v-bind="props" :src="`../../src/assets/domains/${characterClass.domain2}.svg`" height="20" :alt="characterClass.domain2" />
+                    <img v-bind="props" :src="`../../src/assets/domains/${characterClass.domain2}.svg`" height="20"
+                         :alt="characterClass.domain2"/>
                   </template>
                 </v-tooltip>
               </v-row>
@@ -39,14 +41,14 @@
           </game-card>
         </v-item>
       </template>
-  </v-row>
+    </v-row>
   </v-item-group>
 
 </template>
 
 <script setup lang="ts">
 import type {BuilderState} from "@/stores/builderStore.ts"
-import { onMounted, ref, watch} from "vue"
+import {onMounted, ref, watch} from "vue"
 import GameCard from "@/components/common/GameCard.vue"
 import gameProvider from "@/libs/game/gameProvider.ts"
 import type {CharacterClass} from "@/types/game/characterClass.ts"
@@ -55,6 +57,7 @@ const classes = gameProvider.getCharacterClasses()
 
 const emit = defineEmits<{
   (e: "setState", state: BuilderState): void
+  (e: "markDone"): void
 }>()
 
 const props = withDefaults(
@@ -64,6 +67,10 @@ const props = withDefaults(
     }>(),
     {}
 )
+
+defineExpose({
+  validate
+})
 
 watch(() => props.state, (newState) => {
   name.value = newState.data.name
@@ -84,8 +91,15 @@ onMounted(() => {
 
 function save() {
   const current = props.state
-  current.data.name = name.value
-  current.data.pronouns = pronouns.value
+  current.data.name = name.value?.trim()
+  current.data.pronouns = pronouns.value?.trim()
+
+  if (current.data.name! &&
+      current.data.name?.length > 1
+      && current.data.class!) {
+    emit("markDone")
+  }
+
   emit("setState", current)
 }
 
@@ -96,10 +110,10 @@ function onChooseClass() {
   // invalidate old data
 
   current.data.domains = []
-  current.data.subclass = []
+  current.data.subclasses = []
   current.data.domainCards = []
 
-  if(selectedClass === undefined) {
+  if (selectedClass === undefined) {
     current.steps = gameProvider.getDefaultSteps()
     save()
     return
@@ -107,13 +121,16 @@ function onChooseClass() {
 
   // set new data
   current.data.class = characterClass.value
-  current.data.domains = [ selectedClass.domain1, selectedClass.domain2 ]
-
+  current.data.domains = [selectedClass.domain1, selectedClass.domain2]
+  current.options.subclasses = gameProvider.getSubclasses(selectedClass.id)
   current.steps = gameProvider.getStepsByClass(selectedClass.id)
 
   save()
 }
 
+function validate() {
+
+}
 
 </script>
 

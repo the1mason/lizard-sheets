@@ -2,7 +2,13 @@
   <v-container>
     <v-card class="pa-3">
       <v-card-title>
-        <b>{{ $t('builder.title') }}</b></v-card-title>
+        <template v-if="builderState?.data.name!">
+          <b>{{ builderState?.data.name }}</b> - Character Builder
+        </template>
+        <template v-else>
+          <b>{{ $t('builder.title') }}</b>
+        </template>
+      </v-card-title>
       <v-alert v-if="fromPrevious"
                closable
                variant="tonal"
@@ -24,11 +30,14 @@
                               :title="$t(`builder.steps.${step.value}.title`)"
                               :subtitle="$t(`builder.steps.${step.value}.subtitle`, '')"
                               :editable="step.isDone || step.isUnlocked || builderState.currentStep === step.value"
-                              :icon="step.icon ?? 'mdi-circle'"
+                              edit-icon="mdi-pencil"
+                              :icon="step.icon ?? 'mdi-chevron-right'"
                               @click="() => switchStep(index)"
                               :error="step.hasError"
                               :complete="step.isDone"
-                              :color="builderState.currentStep == step.value ? 'secondary' : undefined"
+                              :color="builderState.currentStep == step.value ? 'secondary' :
+                              step.isDone ? 'primary' :
+                              step.isUnlocked ? 'grey-lighten-3' : undefined"
               />
               <v-divider v-if="(index - 1) === builderState.steps.length" thickness="3" :variant="
              step.isDone ? 'solid' : 'dashed'"/>
@@ -36,21 +45,39 @@
           </v-stepper-header>
           <v-stepper-window class="ma-0 pt-3 px-6 pb-6">
             <v-stepper-window-item value="start">
-              <start-step :state="builderState" :current-step="stepIndex" @setState="setState" />
+              <start-step :state="builderState" :current-step="stepIndex" @setState="setState" @markDone="markDone" />
             </v-stepper-window-item>
-            <v-stepper-window-item value="something">
+            <v-stepper-window-item value="subclass">
+              <subclass-step :state="builderState" :current-step="stepIndex" @setState="setState" @markDone="markDone" />
+            </v-stepper-window-item>
+            <v-stepper-window-item value="origin">
+            </v-stepper-window-item>
+            <v-stepper-window-item value="traits">
+            </v-stepper-window-item>
+            <v-stepper-window-item value="equipment">
+            </v-stepper-window-item>
+            <v-stepper-window-item value="experience">
+            </v-stepper-window-item>
+            <v-stepper-window-item value="cards">
+            </v-stepper-window-item>
+            <v-stepper-window-item value="flavor">
+            </v-stepper-window-item>
+            <v-stepper-window-item value="finish">
             </v-stepper-window-item>
           </v-stepper-window>
-          <v-stepper-actions
-          >
+          <v-stepper-actions>
             <template #prev>
-              <v-btn color="gray" :disabled="stepIndex === 0" @click="stepBackward">{{
+              <v-col>
+              <v-btn block color="gray" :disabled="stepIndex === 0" @click="stepBackward">{{
                   $t('builder.stepper.previous')
                 }}
               </v-btn>
+              </v-col>
             </template>
             <template #next>
-              <v-btn color="primary" :disabled="stepIndex === (builderState.steps.length - 1) || !builderState.steps[stepIndex].isDone" @click="stepForward">{{ $t('builder.stepper.next') }}</v-btn>
+              <v-col>
+              <v-btn block color="primary" siz :disabled="stepIndex === (builderState.steps.length - 1) || !builderState.steps[stepIndex].isDone" @click="stepForward">{{ $t('builder.stepper.next') }}</v-btn>
+              </v-col>
             </template>
           </v-stepper-actions>
         </v-stepper>
@@ -64,10 +91,10 @@
 
 <script setup lang="ts">
 
-import {computed, onMounted, ref} from "vue";
+import {onMounted, ref} from "vue";
 import {type BuilderState, useBuilderStore} from "@/stores/builderStore.ts";
 import StartStep from "@/components/builder/StartStep.vue";
-
+import SubclassStep from "@/components/builder/SubclassStep.vue";
 
 const fromPrevious = ref<boolean>(false);
 
@@ -124,7 +151,15 @@ function setState(state: BuilderState) {
   builderState.value.currentStep = state.currentStep;
   builderState.value.isBlank = false;
   store.set(builderState.value);
-  console.log("not blank now")
+}
+
+function markDone() {
+  if(!builderState.value)
+    return;
+  builderState.value.steps[stepIndex.value].isDone = true
+  builderState.value.steps[stepIndex.value].hasError = false
+  builderState.value.steps[stepIndex.value + 1].isUnlocked = true
+  store.set(builderState.value);
 }
 
 </script>

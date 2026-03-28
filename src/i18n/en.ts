@@ -70,6 +70,9 @@
             subclassLabel: 'Subclass',
             class: 'Choose a class',
         },
+        subclass: {
+            title: 'Choose a subclass',
+        }
     },
     game: {
         domains: {
@@ -136,6 +139,117 @@
             wizard: {
                 name: 'Wizard',
                 description: 'As a wizard, you’ve become familiar with the arcane through the relentless study of grimoires and other tools of magic.'
+            }
+        },
+        subclasses: {
+            levels: {
+                1: "foundation",
+                2: "specialization",
+                3: "mastery"
+            },
+            poisoners: {
+                name: "Poisoners Guild",
+                description: "",
+            },
+            executioners: {
+                name: "Executioners Guild",
+                description: "",
+            },
+            troubadour: {
+                name: "Troubadour",
+                description: "",
+            },
+            wordsmith: {
+                name: "Wordsmith",
+                description: "",
+            },
+            juggernaut: {
+                name: "Juggernaut",
+                description: "",
+            },
+            martial: {
+                name: "Martial Artist",
+                description: "",
+            },
+            elements: {
+                name: "Warden of the Elements",
+                description: "",
+            },
+            renewal: {
+                name: "Warden of Renewal",
+                description: "",
+            },
+            stalwart: {
+                name: "Stalwart",
+                description: "",
+            },
+            vengeance: {
+                name: "Vengeance",
+                description: "",
+            },
+            wayfinder: {
+                name: "Wayfinder",
+                description: "",
+            },
+            beastbound: {
+                name: "Beastbound",
+                description: "",
+            },
+            nightwalker: {
+                name: "Nightwalker",
+                description: "",
+            },
+            syndicate: {
+                name: "Syndicate",
+                description: "",
+            },
+            wielder: {
+                name: "Divine Wielder",
+                description: "",
+            },
+            sentinel: {
+                name: "Winged Sentinel",
+                description: "",
+            },
+            primal: {
+                name: "Primal Origin",
+                description: "",
+            },
+            elemental: {
+                name: "Elemental Origin",
+                description: "",
+            },
+            wrathful: {
+                name: "Pact of the Wrathful",
+                description: "",
+            },
+            endless: {
+                name: "Pact of the Endless",
+                description: "",
+            },
+            brave: {
+                name: "Call of the Brave",
+                description: "",
+            },
+            slayer: {
+                name: "Call of the Slayer",
+                description: "",
+            },
+            moon: {
+                name: "Moon",
+                description: "",
+            },
+            hedge: {
+                name: "Hedge",
+                description: "",
+            },
+            knowledge: {
+                name: "School of Knowledge",
+                description: "",
+            },
+            war: {
+                name: "School of War",
+                description: "",
             }
         }
     }

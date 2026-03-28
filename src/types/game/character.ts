@@ -1,5 +1,6 @@
 import type {CharacterClass} from "@/types/game/characterClass.ts"
 import type {Domain} from "@/types/game/domain.ts";
+import type {ClassName} from "@/types/game/className.ts";
 
 export type Character = {
     id: string
@@ -12,7 +13,7 @@ export type Character = {
     domains: Domain[]
     class?: CharacterClass
     multiclass?: CharacterClass
-    subclass: Subclass[]
+    subclasses: Subclass[]
     traits: CharacterTraits
     state: CharacterState
     weapons: Weapon[]
@@ -34,24 +35,15 @@ export type Character = {
 
 export type AncestryCard = {
     id: string
-    name?: string
-    description: string
-    custom: boolean
 }
 
 export type CommunityCard = {
     id: string
-    name?: string
-    description: string
-    custom: boolean
 }
 
 export type Subclass = {
     id: string
-    name?: string
-    class: string
-    custom: boolean
-    description: string
+    class: ClassName
     level: 1 | 2 | 3
 }
 
@@ -100,12 +92,10 @@ export type Armor = {
 
 export type DomainCard = {
     id: string
-    name?: string
     domain: Domain
     stress: number
     kind: string
     level: Level
-    custom: boolean
 }
 
 export type Level =

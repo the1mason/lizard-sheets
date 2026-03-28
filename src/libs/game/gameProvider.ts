@@ -1,5 +1,4 @@
 ﻿import type {CharacterClass} from "@/types/game/characterClass.ts";
-import type {Domain} from "@/types/game/domain.ts";
 import type {Step} from "@/types/Step.ts";
 import type {ClassName} from "@/types/game/className.ts";
 
@@ -92,20 +91,37 @@ function getDefaultSteps(): Step[] {
     ]
 }
 
-function getDomainIds(): Domain[] {
-    return [
-        "arcana",
-        "blade",
-        "bone",
-        "codex",
-        "dread",
-        "grace",
-        "midnight",
-        "sage",
-        "splendor",
-        "valor"
-    ]
+function getSubclasses(className: ClassName) {
+    switch (className) {
+        case "assassin":
+            return [ "poisoners", "executioners" ]
+        case "bard":
+            return [ "troubadour", "wordsmith" ]
+        case "brawler":
+            return [ "juggernaut", "martial" ]
+        case "druid":
+            return [ "elements", "renewal" ]
+        case "guardian":
+            return [ "stalwart", "vengeance" ]
+        case "ranger":
+            return [ "wayfinder", "beastbound" ]
+        case "rogue":
+            return [ "nightwalker", "syndicate" ]
+        case "seraph":
+            return [ "wielder", "sentinel" ]
+        case "sorcerer":
+            return [ "primal", "elemental" ]
+        case "warlock":
+            return [ "wrathful", "endless" ]
+        case "warrior":
+            return [ "brave", "slayer"]
+        case "witch":
+            return [ "moon", "hedge" ]
+        case "wizard":
+            return [ "knowledge", "war" ]
+    }
 }
+
 
 function getCharacterClasses(): CharacterClass[] {
     return [
@@ -178,8 +194,8 @@ function getCharacterClasses(): CharacterClass[] {
 }
 
 export default {
-    getDomainIds,
     getCharacterClasses,
     getStepsByClass,
     getDefaultSteps,
+    getSubclasses
 }

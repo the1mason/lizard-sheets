@@ -77,7 +77,7 @@ function getDefaultState(): BuilderState {
                 money: 0
             },
             domains: [],
-            subclass: [],
+            subclasses: [],
             weapons: [],
             experiences: [],
             backgroundQuestions: [],
@@ -85,6 +85,9 @@ function getDefaultState(): BuilderState {
             domainCards: [],
             domainCardsStored: [],
             levelingChoices: [],
+        },
+        options: {
+            subclasses: []
         }
     }
 }
@@ -94,4 +97,7 @@ export type BuilderState = {
     currentStep: string;
     steps: Step[];
     data: Character;
+    options: {
+        subclasses: string[]
+    }
 }
