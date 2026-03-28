@@ -1,7 +1,98 @@
 ﻿import type {CharacterClass} from "@/types/game/characterClass.ts";
 import type {Domain} from "@/types/game/domain.ts";
+import type {Step} from "@/types/Step.ts";
+import type {ClassName} from "@/types/game/className.ts";
 
-function getDomainIds() : Domain[] {
+function getStepsByClass(className: ClassName): Step[] {
+    const steps: Step[] = [];
+
+    steps.push(
+        {
+            value: "start",
+            isDone: false,
+            isUnlocked: true,
+            hasError: false
+        },
+        {
+            value: "subclass",
+            isDone: false,
+            isUnlocked: false,
+            hasError: false
+        },
+        {
+            value: "origin",
+            isDone: false,
+            isUnlocked: false,
+            hasError: false
+        },
+        {
+            value: "traits",
+            isDone: false,
+            isUnlocked: false,
+            hasError: false
+        },
+        {
+            value: "equipment",
+            isDone: false,
+            isUnlocked: false,
+            hasError: false
+        },
+        {
+            value: "experience",
+            isDone: false,
+            isUnlocked: false,
+            hasError: false
+        },
+        {
+            value: "cards",
+            isDone: false,
+            isUnlocked: false,
+            hasError: false
+        },
+        {
+            value: "flavor",
+            isDone: false,
+            isUnlocked: false,
+            hasError: false
+        }
+    )
+
+    steps.push(
+        {
+            value: "finish",
+            isDone: false,
+            isUnlocked: false,
+            hasError: false
+        })
+
+    return steps;
+}
+
+function getDefaultSteps(): Step[] {
+    return [
+        {
+            value: "start",
+            isDone: false,
+            isUnlocked: true,
+            hasError: false
+        },
+        {
+            value: "something",
+            isDone: false,
+            isUnlocked: false,
+            hasError: false,
+            icon: "mdi-help"
+        },
+        {
+            value: "finish",
+            isDone: false,
+            isUnlocked: false,
+            hasError: false
+        }
+    ]
+}
+
+function getDomainIds(): Domain[] {
     return [
         "arcana",
         "blade",
@@ -16,7 +107,7 @@ function getDomainIds() : Domain[] {
     ]
 }
 
-function getCharacterClasses() : CharacterClass[] {
+function getCharacterClasses(): CharacterClass[] {
     return [
         {
             id: 'assassin',
@@ -88,5 +179,7 @@ function getCharacterClasses() : CharacterClass[] {
 
 export default {
     getDomainIds,
-    getCharacterClasses
+    getCharacterClasses,
+    getStepsByClass,
+    getDefaultSteps,
 }

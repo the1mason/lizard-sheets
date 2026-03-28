@@ -1,7 +1,8 @@
 import {defineStore} from "pinia";
 import type {Character} from "@/types/game/character.ts";
-import {computed, ref} from "vue";
+import {ref} from "vue";
 import type {Step} from "@/types/Step.ts";
+import gameProvider from "@/libs/game/gameProvider.ts"
 
 const LOCAL_STORE_NAME = "builder";
 
@@ -50,27 +51,7 @@ function getDefaultState(): BuilderState {
     return {
         isBlank: true,
         currentStep: "start",
-        steps: [
-            {
-                value: "start",
-                isDone: false,
-                isUnlocked: true,
-                hasError: false
-            },
-            {
-                value: "something",
-                isDone: false,
-                isUnlocked: false,
-                hasError: false,
-                icon: "mdi-help"
-            },
-            {
-                value: "finish",
-                isDone: false,
-                isUnlocked: false,
-                hasError: false
-            },
-        ],
+        steps: gameProvider.getDefaultSteps(),
         data: {
             id: crypto.randomUUID(),
             version: 1,

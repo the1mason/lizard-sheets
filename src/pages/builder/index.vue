@@ -21,8 +21,8 @@
             index == 0 ? 'solid' :
              builderState.steps[index-1].isDone ? 'solid' : 'dashed'"/>
               <v-stepper-item :value=step.value
-                              :title="$t(`builder.steps.${step.value}`)"
-                              :subtitle="$t(`builder.steps.${step.value}Subtitle`, '')"
+                              :title="$t(`builder.steps.${step.value}.title`)"
+                              :subtitle="$t(`builder.steps.${step.value}.subtitle`, '')"
                               :editable="step.isDone || step.isUnlocked || builderState.currentStep === step.value"
                               :icon="step.icon ?? 'mdi-circle'"
                               @click="() => switchStep(index)"
@@ -39,7 +39,6 @@
               <start-step :state="builderState" :current-step="stepIndex" @setState="setState" />
             </v-stepper-window-item>
             <v-stepper-window-item value="something">
-              <h1>1</h1>
             </v-stepper-window-item>
           </v-stepper-window>
           <v-stepper-actions

@@ -20,12 +20,47 @@
             next: 'Next'
         },
         steps: {
-            start: 'Basics',
-            startSubtitle: 'Name and Class',
-            something: 'Something',
-            somethingSubtitle: 'choose a class to preview steps',
-            finish: 'Profit!',
-            finishSubtitle: 'get your sheet',
+            start: {
+                title: 'Start',
+                subtitle: 'Name and class'
+            },
+            something: {
+                title: 'Something',
+                subtitle: 'choose a class to preview steps'
+            },
+            subclass: {
+                title: 'Subclass',
+                subtitle: '',
+            },
+            origin: {
+                title: 'Origin',
+                subtitle: 'ancestry, community',
+            },
+            traits: {
+                title: 'Traits',
+                subtitle: '',
+            },
+            equipment: {
+                title: 'Equipment',
+                subtitle: '',
+            },
+            experience: {
+                title: 'Experience',
+                subtitle: '',
+            },
+            cards: {
+                title: 'Cards',
+                subtitle: '',
+            },
+            flavor: {
+                title: 'Flavor',
+                subtitle: 'ties, backstory - all of it',
+            },
+            finish: {
+                title: 'Profit!',
+                subtitle: 'get your sheet'
+            }
+
         },
         start: {
             basics: 'Name and pronouns',

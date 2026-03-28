@@ -100,6 +100,7 @@ function onChooseClass() {
   current.data.domainCards = []
 
   if(selectedClass === undefined) {
+    current.steps = gameProvider.getDefaultSteps()
     save()
     return
   }
@@ -107,6 +108,8 @@ function onChooseClass() {
   // set new data
   current.data.class = characterClass.value
   current.data.domains = [ selectedClass.domain1, selectedClass.domain2 ]
+
+  current.steps = gameProvider.getStepsByClass(selectedClass.id)
 
   save()
 }
