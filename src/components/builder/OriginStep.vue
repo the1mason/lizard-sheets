@@ -55,8 +55,8 @@ const props = withDefaults(
 )
 
 watch(() => props.state, (newState) => {
-  community.value = props.state.data.community
-  ancestry.value = props.state.data.ancestry
+  community.value = newState.data.community
+  ancestry.value = newState.data.ancestry
 
 }, { deep: true })
 
