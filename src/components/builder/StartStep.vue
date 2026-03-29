@@ -16,7 +16,7 @@
 
   <h3 class="ma-0 mb-3">{{ $t('builder.start.class') }}</h3>
   <v-item-group v-model="characterClass" @update:model-value="onChooseClass()">
-    <v-row gap="8" align-content="center" justify="center">
+    <v-row gap="8">
       <template v-for="characterClass in classes">
         <v-item v-slot="{isSelected, toggle}" :value="characterClass">
           <game-card :color="isSelected ? 'secondaryBg' : undefined" size="small" @click="toggle">
@@ -67,10 +67,6 @@ const props = withDefaults(
     }>(),
     {}
 )
-
-defineExpose({
-  validate
-})
 
 watch(() => props.state, (newState) => {
   name.value = newState.data.name
@@ -126,10 +122,6 @@ function onChooseClass() {
   current.steps = gameProvider.getStepsByClass(selectedClass.id)
 
   save()
-}
-
-function validate() {
-
 }
 
 </script>

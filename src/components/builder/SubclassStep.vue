@@ -3,7 +3,7 @@
   <h3 class="ma-0 mb-3">{{ $t('builder.subclass.title') }}</h3>
 
   <v-item-group mandatory v-model="subclass" @update:model-value="onChooseSubclass()">
-    <v-row gap="8">
+    <v-row gap="8" justify="center">
       <template v-for="subclass in subclasses">
         <v-item v-slot="{isSelected, toggle}" :value="subclass">
           <game-card :color="isSelected ? 'secondaryBg' : undefined" size="large" @click="toggle">

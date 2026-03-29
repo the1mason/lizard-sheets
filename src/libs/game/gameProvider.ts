@@ -1,6 +1,7 @@
 ﻿import type {CharacterClass} from "@/types/game/characterClass.ts";
 import type {Step} from "@/types/Step.ts";
 import type {ClassName} from "@/types/game/className.ts";
+import type {AncestryCard, CommunityCard} from "@/types/game/character.ts";
 
 function getStepsByClass(className: ClassName): Step[] {
     const steps: Step[] = [];
@@ -122,7 +123,6 @@ function getSubclasses(className: ClassName) {
     }
 }
 
-
 function getCharacterClasses(): CharacterClass[] {
     return [
         {
@@ -193,9 +193,138 @@ function getCharacterClasses(): CharacterClass[] {
     ]
 }
 
+function getAncestries(): AncestryCard[] {
+    return [
+        {
+            id: "aetheris"
+        },
+        {
+            id: "clank"
+        },
+        {
+            id: "drakona"
+        },
+        {
+            id: "dwarf"
+        },
+        {
+            id: "earhkin"
+        },
+        {
+            id: "elf"
+        },
+        {
+            id: "emberkin"
+        },
+        {
+            id: "faerie"
+        },
+        {
+            id: "faun"
+        },
+        {
+            id: "firbolg"
+        },
+        {
+            id: "fungril"
+        },
+        {
+            id: "galapa"
+        },
+        {
+            id: "giant"
+        },
+        {
+            id: "gnome"
+        },
+        {
+            id: "goblin"
+        },
+        {
+            id: "halfling"
+        },
+        {
+            id: "human"
+        },
+        {
+            id: "infernis"
+        },
+        {
+            id: "katari"
+        },
+        {
+            id: "orc"
+        },
+        {
+            id: "ribbet"
+        },
+        {
+            id: "simiah"
+        },
+        {
+            id: "skykin"
+        },
+        {
+            id: "tidekin"
+        }
+    ]
+}
+
+function getCommunities(): CommunityCard[] {
+    return [
+        {
+            id: "duneborne"
+        },
+        {
+            id: "freeborne"
+        },
+        {
+            id: "frostborne"
+        },
+        {
+            id: "hearthborne"
+        },
+        {
+            id: "highborne"
+        },
+        {
+            id: "loreborne"
+        },
+        {
+            id: "orderborne"
+        },
+        {
+            id: "reborne"
+        },
+        {
+            id: "ridgeborne"
+        },
+        {
+            id: "seaborne"
+        },
+        {
+            id: "slyborne"
+        },
+        {
+            id: "underborne"
+        },
+        {
+            id: "wanderborne"
+        },
+        {
+            id: "warborne"
+        },
+        {
+            id: "wildborne"
+        }
+    ]
+}
+
 export default {
     getCharacterClasses,
     getStepsByClass,
     getDefaultSteps,
-    getSubclasses
+    getSubclasses,
+    getAncestries,
+    getCommunities,
 }

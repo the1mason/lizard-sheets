@@ -72,6 +72,10 @@
         },
         subclass: {
             title: 'Choose a subclass',
+        },
+        origin: {
+            ancestry: "Choose an ancestry",
+            community: "Choose a community"
         }
     },
     game: {

@@ -88,7 +88,8 @@ function getDefaultState(): BuilderState {
         },
         options: {
             subclasses: []
-        }
+        },
+        validators: new Map<string,ValidateBuilderFn>()
     }
 }
 
@@ -100,4 +101,7 @@ export type BuilderState = {
     options: {
         subclasses: string[]
     }
+    validators: Map<string,ValidateBuilderFn>
 }
+
+export type ValidateBuilderFn = (builder: BuilderState) => string[]
