@@ -9,7 +9,7 @@
           <game-card :color="isSelected ? 'secondaryBg' : undefined" size="large" @click="toggle">
             <v-col class="px-3" align="center">
               <h2>{{ $t(`game.subclasses.${subclass}.name`) }}</h2>
-              <markdown class="text-left" :source="$t(`game.subclasses.${subclass}.description`)"/>
+              <markdown class="text-left" :source="$t(`game.subclasses.${subclass}.foundation`)"/>
             </v-col>
           </game-card>
         </v-item>
@@ -46,11 +46,11 @@ watch(() => props.state, (newState) => {
   else {
     subclass.value = undefined;
   }
-  subclasses.value = [...newState.options.subclasses]
+  subclasses.value = [...newState.options.classOption?.subclasses ?? []]
 }, { deep: true })
 
 onMounted(() => {
-  subclasses.value = props.state.options.subclasses
+  subclasses.value = props.state.options.classOption?.subclasses ?? []
   if(props.state.data.subclasses.length > 0)
   {
     subclass.value = props.state.data.subclasses[0].id

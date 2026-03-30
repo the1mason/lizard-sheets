@@ -3,6 +3,7 @@ import type {Character} from "@/types/game/character.ts";
 import {ref} from "vue";
 import type {Step} from "@/types/Step.ts";
 import gameProvider from "@/libs/game/gameProvider.ts"
+import type {ClassOption} from "@/types/game/classOption.ts";
 
 const LOCAL_STORE_NAME = "builder";
 
@@ -87,11 +88,14 @@ function getDefaultState(): BuilderState {
             levelingChoices: [],
         },
         options: {
-            subclasses: []
+
         },
         validators: new Map<string,ValidateBuilderFn>()
     }
 }
+
+// TODO: Move validation of steps into steps themselves, then set IsDone from the validator functions to
+// TODO: allow for dynamic model checking after steps reset or if step is in valid state as is
 
 export type BuilderState = {
     isBlank: boolean;
@@ -99,7 +103,7 @@ export type BuilderState = {
     steps: Step[];
     data: Character;
     options: {
-        subclasses: string[]
+        classOption?: ClassOption
     }
     validators: Map<string,ValidateBuilderFn>
 }

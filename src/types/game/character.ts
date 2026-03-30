@@ -1,6 +1,7 @@
 import type {CharacterClass} from "@/types/game/characterClass.ts"
 import type {Domain} from "@/types/game/domain.ts";
 import type {ClassName} from "@/types/game/className.ts";
+import type {CharacterTraits} from "@/types/game/characterTraits.ts";
 
 export type Character = {
     id: string
@@ -45,15 +46,6 @@ export type Subclass = {
     id: string
     class: ClassName
     level: 1 | 2 | 3
-}
-
-export type CharacterTraits = {
-    agility: number
-    strength: number
-    finesse: number
-    instinct: number
-    presence: number
-    knowledge: number
 }
 
 export type CharacterState = {

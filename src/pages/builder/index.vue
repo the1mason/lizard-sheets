@@ -51,9 +51,10 @@
               <subclass-step :state="builderState" :current-step="stepIndex" @setState="setState" @markDone="markDone" />
             </v-stepper-window-item>
             <v-stepper-window-item value="origin">
-              <origin-step :state="builderState" :current-step="stepIndex" @setState="setState" @markDone="markDone"/>
+              <origin-step :state="builderState" :current-step="stepIndex" @setState="setState" @markDone="markDone" />
             </v-stepper-window-item>
             <v-stepper-window-item value="traits">
+              <traits-step :state="builderState" :current-step="stepIndex" @setState="setState" @markDone="markDone" />
             </v-stepper-window-item>
             <v-stepper-window-item value="equipment">
             </v-stepper-window-item>
@@ -97,6 +98,7 @@ import {type BuilderState, useBuilderStore} from "@/stores/builderStore.ts";
 import StartStep from "@/components/builder/StartStep.vue";
 import SubclassStep from "@/components/builder/SubclassStep.vue";
 import OriginStep from "@/components/builder/OriginStep.vue";
+import TraitsStep from "@/components/builder/TraitsStep.vue";
 
 const fromPrevious = ref<boolean>(false);
 

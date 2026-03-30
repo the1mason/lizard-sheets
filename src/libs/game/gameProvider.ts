@@ -2,6 +2,7 @@
 import type {Step} from "@/types/Step.ts";
 import type {ClassName} from "@/types/game/className.ts";
 import type {AncestryCard, CommunityCard} from "@/types/game/character.ts";
+import type {ClassOption} from "@/types/game/classOption.ts";
 
 function getStepsByClass(className: ClassName): Step[] {
     const steps: Step[] = [];
@@ -92,34 +93,73 @@ function getDefaultSteps(): Step[] {
     ]
 }
 
-function getSubclasses(className: ClassName) {
+function getClassOptions(className: ClassName): ClassOption {
     switch (className) {
         case "assassin":
-            return [ "poisoners", "executioners" ]
+            return {
+                subclasses: ["poisoners", "executioners"],
+                defaultTraits: {agility: 2, strength: -1, finesse: 1, instinct: 0, presence: 0, knowledge: 1}
+            }
         case "bard":
-            return [ "troubadour", "wordsmith" ]
+            return {
+                subclasses: ["troubadour", "wordsmith"],
+                defaultTraits: {agility: 0, strength: -1, finesse: 1, instinct: 0, presence: 2, knowledge: 1}
+            }
         case "brawler":
-            return [ "juggernaut", "martial" ]
+            return {
+                subclasses: ["juggernaut", "martial"],
+                defaultTraits: {agility: 1, strength: 1, finesse: 0, instinct: 2, presence: 0, knowledge: -1}
+            }
         case "druid":
-            return [ "elements", "renewal" ]
+            return {
+                subclasses: ["elements", "renewal"],
+                defaultTraits: {agility: 1, strength: 0, finesse: 1, instinct: 2, presence: -1, knowledge: 0}
+            }
         case "guardian":
-            return [ "stalwart", "vengeance" ]
+            return {
+                subclasses: ["stalwart", "vengeance"],
+                defaultTraits: {agility: 1, strength: 2, finesse: -1, instinct: 0, presence: 1, knowledge: 0}
+            }
         case "ranger":
-            return [ "wayfinder", "beastbound" ]
+            return {
+                subclasses: ["wayfinder", "beastbound"],
+                defaultTraits: {agility: 2, strength: 0, finesse: 1, instinct: 1, presence: -1, knowledge: 0}
+            }
         case "rogue":
-            return [ "nightwalker", "syndicate" ]
+            return {
+                subclasses: ["nightwalker", "syndicate"],
+                defaultTraits: {agility: 1, strength: -1, finesse: 2, instinct: 0, presence: 1, knowledge: 0}
+            }
         case "seraph":
-            return [ "wielder", "sentinel" ]
+            return {
+                subclasses: ["wielder", "sentinel"],
+                defaultTraits: {agility: 0, strength: 2, finesse: 0, instinct: 1, presence: 1, knowledge: -1}
+            }
         case "sorcerer":
-            return [ "primal", "elemental" ]
+            return {
+                subclasses: ["primal", "elemental"],
+                defaultTraits: {agility: 0, strength: -1, finesse: 1, instinct: 2, presence: 1, knowledge: 0}
+            }
         case "warlock":
-            return [ "wrathful", "endless" ]
+            return {
+                subclasses: ["wrathful", "endless"],
+                defaultTraits: {agility: 1, strength: -1, finesse: 0, instinct: 1, presence: 2, knowledge: 0}
+            }
         case "warrior":
-            return [ "brave", "slayer"]
+            return {
+                subclasses: ["brave", "slayer"],
+                defaultTraits: {agility: 2, strength: 1, finesse: 0, instinct: 1, presence: -1, knowledge: 0}
+            }
         case "witch":
-            return [ "moon", "hedge" ]
+            return {
+                subclasses: ["moon", "hedge"],
+                defaultTraits: {agility: 0, strength: -1, finesse: 0, instinct: 2, presence: 1, knowledge: 1}
+            }
         case "wizard":
-            return [ "knowledge", "war" ]
+            return {
+                subclasses: ["knowledge", "war"],
+                defaultTraits: {agility: -1, strength: 0, finesse: 0, instinct: 1, presence: 1, knowledge: 2}
+            }
     }
 }
 
@@ -324,7 +364,7 @@ export default {
     getCharacterClasses,
     getStepsByClass,
     getDefaultSteps,
-    getSubclasses,
+    getClassOptions,
     getAncestries,
     getCommunities,
 }

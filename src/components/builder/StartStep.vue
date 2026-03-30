@@ -118,7 +118,7 @@ function onChooseClass() {
   // set new data
   current.data.class = characterClass.value
   current.data.domains = [selectedClass.domain1, selectedClass.domain2]
-  current.options.subclasses = gameProvider.getSubclasses(selectedClass.id)
+  current.options.classOption = gameProvider.getClassOptions(selectedClass.id)
   current.steps = gameProvider.getStepsByClass(selectedClass.id)
 
   save()
