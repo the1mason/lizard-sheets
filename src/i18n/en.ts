@@ -153,103 +153,103 @@
             },
             poisoners: {
                 name: "Poisoners Guild",
-                description: ""
+                foundation: ""
             },
             executioners: {
                 name: "Executioners Guild",
-                description: "",
+                foundation: "",
             },
             troubadour: {
                 name: "Troubadour",
-                description: "",
+                foundation: "",
             },
             wordsmith: {
                 name: "Wordsmith",
-                description: "",
+                foundation: "",
             },
             juggernaut: {
                 name: "Juggernaut",
-                description: "",
+                foundation: "",
             },
             martial: {
                 name: "Martial Artist",
-                description: "",
+                foundation: "",
             },
             elements: {
                 name: "Warden of the Elements",
-                description: "",
+                foundation: "",
             },
             renewal: {
                 name: "Warden of Renewal",
-                description: "",
+                foundation: "",
             },
             stalwart: {
                 name: "Stalwart",
-                description: "",
+                foundation: "",
             },
             vengeance: {
                 name: "Vengeance",
-                description: "",
+                foundation: "",
             },
             wayfinder: {
                 name: "Wayfinder",
-                description: "",
+                foundation: "",
             },
             beastbound: {
                 name: "Beastbound",
-                description: "",
+                foundation: "",
             },
             nightwalker: {
                 name: "Nightwalker",
-                description: "",
+                foundation: "",
             },
             syndicate: {
                 name: "Syndicate",
-                description: "",
+                foundation: "",
             },
             wielder: {
                 name: "Divine Wielder",
-                description: "",
+                foundation: "",
             },
             sentinel: {
                 name: "Winged Sentinel",
-                description: "",
+                foundation: "",
             },
             primal: {
                 name: "Primal Origin",
-                description: "",
+                foundation: "",
             },
             elemental: {
                 name: "Elemental Origin",
-                description: "",
+                foundation: "",
             },
             wrathful: {
                 name: "Pact of the Wrathful",
-                description: "",
+                foundation: "",
             },
             endless: {
                 name: "Pact of the Endless",
-                description: "",
+                foundation: "",
             },
             brave: {
                 name: "Call of the Brave",
-                description: "",
+                foundation: "",
             },
             slayer: {
                 name: "Call of the Slayer",
-                description: "",
+                foundation: "",
             },
             moon: {
                 name: "Moon",
-                description: "",
+                foundation: "",
             },
             hedge: {
                 name: "Hedge",
-                description: "",
+                foundation: "",
             },
             knowledge: {
                 name: "School of Knowledge",
-                description: `
+                foundation: `
 <p style=\"text-align: center;\"><b>SPELLCAST:</b> <i>KNOWLEDGE</i></p>
 
 **Prepared**: Take an additional domain card of your level or lower from a domain you have access to.  
@@ -259,7 +259,7 @@
             },
             war: {
                 name: "School of War",
-                description: `
+                foundation: `
 <p style=\"text-align: center;\"><b>SPELLCAST:</b> <i>KNOWLEDGE</i></p>
 
 **Battlemage**: You’ve focused your studies on becoming an unconquerable force on the battlefield. Gain an additional Hit Point slot.  
