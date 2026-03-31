@@ -1,6 +1,9 @@
 ﻿<template>
   <v-row>
     <h1>the default traits are {{ `${traits?.agility} ${traits?.strength} ${traits?.finesse} ${traits?.instinct} ${traits?.presence} ${traits?.knowledge}` }}</h1>
+    <div>
+
+    </div>
   </v-row>
 </template>
 

@@ -7,9 +7,9 @@
       <template v-for="subclass in subclasses">
         <v-item v-slot="{isSelected, toggle}" :value="subclass">
           <game-card :color="isSelected ? 'secondaryBg' : undefined" size="large" @click="toggle">
-            <v-col class="px-3" align="center">
+            <v-col class="px-3 overflow-y-auto fill-height" align="center">
               <h2>{{ $t(`game.subclasses.${subclass}.name`) }}</h2>
-              <markdown class="text-left" :source="$t(`game.subclasses.${subclass}.foundation`)"/>
+              <markdown class="text-left text-body-medium" :source="$t(`game.subclasses.${subclass}.foundation`)"/>
             </v-col>
           </game-card>
         </v-item>
