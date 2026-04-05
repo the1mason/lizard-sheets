@@ -139,8 +139,13 @@ function switchStep(newIndex: number) {
   if(!builderState.value)
     return;
   stepIndex.value = newIndex;
-  builderState.value.currentStep = builderState.value.steps[newIndex].value;
+  const newStep = builderState.value.steps[newIndex];
+  builderState.value.currentStep = newStep.value;
   store.set(builderState.value);
+  if(newStep.optional) {
+    markDone()
+  }
+
 }
 
 function reset() {

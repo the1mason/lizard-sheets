@@ -30,7 +30,8 @@ function getStepsByClass(className: ClassName): Step[] {
             value: "traits",
             isDone: false,
             isUnlocked: false,
-            hasError: false
+            hasError: false,
+            optional: true
         },
         {
             value: "equipment",

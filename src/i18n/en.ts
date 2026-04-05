@@ -76,6 +76,10 @@
         origin: {
             ancestry: "Choose an ancestry",
             community: "Choose a community"
+        },
+        traits: {
+            title: 'Set up your traits',
+            suggested: 'Suggested:'
         }
     },
     game: {
@@ -556,6 +560,14 @@ _**Battlemage:**_ You’ve focused your studies on becoming an unconquerable for
 _**Face Your Fear:**_ When you succeed with Fear on an attack roll, you deal an extra 1d10 magic damage.
 `,
             }
+        },
+        traits: {
+            agility: 'Agility',
+            strength: 'Strength',
+            finesse: 'Finesse',
+            instinct: 'Instinct',
+            presence: 'Presence',
+            knowledge: 'Knowledge'
         }
     }
 }
