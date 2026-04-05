@@ -4,9 +4,8 @@
       <v-card-title>
         <b>{{ $t(`game.traits.${props.traitName}.title`) }}</b>
       </v-card-title>
-      <div style="font-size: 64px">
-        <template v-if="traitValue > 0">+</template>
-        {{ traitValue }}
+      <div style="font-size: 48px">
+        <template v-if="traitValue > 0">+</template>&nbsp;{{ traitValue }}
       </div>
       <v-number-input hide-details
                       @update:modelValue="(newVal) => setValue(newVal)"
