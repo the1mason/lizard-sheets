@@ -1,24 +1,29 @@
 ﻿<template>
     <h1>{{ $t('builder.traits.title')}}</h1>
   <v-row>
-    <trait :trait-name="$t('game.traits.agility')" :trait-value="traits?.agility ?? 0" :default-trait-value="defaultTraits?.agility ?? 0"
+    <trait :trait-name="$t('agility')" :trait-value="traits?.agility ?? 0" :default-trait-value="defaultTraits?.agility ?? 0"
            @setValue="(newValue) => updateState('agility', newValue)"/>
 
-    <trait :trait-name="$t('game.traits.strength')" :trait-value="traits?.strength ?? 0" :default-trait-value="defaultTraits?.strength ?? 0"
+    <trait :trait-name="$t('strength')" :trait-value="traits?.strength ?? 0" :default-trait-value="defaultTraits?.strength ?? 0"
            @setValue="(newValue) => updateState('strength', newValue)"/>
 
-    <trait :trait-name="$t('game.traits.finesse')" :trait-value="traits?.finesse ?? 0" :default-trait-value="defaultTraits?.finesse ?? 0"
+    <trait :trait-name="$t('finesse')" :trait-value="traits?.finesse ?? 0" :default-trait-value="defaultTraits?.finesse ?? 0"
            @setValue="(newValue) => updateState('finesse', newValue)"/>
 
-    <trait :trait-name="$t('game.traits.instinct')" :trait-value="traits?.instinct ?? 0" :default-trait-value="defaultTraits?.instinct ?? 0"
+    <trait :trait-name="$t('instinct')" :trait-value="traits?.instinct ?? 0" :default-trait-value="defaultTraits?.instinct ?? 0"
            @setValue="(newValue) => updateState('instinct', newValue)"/>
 
-    <trait :trait-name="$t('game.traits.presence')" :trait-value="traits?.presence ?? 0" :default-trait-value="defaultTraits?.presence ?? 0"
+    <trait :trait-name="$t('presence')" :trait-value="traits?.presence ?? 0" :default-trait-value="defaultTraits?.presence ?? 0"
            @setValue="(newValue) => updateState('presence', newValue)"/>
 
-    <trait :trait-name="$t('game.traits.knowledge')" :trait-value="traits?.knowledge ?? 0" :default-trait-value="defaultTraits?.knowledge ?? 0"
+    <trait :trait-name="$t('knowledge')" :trait-value="traits?.knowledge ?? 0" :default-trait-value="defaultTraits?.knowledge ?? 0"
            @setValue="(newValue) => updateState('knowledge', newValue)"/>
   </v-row>
+  <template v-if="state.options.traitsChosen">
+    <v-checkbox class="pt-8" disabled :model-value="true" color="red" :error="true">
+      <template #label>{{ $t('builder.traits.gmConsent') }}</template>
+    </v-checkbox>
+  </template>
 </template>
 
 <script setup lang="ts">

@@ -79,7 +79,9 @@
         },
         traits: {
             title: 'Set up your traits',
-            suggested: 'Suggested:'
+            suggested: 'Suggested:',
+            gmConsent: "I hereby claim that the changes that I have made to this character are allowed by the rulebook" +
+                " or my GM. Otherwise I will bear the consequences in full, blaming no one but myself."
         }
     },
     game: {
@@ -562,12 +564,54 @@ _**Face Your Fear:**_ When you succeed with Fear on an attack roll, you deal a
             }
         },
         traits: {
-            agility: 'Agility',
-            strength: 'Strength',
-            finesse: 'Finesse',
-            instinct: 'Instinct',
-            presence: 'Presence',
-            knowledge: 'Knowledge'
+            agility: {
+                title: "Agility",
+                usedFor: `
+Sprint<br>
+Leap<br>
+Maneuver
+                `
+            },
+            strength: {
+                title: "Strength",
+                usedFor: `
+Lift<br>
+Smash<br>
+Grapple
+                `
+            },
+            finesse: {
+                title: "Finesse",
+                usedFor: `
+Control<br>
+Hide<br>
+Tinker
+                `
+            },
+            instinct: {
+                title: "Instinct",
+                usedFor: `
+Perceive<br>
+Sense<br>
+Navigate
+                `
+            },
+            presence: {
+                title: "Presence",
+                usedFor: `
+Charm<br>
+Perform<br>
+Deceive
+                `
+            },
+            knowledge: {
+                title: "Knowledge",
+                usedFor: `
+Recall<br>
+Analyze<br>
+Comprehend
+                `
+            }
         }
     }
 }
