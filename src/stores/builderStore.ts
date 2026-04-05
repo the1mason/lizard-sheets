@@ -102,7 +102,8 @@ export type BuilderState = {
     steps: Step[];
     data: Character;
     options: {
-        classOption?: ClassOption
+        classOption?: ClassOption,
+        traitsChosen?: true
     }
 }
 

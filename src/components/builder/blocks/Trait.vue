@@ -11,8 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import type {BuilderState} from "@/stores/builderStore.ts";
-import {onMounted, ref, watch} from "vue";
+import {ref, watch} from "vue";
 
 const emit = defineEmits<{
   (e: "setValue", newValue: number): void

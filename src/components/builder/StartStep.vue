@@ -119,6 +119,7 @@ function onChooseClass() {
   current.data.class = characterClass.value
   current.data.domains = [selectedClass.domain1, selectedClass.domain2]
   current.options.classOption = gameProvider.getClassOptions(selectedClass.id)
+  current.options.traitsChosen = undefined
   current.steps = gameProvider.getStepsByClass(selectedClass.id)
 
   save()

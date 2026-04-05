@@ -46,17 +46,38 @@ const props = withDefaults(
 
 watch(() => props.state, (newState) => {
   defaultTraits.value = props.state.options.classOption?.defaultTraits
-  traits.value = props.state.data.traits
+  if(props.state.options.traitsChosen) {
+    traits.value = props.state.data.traits
+  }
+  else {
+    traits.value = props.state.options.classOption?.defaultTraits
+  }
 }, { deep: true })
 
 onMounted(() => {
   defaultTraits.value =  Object.assign({}, props.state.options.classOption?.defaultTraits)
-  traits.value = props.state.data.traits
+  if(props.state.options.traitsChosen) {
+    traits.value = props.state.data.traits
+  }
+  else {
+    traits.value = props.state.options.classOption?.defaultTraits
+  }
 })
 
 function updateState(key: keyof CharacterTraits, newValue: number): void {
   console.log("newValue", key, newValue)
   const newState = props.state;
+  if(newState.options.traitsChosen !== true) {
+    const currentValue = traits.value!
+    newState.data.traits.agility = currentValue.agility
+    newState.data.traits.finesse = currentValue.finesse
+    newState.data.traits.instinct = currentValue.instinct
+    newState.data.traits.knowledge = currentValue.knowledge
+    newState.data.traits.presence = currentValue.presence
+    newState.data.traits.strength = currentValue.strength
+    newState.options.traitsChosen = true
+  }
+
   newState.data.traits[key] = newValue
   emit("setState", newState)
 }
