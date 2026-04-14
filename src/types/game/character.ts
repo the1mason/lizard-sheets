@@ -19,7 +19,10 @@ export type Character = {
     state: CharacterState
     weapons: Weapon[]
     armor?: Armor
-    inventory?: string
+    inventory?: {
+        items: InventoryItem[]
+        text: []
+    }
     experiences: {
         score: number
         name: string
@@ -61,6 +64,8 @@ export type CharacterState = {
     money: number // bits 19/18-10/9-0 chest/bags/handfuls
 }
 
+export type WeaponSlot = 'any' | 'primary-only' | 'secondary-only' | 'two-handed'
+
 export type Weapon = {
     name: string
     trait: string
@@ -68,6 +73,7 @@ export type Weapon = {
     damageDice: string
     damageKind: string
     feature: string
+    weaponSlot: WeaponSlot
     primary: boolean
     secondary: boolean
     left: boolean
@@ -88,6 +94,17 @@ export type DomainCard = {
     stress: number
     kind: string
     level: Level
+}
+
+export type InventoryItem = {
+    name: string
+    count: number
+}
+
+export type ItemChoiceGroup = {
+    id: string
+    label: string
+    items: InventoryItem[]
 }
 
 export type Level =

@@ -57,6 +57,7 @@
               <traits-step :state="builderState" :current-step="stepIndex" @setState="setState" @markDone="markDone" />
             </v-stepper-window-item>
             <v-stepper-window-item value="equipment">
+              <equipment-step :state="builderState" :current-step="stepIndex" @setState="setState" @markDone="markDone" />
             </v-stepper-window-item>
             <v-stepper-window-item value="experience">
             </v-stepper-window-item>
@@ -99,6 +100,7 @@ import StartStep from "@/components/builder/StartStep.vue";
 import SubclassStep from "@/components/builder/SubclassStep.vue";
 import OriginStep from "@/components/builder/OriginStep.vue";
 import TraitsStep from "@/components/builder/TraitsStep.vue";
+import EquipmentStep from "@/components/builder/EquipmentStep.vue";
 
 const fromPrevious = ref<boolean>(false);
 

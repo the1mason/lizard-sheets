@@ -1,7 +1,7 @@
 ﻿import type {CharacterClass} from "@/types/game/characterClass.ts";
 import type {Step} from "@/types/Step.ts";
 import type {ClassName} from "@/types/game/className.ts";
-import type {AncestryCard, CommunityCard} from "@/types/game/character.ts";
+import type {AncestryCard, Armor, CommunityCard, InventoryItem, ItemChoiceGroup, Weapon, WeaponSlot} from "@/types/game/character.ts";
 import type {ClassOption} from "@/types/game/classOption.ts";
 
 function getStepsByClass(className: ClassName): Step[] {
@@ -37,7 +37,8 @@ function getStepsByClass(className: ClassName): Step[] {
             value: "equipment",
             isDone: false,
             isUnlocked: false,
-            hasError: false
+            hasError: false,
+            optional: true
         },
         {
             value: "experience",
@@ -95,71 +96,166 @@ function getDefaultSteps(): Step[] {
 }
 
 function getClassOptions(className: ClassName): ClassOption {
+    const w = (name: string, trait: string, distance: string, damageDice: string, damageKind: string, feature: string, weaponSlot: WeaponSlot): Weapon =>
+        ({ name, trait, distance, damageDice, damageKind, feature, weaponSlot, primary: false, secondary: false, left: false, right: false })
+
+    const wizardWeapons = [
+        w("game.weapons.shortsword.name",    "game.traits.finesse.name",   "game.distances.melee",       "1d8",    "game.damageKinds.physical", "",                              "any"),
+        w("game.weapons.longbow.name",       "game.traits.agility.name",   "game.distances.far",         "1d8",    "game.damageKinds.physical", "",                              "two-handed"),
+        w("game.weapons.dagger.name",        "game.traits.finesse.name",   "game.distances.meleeClose",  "1d6",    "game.damageKinds.physical", "game.weaponFeatures.thrownClose", "secondary-only"),
+        w("game.weapons.greataxe.name",      "game.traits.strength.name",  "game.distances.melee",       "1d12+3", "game.damageKinds.physical", "",                              "two-handed"),
+        w("game.weapons.staff.name",         "game.traits.knowledge.name", "game.distances.melee",       "1d6",    "game.damageKinds.magic",    "game.weaponFeatures.channel",     "primary-only"),
+        w("game.weapons.handCrossbow.name",  "game.traits.agility.name",   "game.distances.close",       "1d8",    "game.damageKinds.physical", "game.weaponFeatures.quickDraw",   "any"),
+    ]
+    const wizardArmors = [
+        { name: "game.armors.leatherArmor.name", thresholdLow: 6,  thresholdHigh: 12, score: 2, feature: "" },
+        { name: "game.armors.chainMail.name",    thresholdLow: 9,  thresholdHigh: 15, score: 3, feature: "game.armors.chainMail.feature" },
+        { name: "game.armors.plateArmor.name",   thresholdLow: 12, thresholdHigh: 18, score: 4, feature: "game.armors.plateArmor.feature" },
+        { name: "game.armors.robes.name",        thresholdLow: 3,  thresholdHigh: 7,  score: 1, feature: "game.armors.robes.feature" },
+        { name: "game.armors.paddedArmor.name",  thresholdLow: 5,  thresholdHigh: 10, score: 2, feature: "" },
+    ]
+    const wizardDefaultItems = [
+        { name: "game.items.adventurersPack.name", count: 1 },
+        { name: "game.items.torch.name",           count: 3 },
+        { name: "game.items.rope50ft.name",        count: 1 },
+    ]
+    const wizardItemChoiceGroups = [
+        {
+            id: "potion",
+            label: "game.itemChoiceGroups.potion.label",
+            items: [
+                { name: "game.items.healthPotion.name",  count: 1 },
+                { name: "game.items.staminaPotion.name", count: 1 },
+            ]
+        },
+        {
+            id: "tool",
+            label: "game.itemChoiceGroups.tool.label",
+            items: [
+                { name: "game.items.lockpicks.name",     count: 1 },
+                { name: "game.items.herbalismKit.name",  count: 1 },
+                { name: "game.items.thievesTools.name",  count: 1 },
+            ]
+        }
+    ]
+
     switch (className) {
         case "assassin":
             return {
                 subclasses: ["poisoners", "executioners"],
-                defaultTraits: {agility: 2, strength: -1, finesse: 1, instinct: 0, presence: 0, knowledge: 1}
+                defaultTraits: {agility: 2, strength: -1, finesse: 1, instinct: 0, presence: 0, knowledge: 1},
+                availableWeapons: [],
+                availableArmors: [],
+                defaultItems: [],
+                itemChoiceGroups: [],
             }
         case "bard":
             return {
                 subclasses: ["troubadour", "wordsmith"],
-                defaultTraits: {agility: 0, strength: -1, finesse: 1, instinct: 0, presence: 2, knowledge: 1}
+                defaultTraits: {agility: 0, strength: -1, finesse: 1, instinct: 0, presence: 2, knowledge: 1},
+                availableWeapons: [],
+                availableArmors: [],
+                defaultItems: [],
+                itemChoiceGroups: [],
             }
         case "brawler":
             return {
                 subclasses: ["juggernaut", "martial"],
-                defaultTraits: {agility: 1, strength: 1, finesse: 0, instinct: 2, presence: 0, knowledge: -1}
+                defaultTraits: {agility: 1, strength: 1, finesse: 0, instinct: 2, presence: 0, knowledge: -1},
+                availableWeapons: [],
+                availableArmors: [],
+                defaultItems: [],
+                itemChoiceGroups: [],
             }
         case "druid":
             return {
                 subclasses: ["elements", "renewal"],
-                defaultTraits: {agility: 1, strength: 0, finesse: 1, instinct: 2, presence: -1, knowledge: 0}
+                defaultTraits: {agility: 1, strength: 0, finesse: 1, instinct: 2, presence: -1, knowledge: 0},
+                availableWeapons: [],
+                availableArmors: [],
+                defaultItems: [],
+                itemChoiceGroups: [],
             }
         case "guardian":
             return {
                 subclasses: ["stalwart", "vengeance"],
-                defaultTraits: {agility: 1, strength: 2, finesse: -1, instinct: 0, presence: 1, knowledge: 0}
+                defaultTraits: {agility: 1, strength: 2, finesse: -1, instinct: 0, presence: 1, knowledge: 0},
+                availableWeapons: [],
+                availableArmors: [],
+                defaultItems: [],
+                itemChoiceGroups: [],
             }
         case "ranger":
             return {
                 subclasses: ["wayfinder", "beastbound"],
-                defaultTraits: {agility: 2, strength: 0, finesse: 1, instinct: 1, presence: -1, knowledge: 0}
+                defaultTraits: {agility: 2, strength: 0, finesse: 1, instinct: 1, presence: -1, knowledge: 0},
+                availableWeapons: [],
+                availableArmors: [],
+                defaultItems: [],
+                itemChoiceGroups: [],
             }
         case "rogue":
             return {
                 subclasses: ["nightwalker", "syndicate"],
-                defaultTraits: {agility: 1, strength: -1, finesse: 2, instinct: 0, presence: 1, knowledge: 0}
+                defaultTraits: {agility: 1, strength: -1, finesse: 2, instinct: 0, presence: 1, knowledge: 0},
+                availableWeapons: [],
+                availableArmors: [],
+                defaultItems: [],
+                itemChoiceGroups: [],
             }
         case "seraph":
             return {
                 subclasses: ["wielder", "sentinel"],
-                defaultTraits: {agility: 0, strength: 2, finesse: 0, instinct: 1, presence: 1, knowledge: -1}
+                defaultTraits: {agility: 0, strength: 2, finesse: 0, instinct: 1, presence: 1, knowledge: -1},
+                availableWeapons: [],
+                availableArmors: [],
+                defaultItems: [],
+                itemChoiceGroups: [],
             }
         case "sorcerer":
             return {
                 subclasses: ["primal", "elemental"],
-                defaultTraits: {agility: 0, strength: -1, finesse: 1, instinct: 2, presence: 1, knowledge: 0}
+                defaultTraits: {agility: 0, strength: -1, finesse: 1, instinct: 2, presence: 1, knowledge: 0},
+                availableWeapons: [],
+                availableArmors: [],
+                defaultItems: [],
+                itemChoiceGroups: [],
             }
         case "warlock":
             return {
                 subclasses: ["wrathful", "endless"],
-                defaultTraits: {agility: 1, strength: -1, finesse: 0, instinct: 1, presence: 2, knowledge: 0}
+                defaultTraits: {agility: 1, strength: -1, finesse: 0, instinct: 1, presence: 2, knowledge: 0},
+                availableWeapons: [],
+                availableArmors: [],
+                defaultItems: [],
+                itemChoiceGroups: [],
             }
         case "warrior":
             return {
                 subclasses: ["brave", "slayer"],
-                defaultTraits: {agility: 2, strength: 1, finesse: 0, instinct: 1, presence: -1, knowledge: 0}
+                defaultTraits: {agility: 2, strength: 1, finesse: 0, instinct: 1, presence: -1, knowledge: 0},
+                availableWeapons: [],
+                availableArmors: [],
+                defaultItems: [],
+                itemChoiceGroups: [],
             }
         case "witch":
             return {
                 subclasses: ["moon", "hedge"],
-                defaultTraits: {agility: 0, strength: -1, finesse: 0, instinct: 2, presence: 1, knowledge: 1}
+                defaultTraits: {agility: 0, strength: -1, finesse: 0, instinct: 2, presence: 1, knowledge: 1},
+                availableWeapons: [],
+                availableArmors: [],
+                defaultItems: [],
+                itemChoiceGroups: [],
             }
         case "wizard":
             return {
                 subclasses: ["knowledge", "war"],
-                defaultTraits: {agility: -1, strength: 0, finesse: 0, instinct: 1, presence: 1, knowledge: 2}
+                defaultTraits: {agility: -1, strength: 0, finesse: 0, instinct: 1, presence: 1, knowledge: 2},
+                availableWeapons: wizardWeapons,
+                availableArmors: wizardArmors,
+                defaultItems: wizardDefaultItems,
+                itemChoiceGroups: wizardItemChoiceGroups,
             }
     }
 }
@@ -361,6 +457,59 @@ function getCommunities(): CommunityCard[] {
     ]
 }
 
+function getAvailableWeapons(): Weapon[] {
+    const w = (name: string, trait: string, distance: string, damageDice: string, damageKind: string, feature: string, weaponSlot: WeaponSlot): Weapon =>
+        ({ name, trait, distance, damageDice, damageKind, feature, weaponSlot, primary: false, secondary: false, left: false, right: false })
+    return [
+        w("game.weapons.shortsword.name",    "game.traits.finesse.name",   "game.distances.melee",       "1d8",    "game.damageKinds.physical", "",                              "any"),
+        w("game.weapons.longbow.name",       "game.traits.agility.name",   "game.distances.far",         "1d8",    "game.damageKinds.physical", "",                              "two-handed"),
+        w("game.weapons.dagger.name",        "game.traits.finesse.name",   "game.distances.meleeClose",  "1d6",    "game.damageKinds.physical", "game.weaponFeatures.thrownClose", "secondary-only"),
+        w("game.weapons.greataxe.name",      "game.traits.strength.name",  "game.distances.melee",       "1d12+3", "game.damageKinds.physical", "",                              "two-handed"),
+        w("game.weapons.staff.name",         "game.traits.knowledge.name", "game.distances.melee",       "1d6",    "game.damageKinds.magic",    "game.weaponFeatures.channel",     "primary-only"),
+        w("game.weapons.handCrossbow.name",  "game.traits.agility.name",   "game.distances.close",       "1d8",    "game.damageKinds.physical", "game.weaponFeatures.quickDraw",   "any"),
+    ]
+}
+
+function getAvailableArmors(): Armor[] {
+    return [
+        { name: "game.armors.leatherArmor.name", thresholdLow: 6,  thresholdHigh: 12, score: 2, feature: "" },
+        { name: "game.armors.chainMail.name",    thresholdLow: 9,  thresholdHigh: 15, score: 3, feature: "game.armors.chainMail.feature" },
+        { name: "game.armors.plateArmor.name",   thresholdLow: 12, thresholdHigh: 18, score: 4, feature: "game.armors.plateArmor.feature" },
+        { name: "game.armors.robes.name",        thresholdLow: 3,  thresholdHigh: 7,  score: 1, feature: "game.armors.robes.feature" },
+        { name: "game.armors.paddedArmor.name",  thresholdLow: 5,  thresholdHigh: 10, score: 2, feature: "" },
+    ]
+}
+
+function getDefaultItems(): InventoryItem[] {
+    return [
+        { name: "game.items.adventurersPack.name", count: 1 },
+        { name: "game.items.torch.name",           count: 3 },
+        { name: "game.items.rope50ft.name",        count: 1 },
+    ]
+}
+
+function getItemChoiceGroups(): ItemChoiceGroup[] {
+    return [
+        {
+            id: "potion",
+            label: "game.itemChoiceGroups.potion.label",
+            items: [
+                { name: "game.items.healthPotion.name",  count: 1 },
+                { name: "game.items.staminaPotion.name", count: 1 },
+            ]
+        },
+        {
+            id: "tool",
+            label: "game.itemChoiceGroups.tool.label",
+            items: [
+                { name: "game.items.lockpicks.name",    count: 1 },
+                { name: "game.items.herbalismKit.name", count: 1 },
+                { name: "game.items.thievesTools.name", count: 1 },
+            ]
+        }
+    ]
+}
+
 export default {
     getCharacterClasses,
     getStepsByClass,
@@ -368,4 +517,8 @@ export default {
     getClassOptions,
     getAncestries,
     getCommunities,
+    getAvailableWeapons,
+    getAvailableArmors,
+    getDefaultItems,
+    getItemChoiceGroups,
 }

@@ -108,6 +108,10 @@ function onChooseClass() {
   current.data.domains = []
   current.data.subclasses = []
   current.data.domainCards = []
+  current.data.inventory = { items: [], text: [] }
+  current.data.armor = undefined
+  current.data.weapons = []
+  current.options.itemChoices = {}
 
   if (selectedClass === undefined) {
     current.steps = gameProvider.getDefaultSteps()
@@ -120,6 +124,8 @@ function onChooseClass() {
   current.data.domains = [selectedClass.domain1, selectedClass.domain2]
   current.options.classOption = gameProvider.getClassOptions(selectedClass.id)
   current.options.traitsChosen = undefined
+  current.data.traits = current.options.classOption.defaultTraits
+  current.data.ancestry = undefined
   current.steps = gameProvider.getStepsByClass(selectedClass.id)
 
   save()

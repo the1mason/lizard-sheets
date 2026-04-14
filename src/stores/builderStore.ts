@@ -103,7 +103,8 @@ export type BuilderState = {
     data: Character;
     options: {
         classOption?: ClassOption,
-        traitsChosen?: true
+        traitsChosen?: true,
+        itemChoices?: Record<string, string>
     }
 }
 

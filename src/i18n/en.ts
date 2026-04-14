@@ -82,6 +82,29 @@
             suggested: 'Suggested:',
             gmConsent: "I hereby claim that the changes that I have made to this character are allowed by the rulebook" +
                 " or my GM. Otherwise I will bear the consequences in full, blaming no one but myself."
+        },
+        equipment: {
+            weapons: {
+                title: 'Choose your weapons',
+                primaryLabel: 'Primary',
+                secondaryLabel: 'Secondary',
+                twoHandedLabel: 'Two-handed',
+                traitLabel: 'Trait',
+                distanceLabel: 'Distance',
+                damageLabel: 'Damage',
+                featureLabel: 'Feature',
+            },
+            armor: {
+                title: 'Choose your armor',
+                thresholdLabel: 'Threshold',
+                scoreLabel: 'Armor Score',
+                featureLabel: 'Feature',
+            },
+            items: {
+                title: 'Starting items',
+                defaultSectionTitle: 'You will receive',
+                choiceSectionTitle: 'Make your choices',
+            }
         }
     },
     game: {
@@ -96,6 +119,50 @@
             sage: 'Sage',
             splendor: 'Splendor',
             valor: 'Valor'
+        },
+        weapons: {
+            shortsword: { name: 'Shortsword' },
+            longbow: { name: 'Longbow' },
+            dagger: { name: 'Dagger' },
+            greataxe: { name: 'Greataxe' },
+            staff: { name: 'Staff' },
+            handCrossbow: { name: 'Hand Crossbow' },
+        },
+        armors: {
+            leatherArmor: { name: 'Leather Armor', feature: '' },
+            chainMail: { name: 'Chain Mail', feature: 'Noisy' },
+            plateArmor: { name: 'Plate Armor', feature: 'Heavy' },
+            robes: { name: 'Robes', feature: 'Arcane Conduit' },
+            paddedArmor: { name: 'Padded Armor', feature: '' },
+        },
+        distances: {
+            melee: 'Melee',
+            meleeClose: 'Melee/Close',
+            close: 'Close',
+            far: 'Far',
+        },
+        damageKinds: {
+            physical: 'Physical',
+            magic: 'Magic',
+        },
+        weaponFeatures: {
+            thrownClose: 'Thrown (Close)',
+            channel: 'Channel',
+            quickDraw: 'Quick Draw',
+        },
+        items: {
+            adventurersPack: { name: "Adventurer's Pack" },
+            torch: { name: 'Torch' },
+            rope50ft: { name: 'Rope (50 ft)' },
+            healthPotion: { name: 'Health Potion' },
+            staminaPotion: { name: 'Stamina Potion' },
+            lockpicks: { name: 'Lockpicks' },
+            herbalismKit: { name: 'Herbalism Kit' },
+            thievesTools: { name: "Thieves' Tools" },
+        },
+        itemChoiceGroups: {
+            potion: { label: 'Choose a potion' },
+            tool: { label: 'Choose a tool' },
         },
         classes: {
             assassin: {
@@ -565,6 +632,7 @@ _**Face Your Fear:**_ When you succeed with Fear on an attack roll, you deal a
         },
         traits: {
             agility: {
+                name: 'Agility',
                 title: "Agility",
                 usedFor: `
 Sprint<br>
@@ -573,6 +641,7 @@ Maneuver
                 `
             },
             strength: {
+                name: 'Strength',
                 title: "Strength",
                 usedFor: `
 Lift<br>
@@ -581,6 +650,7 @@ Grapple
                 `
             },
             finesse: {
+                name: 'Finesse',
                 title: "Finesse",
                 usedFor: `
 Control<br>
@@ -589,6 +659,7 @@ Tinker
                 `
             },
             instinct: {
+                name: 'Instinct',
                 title: "Instinct",
                 usedFor: `
 Perceive<br>
@@ -597,6 +668,7 @@ Navigate
                 `
             },
             presence: {
+                name: 'Presence',
                 title: "Presence",
                 usedFor: `
 Charm<br>
@@ -605,6 +677,7 @@ Deceive
                 `
             },
             knowledge: {
+                name: 'Knowledge',
                 title: "Knowledge",
                 usedFor: `
 Recall<br>
