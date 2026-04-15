@@ -73,6 +73,7 @@ export type Weapon = {
     damageDice: string
     damageKind: string
     feature: string
+    featureDescription?: string
     weaponSlot: WeaponSlot
     primary: boolean
     secondary: boolean

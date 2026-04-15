@@ -121,48 +121,54 @@
             valor: 'Valor'
         },
         weapons: {
-            shortsword: { name: 'Shortsword' },
-            longbow: { name: 'Longbow' },
-            dagger: { name: 'Dagger' },
-            greataxe: { name: 'Greataxe' },
-            staff: { name: 'Staff' },
-            handCrossbow: { name: 'Hand Crossbow' },
+            greatstaff: {
+                name: 'Greatstaff',
+                featureName: 'Powerful',
+                featureDescription: 'On a successful attack, roll an additional damage die and discard the lowest result.',
+            },
+            broadsword: {
+                name: 'Broadsword',
+                featureName: 'Reliable',
+                featureDescription: '+1 to attack rolls',
+            },
+            shortsword: {
+                name: 'Shortsword',
+                featureName: 'Paired',
+                featureDescription: '+2 to primary weapon damage to targets within Melee range',
+            },
         },
         armors: {
             leatherArmor: { name: 'Leather Armor', feature: '' },
-            chainMail: { name: 'Chain Mail', feature: 'Noisy' },
-            plateArmor: { name: 'Plate Armor', feature: 'Heavy' },
-            robes: { name: 'Robes', feature: 'Arcane Conduit' },
-            paddedArmor: { name: 'Padded Armor', feature: '' },
         },
         distances: {
             melee: 'Melee',
             meleeClose: 'Melee/Close',
             close: 'Close',
             far: 'Far',
+            veryfar: 'Very Far',
         },
         damageKinds: {
             physical: 'Physical',
             magic: 'Magic',
         },
-        weaponFeatures: {
-            thrownClose: 'Thrown (Close)',
-            channel: 'Channel',
-            quickDraw: 'Quick Draw',
-        },
         items: {
-            adventurersPack: { name: "Adventurer's Pack" },
             torch: { name: 'Torch' },
             rope50ft: { name: 'Rope (50 ft)' },
-            healthPotion: { name: 'Health Potion' },
-            staminaPotion: { name: 'Stamina Potion' },
-            lockpicks: { name: 'Lockpicks' },
-            herbalismKit: { name: 'Herbalism Kit' },
-            thievesTools: { name: "Thieves' Tools" },
+            basicSupplies: {name: 'Basic Supplies'},
+            healthPotionS: {name: 'Minor Health Potion (1d4)'},
+            staminaPotionS: {name: 'Minor Stamina Potion (1d4)'},
+            loreWizardBook: {name: 'A book you are trying to translate'},
+            loreWizardPet: {name: 'A tiny, harmless elemental pet'},
+            loreAssassinList: {name: 'A list of names with several marked of'},
+            loreAssassinMortar: {name: 'A mortar and pestle inscribed with a\n' +
+                    'mysterious insignia'},
+            // note to self: inventory includes lore questions (decide what you store your spells in)
+            // it should be in the flavor section.
+            // pets/lore items are ok here though
         },
         itemChoiceGroups: {
             potion: { label: 'Choose a potion' },
-            tool: { label: 'Choose a tool' },
+            lore: { label: 'Choose an item' },
         },
         classes: {
             assassin: {
