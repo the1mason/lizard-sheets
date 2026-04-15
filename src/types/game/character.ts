@@ -21,7 +21,7 @@ export type Character = {
     armor?: Armor
     inventory?: {
         items: InventoryItem[]
-        text: []
+        text: string
     }
     experiences: {
         score: number
@@ -79,6 +79,7 @@ export type Weapon = {
     secondary: boolean
     left: boolean
     right: boolean
+    custom?: true
 }
 
 export type Armor = {
@@ -87,6 +88,7 @@ export type Armor = {
     thresholdHigh: number
     score: number
     feature: string
+    custom?: true
 }
 
 export type DomainCard = {
@@ -100,6 +102,7 @@ export type DomainCard = {
 export type InventoryItem = {
     name: string
     count: number
+    custom?: true
 }
 
 export type ItemChoiceGroup = {

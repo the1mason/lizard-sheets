@@ -1,5 +1,5 @@
 import {defineStore} from "pinia";
-import type {Character} from "@/types/game/character.ts";
+import type {Armor, Character, InventoryItem, Weapon} from "@/types/game/character.ts";
 import {ref} from "vue";
 import type {Step} from "@/types/Step.ts";
 import gameProvider from "@/libs/game/gameProvider.ts"
@@ -104,7 +104,11 @@ export type BuilderState = {
     options: {
         classOption?: ClassOption,
         traitsChosen?: true,
-        itemChoices?: Record<string, string>
+        itemChoices?: Record<string, string>,
+        customWeapons?: Weapon[],
+        customArmor?: Armor,
+        customItems?: InventoryItem[],
+        inventoryText?: string,
     }
 }
 

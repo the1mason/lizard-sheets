@@ -108,10 +108,14 @@ function onChooseClass() {
   current.data.domains = []
   current.data.subclasses = []
   current.data.domainCards = []
-  current.data.inventory = { items: [], text: [] }
+  current.data.inventory = { items: [], text: "" }
   current.data.armor = undefined
   current.data.weapons = []
   current.options.itemChoices = {}
+  current.options.customWeapons = []
+  current.options.customArmor = undefined
+  current.options.customItems = []
+  current.options.inventoryText = ""
 
   if (selectedClass === undefined) {
     current.steps = gameProvider.getDefaultSteps()
