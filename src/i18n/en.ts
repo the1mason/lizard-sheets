@@ -136,9 +136,71 @@
                 featureName: 'Paired',
                 featureDescription: '+2 to primary weapon damage to targets within Melee range',
             },
+            rapier: {
+                name: 'Rapier',
+                featureName: 'Quick',
+                featureDescription: 'When you make an attack, you can mark a Stress to target another creature within range.',
+            },
+            smallDagger: {
+                name: 'Small Dagger',
+                featureName: 'Paired',
+                featureDescription: '+2 to primary weapon damage to targets within Melee range',
+            },
+            quarterstaff: {
+                name: 'Quarterstaff',
+                featureName: '',
+                featureDescription: '',
+            },
+            shortstaff: {
+                name: 'Shortstaff',
+                featureName: '',
+                featureDescription: '',
+            },
+            roundShield: {
+                name: 'Round Shield',
+                featureName: 'Protective',
+                featureDescription: '+1 to Armor Score',
+            },
+            battleaxe: {
+                name: 'Battleaxe',
+                featureName: '',
+                featureDescription: '',
+            },
+            shortbow: {
+                name: 'Shortbow',
+                featureName: '',
+                featureDescription: '',
+            },
+            dagger: {
+                name: 'Dagger',
+                featureName: '',
+                featureDescription: '',
+            },
+            hallowedAxe: {
+                name: 'Hallowed Axe',
+                featureName: '',
+                featureDescription: '',
+            },
+            dualstaff: {
+                name: 'Dualstaff',
+                featureName: '',
+                featureDescription: '',
+            },
+            scepter: {
+                name: 'Scepter',
+                featureName: 'Versatile',
+                featureDescription: 'This weapon can also be used with these statistics—Presence, Melee, d8.',
+            },
+            longsword: {
+                name: 'Longsword',
+                featureName: '',
+                featureDescription: '',
+            },
         },
         armors: {
             leatherArmor: { name: 'Leather Armor', feature: '' },
+            gambesonArmor: { name: 'Gambeson Armor', feature: 'Flexible: +1 to Evasion' },
+            chainmailArmor: { name: 'Chainmail Armor', feature: 'Heavy: −1 to Evasion' },
         },
         distances: {
             melee: 'Melee',
@@ -162,6 +224,28 @@
             loreAssassinList: {name: 'A list of names with several marked of'},
             loreAssassinMortar: {name: 'A mortar and pestle inscribed with a\n' +
                     'mysterious insignia'},
+            loreBardNovel: {name: 'A romance novel'},
+            loreBardLetter: {name: 'A letter never opened'},
+            loreBrawlerWraps: {name: 'Hand wraps from a mentor'},
+            loreBrawlerBook: {name: 'A book about your secret hobby'},
+            loreDruidBones: {name: 'A small bag of rocks and bones'},
+            loreDruidPendant: {name: 'A strange pendant found in the dirt'},
+            loreGuardianTotem: {name: 'A totem from your mentor'},
+            loreGuardianKey: {name: 'A secret key'},
+            loreRangerTrophy: {name: 'A trophy from your first kill'},
+            loreRangerCompass: {name: 'A seemingly broken compass'},
+            loreRogueForgery: {name: 'A set of forgery tools'},
+            loreRogueHook: {name: 'A grappling hook'},
+            loreSeraphOfferings: {name: 'A bundle of offerings'},
+            loreSeraphSigil: {name: 'A sigil of your god'},
+            loreSorcererOrb: {name: 'A whispering orb'},
+            loreSorcererHeirloom: {name: 'A family heirloom'},
+            loreWarlockCarving: {name: 'A carving that symbolizes your patron'},
+            loreWarlockRing: {name: "A ring you can't remove"},
+            loreWarriorDrawing: {name: 'The drawing of a lover'},
+            loreWarriorStone: {name: 'A sharpening stone'},
+            loreWitchPet: {name: 'A small, harmless pet'},
+            loreWitchSkull: {name: 'A talking skull'},
             // note to self: inventory includes lore questions (decide what you store your spells in)
             // it should be in the flavor section.
             // pets/lore items are ok here though

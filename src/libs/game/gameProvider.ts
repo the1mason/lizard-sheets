@@ -5,6 +5,17 @@ import type {AncestryCard, Armor, CommunityCard, InventoryItem, ItemChoiceGroup,
 import type {ClassOption} from "@/types/game/classOption.ts";
 import wizardProvider from "@/libs/game/wizardProvider.ts";
 import assassinProvider from "@/libs/game/assassinProvider.ts";
+import bardProvider from "@/libs/game/bardProvider.ts";
+import brawlerProvider from "@/libs/game/brawlerProvider.ts";
+import druidProvider from "@/libs/game/druidProvider.ts";
+import guardianProvider from "@/libs/game/guardianProvider.ts";
+import rangerProvider from "@/libs/game/rangerProvider.ts";
+import rogueProvider from "@/libs/game/rogueProvider.ts";
+import seraphProvider from "@/libs/game/seraphProvider.ts";
+import sorcererProvider from "@/libs/game/sorcererProvider.ts";
+import warlockProvider from "@/libs/game/warlockProvider.ts";
+import warriorProvider from "@/libs/game/warriorProvider.ts";
+import witchProvider from "@/libs/game/witchProvider.ts";
 
 function getStepsByClass(className: ClassName): Step[] {
     const steps: Step[] = [];
@@ -102,104 +113,27 @@ function getClassOptions(className: ClassName): ClassOption {
         case "assassin":
             return assassinProvider.getClassOptions()
         case "bard":
-            return {
-                subclasses: ["troubadour", "wordsmith"],
-                defaultTraits: {agility: 0, strength: -1, finesse: 1, instinct: 0, presence: 2, knowledge: 1},
-                availableWeapons: [],
-                availableArmors: [],
-                defaultItems: [],
-                itemChoiceGroups: [],
-            }
+            return bardProvider.getClassOptions()
         case "brawler":
-            return {
-                subclasses: ["juggernaut", "martial"],
-                defaultTraits: {agility: 1, strength: 1, finesse: 0, instinct: 2, presence: 0, knowledge: -1},
-                availableWeapons: [],
-                availableArmors: [],
-                defaultItems: [],
-                itemChoiceGroups: [],
-            }
+            return brawlerProvider.getClassOptions()
         case "druid":
-            return {
-                subclasses: ["elements", "renewal"],
-                defaultTraits: {agility: 1, strength: 0, finesse: 1, instinct: 2, presence: -1, knowledge: 0},
-                availableWeapons: [],
-                availableArmors: [],
-                defaultItems: [],
-                itemChoiceGroups: [],
-            }
+            return druidProvider.getClassOptions()
         case "guardian":
-            return {
-                subclasses: ["stalwart", "vengeance"],
-                defaultTraits: {agility: 1, strength: 2, finesse: -1, instinct: 0, presence: 1, knowledge: 0},
-                availableWeapons: [],
-                availableArmors: [],
-                defaultItems: [],
-                itemChoiceGroups: [],
-            }
+            return guardianProvider.getClassOptions()
         case "ranger":
-            return {
-                subclasses: ["wayfinder", "beastbound"],
-                defaultTraits: {agility: 2, strength: 0, finesse: 1, instinct: 1, presence: -1, knowledge: 0},
-                availableWeapons: [],
-                availableArmors: [],
-                defaultItems: [],
-                itemChoiceGroups: [],
-            }
+            return rangerProvider.getClassOptions()
         case "rogue":
-            return {
-                subclasses: ["nightwalker", "syndicate"],
-                defaultTraits: {agility: 1, strength: -1, finesse: 2, instinct: 0, presence: 1, knowledge: 0},
-                availableWeapons: [],
-                availableArmors: [],
-                defaultItems: [],
-                itemChoiceGroups: [],
-            }
+            return rogueProvider.getClassOptions()
         case "seraph":
-            return {
-                subclasses: ["wielder", "sentinel"],
-                defaultTraits: {agility: 0, strength: 2, finesse: 0, instinct: 1, presence: 1, knowledge: -1},
-                availableWeapons: [],
-                availableArmors: [],
-                defaultItems: [],
-                itemChoiceGroups: [],
-            }
+            return seraphProvider.getClassOptions()
         case "sorcerer":
-            return {
-                subclasses: ["primal", "elemental"],
-                defaultTraits: {agility: 0, strength: -1, finesse: 1, instinct: 2, presence: 1, knowledge: 0},
-                availableWeapons: [],
-                availableArmors: [],
-                defaultItems: [],
-                itemChoiceGroups: [],
-            }
+            return sorcererProvider.getClassOptions()
         case "warlock":
-            return {
-                subclasses: ["wrathful", "endless"],
-                defaultTraits: {agility: 1, strength: -1, finesse: 0, instinct: 1, presence: 2, knowledge: 0},
-                availableWeapons: [],
-                availableArmors: [],
-                defaultItems: [],
-                itemChoiceGroups: [],
-            }
+            return warlockProvider.getClassOptions()
         case "warrior":
-            return {
-                subclasses: ["brave", "slayer"],
-                defaultTraits: {agility: 2, strength: 1, finesse: 0, instinct: 1, presence: -1, knowledge: 0},
-                availableWeapons: [],
-                availableArmors: [],
-                defaultItems: [],
-                itemChoiceGroups: [],
-            }
+            return warriorProvider.getClassOptions()
         case "witch":
-            return {
-                subclasses: ["moon", "hedge"],
-                defaultTraits: {agility: 0, strength: -1, finesse: 0, instinct: 2, presence: 1, knowledge: 1},
-                availableWeapons: [],
-                availableArmors: [],
-                defaultItems: [],
-                itemChoiceGroups: [],
-            }
+            return witchProvider.getClassOptions()
         case "wizard":
             return wizardProvider.getClassOptions()
     }
