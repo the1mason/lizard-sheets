@@ -5,7 +5,7 @@
       <template v-for="anc in ancestries">
         <v-item v-slot="{isSelected, toggle}" :value="anc">
           <game-card :color="isSelected ? 'secondaryBg' : undefined" size="medium" @click="toggle">
-            <v-col class="px-3" align="center">
+            <v-col class="px-3 overflow-y-auto fill-height" align="center">
               <h4>{{ $t(`game.ancestries.${anc.id}.name`) }}</h4>
               <markdown class="text-left" :source="$t(`game.ancestries.${anc.id}.description`)"/>
             </v-col>
@@ -21,7 +21,7 @@
       <template v-for="com in communities">
         <v-item v-slot="{isSelected, toggle}" :value="com">
           <game-card :color="isSelected ? 'secondaryBg' : undefined" size="medium" @click="toggle">
-            <v-col class="px-3" align="center">
+            <v-col class="px-3 overflow-y-auto fill-height" align="center">
               <h4>{{ $t(`game.communities.${com.id}.name`) }}</h4>
               <markdown class="text-left" :source="$t(`game.communities.${com.id}.description`)"/>
             </v-col>
