@@ -131,6 +131,14 @@
                 textLabel: 'Freeform inventory text',
                 remove: 'Remove',
             }
+        },
+        experience: {
+            title: 'Pick your experiences',
+            description: 'Experiences are words or short phrases that capture training, skills, or aspects of your background.',
+            nameLabel: 'Experience',
+            namePlaceholder: 'e.g. Silver-tongued diplomat',
+            bonusLabel: 'Bonus',
+            slotLabel: 'Experience {index}',
         }
     },
     game: {

@@ -57,7 +57,8 @@ function getStepsByClass(className: ClassName): Step[] {
             value: "experience",
             isDone: false,
             isUnlocked: false,
-            hasError: false
+            hasError: false,
+            optional: true
         },
         {
             value: "cards",
