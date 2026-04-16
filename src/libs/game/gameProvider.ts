@@ -1,21 +1,32 @@
 ﻿import type {CharacterClass} from "@/types/game/characterClass.ts";
 import type {Step} from "@/types/Step.ts";
 import type {ClassName} from "@/types/game/className.ts";
-import type {AncestryCard, Armor, CommunityCard, InventoryItem, ItemChoiceGroup, Weapon, WeaponSlot} from "@/types/game/character.ts";
+import type {AncestryCard, Armor, CommunityCard, DomainCard, InventoryItem, ItemChoiceGroup, Level, Weapon, WeaponSlot} from "@/types/game/character.ts";
 import type {ClassOption} from "@/types/game/classOption.ts";
-import wizardProvider from "@/libs/game/wizardProvider.ts";
-import assassinProvider from "@/libs/game/assassinProvider.ts";
-import bardProvider from "@/libs/game/bardProvider.ts";
-import brawlerProvider from "@/libs/game/brawlerProvider.ts";
-import druidProvider from "@/libs/game/druidProvider.ts";
-import guardianProvider from "@/libs/game/guardianProvider.ts";
-import rangerProvider from "@/libs/game/rangerProvider.ts";
-import rogueProvider from "@/libs/game/rogueProvider.ts";
-import seraphProvider from "@/libs/game/seraphProvider.ts";
-import sorcererProvider from "@/libs/game/sorcererProvider.ts";
-import warlockProvider from "@/libs/game/warlockProvider.ts";
-import warriorProvider from "@/libs/game/warriorProvider.ts";
-import witchProvider from "@/libs/game/witchProvider.ts";
+import type {Domain} from "@/types/game/domain.ts";
+import wizardProvider from "@/libs/game/classes/wizardProvider.ts";
+import assassinProvider from "@/libs/game/classes/assassinProvider.ts";
+import bardProvider from "@/libs/game/classes/bardProvider.ts";
+import brawlerProvider from "@/libs/game/classes/brawlerProvider.ts";
+import druidProvider from "@/libs/game/classes/druidProvider.ts";
+import guardianProvider from "@/libs/game/classes/guardianProvider.ts";
+import rangerProvider from "@/libs/game/classes/rangerProvider.ts";
+import rogueProvider from "@/libs/game/classes/rogueProvider.ts";
+import seraphProvider from "@/libs/game/classes/seraphProvider.ts";
+import sorcererProvider from "@/libs/game/classes/sorcererProvider.ts";
+import warlockProvider from "@/libs/game/classes/warlockProvider.ts";
+import warriorProvider from "@/libs/game/classes/warriorProvider.ts";
+import witchProvider from "@/libs/game/classes/witchProvider.ts";
+import arcanaProvider from "@/libs/game/domains/arcanaProvider.ts";
+import bladeProvider from "@/libs/game/domains/bladeProvider.ts";
+import boneProvider from "@/libs/game/domains/boneProvider.ts";
+import codexProvider from "@/libs/game/domains/codexProvider.ts";
+import dreadProvider from "@/libs/game/domains/dreadProvider.ts";
+import graceProvider from "@/libs/game/domains/graceProvider.ts";
+import midnightProvider from "@/libs/game/domains/midnightProvider.ts";
+import sageProvider from "@/libs/game/domains/sageProvider.ts";
+import splendorProvider from "@/libs/game/domains/splendorProvider.ts";
+import valorProvider from "@/libs/game/domains/valorProvider.ts";
 
 function getStepsByClass(className: ClassName): Step[] {
     const steps: Step[] = [];
@@ -137,6 +148,31 @@ function getClassOptions(className: ClassName): ClassOption {
             return witchProvider.getClassOptions()
         case "wizard":
             return wizardProvider.getClassOptions()
+    }
+}
+
+function getDomainCards(domain: Domain, level: Level): DomainCard[] {
+    switch (domain) {
+        case "arcana":
+            return arcanaProvider.getCardsByLevel(level)
+        case "blade":
+            return bladeProvider.getCardsByLevel(level)
+        case "bone":
+            return boneProvider.getCardsByLevel(level)
+        case "codex":
+            return codexProvider.getCardsByLevel(level)
+        case "dread":
+            return dreadProvider.getCardsByLevel(level)
+        case "grace":
+            return graceProvider.getCardsByLevel(level)
+        case "midnight":
+            return midnightProvider.getCardsByLevel(level)
+        case "sage":
+            return sageProvider.getCardsByLevel(level)
+        case "splendor":
+            return splendorProvider.getCardsByLevel(level)
+        case "valor":
+            return valorProvider.getCardsByLevel(level)
     }
 }
 
@@ -343,5 +379,6 @@ export default {
     getDefaultSteps,
     getClassOptions,
     getAncestries,
-    getCommunities
+    getCommunities,
+    getDomainCards
 }

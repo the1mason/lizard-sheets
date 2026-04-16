@@ -139,6 +139,10 @@
             namePlaceholder: 'e.g. Silver-tongued diplomat',
             bonusLabel: 'Bonus',
             slotLabel: 'Experience {index}',
+        },
+        cards: {
+            title: 'Pick your domain cards',
+            description: 'Choose {max} cards total from your class domains. Selected: {selected}/{max}.',
         }
     },
     game: {
@@ -153,6 +157,104 @@
             sage: 'Sage',
             splendor: 'Splendor',
             valor: 'Valor'
+        },
+        cards: {
+            stressLabel: 'Stress: {count}',
+            arcana: {
+                "arcana-ember": {
+                    name: "Ember",
+                    kind: "Spell",
+                    body: `_**Ember:**_ Placeholder card body. Real text coming soon.`
+                }
+            },
+            blade: {
+                "blade-whirlwind": {
+                    name: "Whirlwind",
+                    kind: "Skill",
+                    body: `_**Whirlwind:**_ Placeholder card body. Real text coming soon.`
+                }
+            },
+            bone: {
+                "bone-stalker": {
+                    name: "Stalker's Mark",
+                    kind: "Skill",
+                    body: `_**Stalker's Mark:**_ Placeholder card body. Real text coming soon.`
+                }
+            },
+            codex: {
+                "codex-cipher": {
+                    name: "Cipher",
+                    kind: "Grimoire",
+                    body: `_**Cipher:**_ Placeholder card body. Real text coming soon.`
+                },
+                "codex-cipher1": {
+                    name: "Cipher I",
+                    kind: "Grimoire",
+                    body: `_**Cipher I:**_ Placeholder card body. Real text coming soon.`
+                },
+                "codex-cipher2": {
+                    name: "Cipher II",
+                    kind: "Grimoire",
+                    body: `_**Cipher II:**_ Placeholder card body. Real text coming soon.`
+                }
+            },
+            dread: {
+                "dread-dirge": {
+                    name: "Dirge",
+                    kind: "Spell",
+                    body: `_**Dirge:**_ Placeholder card body. Real text coming soon.`
+                }
+            },
+            grace: {
+                "grace-charmer": {
+                    name: "Charmer",
+                    kind: "Skill",
+                    body: `_**Charmer:**_ Placeholder card body. Real text coming soon.`
+                }
+            },
+            midnight: {
+                "midnight-veil": {
+                    name: "Veil",
+                    kind: "Spell",
+                    body: `_**Veil:**_ Placeholder card body. Real text coming soon.`
+                }
+            },
+            sage: {
+                "sage-thornwall": {
+                    name: "Thornwall",
+                    kind: "Spell",
+                    body: `_**Thornwall:**_ Placeholder card body. Real text coming soon.`
+                }
+            },
+            splendor: {
+                "splendor-beacon": {
+                    name: "Beacon",
+                    kind: "Spell",
+                    body: `_**Beacon:**_ Placeholder card body. Real text coming soon.`
+                },
+                "splendor-beacon2": {
+                    name: "Beacon II",
+                    kind: "Spell",
+                    body: `_**Beacon II:**_ Placeholder card body. Real text coming soon.`
+                },
+                "splendor-beacon3": {
+                    name: "Beacon III",
+                    kind: "Spell",
+                    body: `_**Beacon III:**_ Placeholder card body. Real text coming soon.`
+                },
+                "splendor-beacon4": {
+                    name: "Beacon IV",
+                    kind: "Spell",
+                    body: `_**Beacon IV:**_ Placeholder card body. Real text coming soon.`
+                }
+            },
+            valor: {
+                "valor-bulwark": {
+                    name: "Bulwark",
+                    kind: "Skill",
+                    body: `_**Bulwark:**_ Placeholder card body. Real text coming soon.`
+                }
+            }
         },
         weapons: {
             greatstaff: {

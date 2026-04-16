@@ -95,7 +95,7 @@ export type DomainCard = {
     id: string
     domain: Domain
     stress: number
-    kind: string
+    kind: "spell" | "skill" | "grimoire"
     level: Level
 }
 
