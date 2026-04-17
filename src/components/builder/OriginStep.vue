@@ -5,9 +5,11 @@
       <template v-for="anc in ancestries">
         <v-item v-slot="{isSelected, toggle}" :value="anc">
           <game-card :color="isSelected ? 'secondaryBg' : undefined" size="medium" @click="toggle">
-            <v-col class="px-3 overflow-y-auto fill-height" align="center">
-              <h4>{{ $t(`game.ancestries.${anc.id}.name`) }}</h4>
-              <markdown class="text-left" :source="$t(`game.ancestries.${anc.id}.description`)"/>
+            <v-col class="px-3 fill-height d-flex flex-column" align="center">
+              <h4 class="flex-shrink-0">{{ $t(`game.ancestries.${anc.id}.name`) }}</h4>
+              <div class="overflow-y-auto flex-grow-1 align-self-stretch">
+                <markdown class="text-left" :source="$t(`game.ancestries.${anc.id}.description`)"/>
+              </div>
             </v-col>
           </game-card>
         </v-item>
@@ -21,9 +23,11 @@
       <template v-for="com in communities">
         <v-item v-slot="{isSelected, toggle}" :value="com">
           <game-card :color="isSelected ? 'secondaryBg' : undefined" size="medium" @click="toggle">
-            <v-col class="px-3 overflow-y-auto fill-height" align="center">
-              <h4>{{ $t(`game.communities.${com.id}.name`) }}</h4>
-              <markdown class="text-left" :source="$t(`game.communities.${com.id}.description`)"/>
+            <v-col class="px-3 fill-height d-flex flex-column" align="center">
+              <h4 class="flex-shrink-0">{{ $t(`game.communities.${com.id}.name`) }}</h4>
+              <div class="overflow-y-auto flex-grow-1 align-self-stretch">
+                <markdown class="text-left" :source="$t(`game.communities.${com.id}.description`)"/>
+              </div>
             </v-col>
           </game-card>
         </v-item>

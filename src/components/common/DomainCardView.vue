@@ -5,10 +5,10 @@
       :size="size"
       :class="{ 'opacity-50': dimmed }"
       :style="clickable ? 'cursor: pointer' : undefined">
-    <v-col class="px-3 overflow-y-auto fill-height" align="center">
-      <div class="d-flex align-center justify-space-between mb-2 ga-1">
+    <v-col class="px-3 fill-height d-flex flex-column" align="center">
+      <div class="d-flex align-center justify-space-between mb-2 ga-1 flex-shrink-0 align-self-stretch">
         <v-chip size="x-small" variant="tonal">
-          {{ $t(`game.cards.${card.domain}.${card.id}.kind`) }}
+          {{ $t(`game.cards.kinds.${card.kind}`) }}
         </v-chip>
         <v-chip size="x-small" variant="outlined" color="primary">
           {{ $t(`game.domains.${card.domain}`) }}
@@ -17,8 +17,10 @@
           {{ $t('game.cards.stressLabel', { count: card.stress }) }}
         </span>
       </div>
-      <h3 class="mb-2">{{ $t(`game.cards.${card.domain}.${card.id}.name`) }}</h3>
-      <markdown class="text-left text-body-small" :source="$t(`game.cards.${card.domain}.${card.id}.body`)"/>
+      <h3 class="mb-2 flex-shrink-0">{{ $t(`game.cards.${card.domain}.${card.id}.name`) }}</h3>
+      <div class="overflow-y-auto flex-grow-1 align-self-stretch">
+        <markdown class="text-left text-body-small" :source="$t(`game.cards.${card.domain}.${card.id}.body`)"/>
+      </div>
     </v-col>
   </game-card>
 
