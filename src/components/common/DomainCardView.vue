@@ -5,32 +5,28 @@
       :size="size ?? 'medium'"
       :class="{ 'opacity-50': dimmed }"
       :style="clickable ? 'cursor: pointer' : undefined">
-    <v-col class="px-3 fill-height d-flex flex-column" align="center">
-      <div class="d-flex align-center justify-space-between mb-2 ga-1 flex-shrink-0 align-self-stretch">
-        <v-col class="text-left">
-          <v-tooltip :text="$t('game.domains.' + card.domain)" location="top">
-            <template v-slot:activator="{ props }">
-              <div style="display: flex" class="align-center ga-2">
-                <img v-bind="props" :src="`../../src/assets/domains/${card.domain}.svg`" height="40" :alt="card.domain"/>
-                <span class="text-headline-medium ml-1 mt-2"><b>{{ card.level }}</b></span>
-              </div>
-            </template>
-          </v-tooltip>
-        </v-col>
-        <v-col class="text-right">
-          <v-tooltip :text="$t('game.cards.stressTooltip')" location="top">
-            <template v-slot:activator="{ props }">
-              <div v-bind="props" class="mt-2 mx-1">
+    <v-tooltip :text="$t('game.domains.' + card.domain)" location="right">
+      <template v-slot:activator="{ props }">
+        <div v-bind="props" class="domain-chevron">
+          <img :src="`../../src/assets/domains/${card.domain}.svg`" height="27" :alt="card.domain"/>
+          <span class="text-title-large mt-1"><b>{{ card.level }}</b></span>
+        </div>
+      </template>
+    </v-tooltip>
+    <v-col class="px-3 fill-height d-flex flex-column" align="center" style="min-height: 0;">
+      <div class="d-flex align-center justify-end mb-2 flex-shrink-0 align-self-stretch">
+        <v-tooltip :text="$t('game.cards.stressTooltip')" location="top">
+          <template v-slot:activator="{ props }">
+            <div v-bind="props" class="mt-2 mx-1">
               <span class="text-headline-small">
                 <b>{{ card.stress }}</b>
                 <v-icon size="25" icon="mdi-lightning-bolt" class='ml-1 mb-1' />
               </span>
-              </div>
-            </template>
-          </v-tooltip>
-        </v-col>
+            </div>
+          </template>
+        </v-tooltip>
       </div>
-      <h3 class="ma-0 flex-shrink-0">{{ $t(`game.cards.${card.domain}.${card.id}.name`) }}</h3>
+      <h3 class="mx-4 flex-shrink-0">{{ $t(`game.cards.${card.domain}.${card.id}.name`) }}</h3>
       <h4 class="ma-0 flex-shrink-0">
         <i>{{ $t(`game.cards.kinds.${card.kind}`) }}</i>
       </h4>
@@ -67,5 +63,18 @@ withDefaults(
 </script>
 
 <style scoped>
-
+.domain-chevron {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 80px;
+  padding: 6px 4px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff10;
+  /* replace the polygon with: */
+  clip-path: path("M 6 0 L 34 0 Q 40 0 40 6 L 40 58 Q 40 62 37 64 L 22 78 Q 20 80 18 78 L 3 64 Q 0 62 0 58 L 0 6 Q 0 0 6 0 Z");
+}
 </style>
