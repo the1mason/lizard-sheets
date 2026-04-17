@@ -159,7 +159,7 @@
             valor: 'Valor'
         },
         cards: {
-            stressLabel: 'Stress: {count}',
+            stressTooltip: 'Recall cost',
             kinds: {
                 spell: 'Spell',
                 skill: 'Skill',
