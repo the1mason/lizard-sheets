@@ -1,83 +1,30 @@
-# lizard-sheets
+# Lizard Sheets
 
-Scaffolded with Vuetify CLI.
+Is a web-based character sheet app for a tabletop rpg game we all love so much.  
 
-## ❗️ Documentation
+I have decided to make it because the official sheet is locked down in many ways
+and also requires a digital game purchase to do ceratain things.  
 
-- Primary docs: https://vuetifyjs.com/
-- Getting started guide: https://vuetifyjs.com/en/getting-started/installation/
-- Community support: https://community.vuetifyjs.com/
-- Issue tracker: https://issues.vuetifyjs.com/
+I wanted to make a character sheet that is easy to use, allows all kinds of edits,
+and does not try to be smarter than it's users with complicated calculations.
 
-## 🧱 Stack
+## Contribution
 
-- Framework: Vue 3 + Vite
-- UI Library: Vuetify
-- Language: TypeScript
-- Package manager: pnpm
+Artem - card descriptipons, translation help
 
-## 🧭 Start Here
+the1mason - code, design, translation, data
 
-- Main entry: `src/main.ts`
-- Main app component: `src/App.vue`
-- Main styles: `src/styles/`
-- Plugin setup: `src/plugins/`
+Issues may or may not be reviewed.  
 
-## 📁 Project Structure
+On code contributions: PRs with meaningful contributions to the functionality or
+bug fixes are welcome. Slopcoded one-liners are not welcome. Be sure to follow the game publishers' licenses
+as well as the project's license. The code that is written by you is yours, but you are giving the other contributors
+the rights to modify and iterate on it. Also, check the LICENSE.
 
-- `src/main.ts` — application entry point
-- `src/App.vue` — root component
-- `src/components/` — reusable Vue components
-- `src/plugins/` — plugin registration and setup
-- `src/styles/` — global styles and theme settings
-- `public/` — static public files
+## Development
 
-## ✨ Enabled Features
+use pnpm
 
-- ESLint
-- Vuetify MCP
-- Pinia
-- Vue I18n
-- File Router
+project uses vuetify component library, vue3, vite, i18n, vue-router  
 
-## 💿 Install
-
-Use your selected package manager (pnpm) to install dependencies:
-
-```bash
-pnpm install
-```
-
-## 🚀 Quick Start
-
-```bash
-pnpm install
-pnpm dev
-```
-
-## 🏗️ Build
-
-```bash
-pnpm build
-```
-
-## 🧪 Available Scripts
-
-- `pnpm dev`
-- `pnpm build`
-- `pnpm preview`
-- `pnpm build-only`
-- `pnpm type-check`
-- `pnpm lint`
-- `pnpm lint:fix`
-- `pnpm mcp`
-- `pnpm mcp:revert`
-
-## 💪 Support Vuetify Development
-
-This project uses Vuetify - an MIT licensed Open Source project. We are glad to welcome contributors and any support for ongoing development:
-
-- Contribute to Vuetify and ecosystem projects: https://github.com/vuetifyjs
-- Request enterprise support: https://support.vuetifyjs.com/
-- Sponsor on GitHub: https://github.com/sponsors/vuetifyjs
-- Support on Open Collective: https://opencollective.com/vuetify
+good luck
