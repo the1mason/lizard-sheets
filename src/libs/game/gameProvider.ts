@@ -81,7 +81,8 @@ function getStepsByClass(className: ClassName): Step[] {
             value: "flavor",
             isDone: false,
             isUnlocked: false,
-            hasError: false
+            hasError: false,
+            optional: true
         }
     )
 

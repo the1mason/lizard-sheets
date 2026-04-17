@@ -42,6 +42,25 @@ function getClassOptions() : ClassOption {
             ]
         }
     ]
+    const wizardFlavorQuestions = {
+        ties: [
+            "game.classes.wizard.flavor.ties.0",
+            "game.classes.wizard.flavor.ties.1",
+            "game.classes.wizard.flavor.ties.2",
+        ],
+        description: [
+            "game.classes.wizard.flavor.description.0",
+            "game.classes.wizard.flavor.description.1",
+            "game.classes.wizard.flavor.description.2",
+        ],
+        spellcastingSource: "game.classes.wizard.flavor.spellcastingSource",
+        appearance: [
+            "game.classes.wizard.flavor.appearance.0",
+            "game.classes.wizard.flavor.appearance.1",
+            "game.classes.wizard.flavor.appearance.2",
+        ],
+    }
+
     return {
         subclasses: ["knowledge", "war"],
         defaultTraits: {agility: -1, strength: 0, finesse: 0, instinct: 1, presence: 1, knowledge: 2},
@@ -49,6 +68,7 @@ function getClassOptions() : ClassOption {
         availableArmors: wizardArmors,
         defaultItems: wizardDefaultItems,
         itemChoiceGroups: wizardItemChoiceGroups,
+        flavorQuestions: wizardFlavorQuestions,
     }
 }
 

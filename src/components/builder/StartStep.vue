@@ -111,6 +111,10 @@ function onChooseClass() {
   current.data.inventory = { items: [], text: "" }
   current.data.armor = undefined
   current.data.weapons = []
+  current.data.ties = []
+  current.data.backgroundQuestions = []
+  current.data.appearance = []
+  current.data.spellcastingSource = undefined
   current.options.itemChoices = {}
   current.options.customWeapons = []
   current.options.customArmor = undefined

@@ -29,6 +29,8 @@ export type Character = {
     }[]
     backgroundQuestions: string[]
     ties: string[]
+    appearance: string[]
+    spellcastingSource?: string
     domainCards: DomainCard[]
     domainCardsStored: DomainCard[]
     levelingChoices: string[]

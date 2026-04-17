@@ -8,4 +8,12 @@ export type ClassOption = {
     availableArmors: Armor[]
     defaultItems: InventoryItem[]
     itemChoiceGroups: ItemChoiceGroup[]
+    flavorQuestions?: FlavorQuestions
+}
+
+export type FlavorQuestions = {
+    ties: string[]
+    description: string[]
+    spellcastingSource?: string
+    appearance: string[]
 }

@@ -74,7 +74,6 @@ withDefaults(
   flex-direction: column;
   align-items: center;
   background-color: #ffffff10;
-  /* replace the polygon with: */
   clip-path: path("M 6 0 L 34 0 Q 40 0 40 6 L 40 58 Q 40 62 37 64 L 22 78 Q 20 80 18 78 L 3 64 Q 0 62 0 58 L 0 6 Q 0 0 6 0 Z");
 }
 </style>

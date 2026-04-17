@@ -143,6 +143,19 @@
         cards: {
             title: 'Pick your domain cards',
             description: 'Choose {max} cards total from your class domains. Selected: {selected}/{max}.',
+        },
+        flavor: {
+            title: 'Add some flavor',
+            description: 'Answer a few prompts to bring your character to life. Leave any blank you\'d rather skip.',
+            ties: 'Ties with the party',
+            descriptionSection: 'About your character',
+            spellcastingSource: 'Your spellcasting source',
+            appearance: 'How they look',
+            answerPlaceholder: 'Write your answer…',
+            notes: 'Notes',
+            notesLabel: 'Anything else worth noting',
+            notesPlaceholder: 'Freeform notes about your character…',
+            unavailable: 'No flavor prompts have been prepared for this class yet.',
         }
     },
     game: {
@@ -1398,7 +1411,25 @@ This condition lasts until you move or fail a roll with Fear, or the GM spends 2
             },
             wizard: {
                 name: 'Wizard',
-                description: 'As a wizard, you’ve become familiar with the arcane through the relentless study of grimoires and other tools of magic.'
+                description: 'As a wizard, you’ve become familiar with the arcane through the relentless study of grimoires and other tools of magic.',
+                flavor: {
+                    ties: [
+                        'Who in the party has seen your arcane studies push you too far, and what did they do about it?',
+                        'Which teammate do you quietly consider your student, and what lesson are you trying to impart?',
+                        'One of you owes the other a debt that can\'t be paid in coin. Who owes whom, and for what?',
+                    ],
+                    description: [
+                        'What drew you into the study of magic, and what do you fear you\'ve given up to pursue it?',
+                        'Which long-dead scholar\'s work do you live in the shadow of, and why?',
+                        'Describe the moment a spell of yours went terribly wrong. Who paid the price?',
+                    ],
+                    spellcastingSource: 'Where does your magic come from — a grimoire, a patron, an inheritance, something else? Describe it.',
+                    appearance: [
+                        'What does your everyday attire look like, and how does it mark you as a practitioner of magic?',
+                        'What is the most unusual feature someone would notice about you at a glance?',
+                        'What do you carry on your person at all times, and where do you keep it?',
+                    ],
+                },
             }
         },
         communities: {

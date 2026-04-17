@@ -83,6 +83,7 @@ function getDefaultState(): BuilderState {
             experiences: [],
             backgroundQuestions: [],
             ties: [],
+            appearance: [],
             domainCards: [],
             domainCardsStored: [],
             levelingChoices: [],
