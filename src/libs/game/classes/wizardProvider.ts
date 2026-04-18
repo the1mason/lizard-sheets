@@ -69,6 +69,18 @@ function getClassOptions() : ClassOption {
         defaultItems: wizardDefaultItems,
         itemChoiceGroups: wizardItemChoiceGroups,
         flavorQuestions: wizardFlavorQuestions,
+        defaultState: {
+            evasion: 11,
+            armorMax: 0,
+            armor: 0,
+            health: 0,
+            healthMax: 5,
+            stress: 0,
+            stressMax: 6,
+            hope: 2,
+            hopeMax: 6,
+            money: 1
+        }
     }
 }
 

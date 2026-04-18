@@ -49,6 +49,19 @@ function getClassOptions() : ClassOption {
         availableArmors: armors,
         defaultItems: defaultItems,
         itemChoiceGroups: itemChoiceGroups,
+        defaultState: {
+            evasion: 11,
+            armorMax: 0,
+            armor: 0,
+            health: 0,
+            healthMax: 5,
+            stress: 0,
+            stressMax: 6,
+            hope: 2,
+            hopeMax: 6,
+            money: 1
+        }
+
     }
 }
 

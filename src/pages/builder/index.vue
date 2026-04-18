@@ -69,6 +69,7 @@
               <flavor-step :state="builderState" :current-step="stepIndex" @setState="setState" @markDone="markDone" />
             </v-stepper-window-item>
             <v-stepper-window-item value="finish">
+              <finish-step :state="builderState" :current-step="stepIndex" />
             </v-stepper-window-item>
           </v-stepper-window>
           <v-stepper-actions>
@@ -106,6 +107,7 @@ import TraitsStep from "@/components/builder/TraitsStep.vue";
 import EquipmentStep from "@/components/builder/EquipmentStep.vue";
 import ExperienceStep from "@/components/builder/ExperienceStep.vue";
 import CardsStep from "@/components/builder/CardsStep.vue";
+import FinishStep from "@/components/builder/FinishStep.vue";
 import FlavorStep from "@/components/builder/FlavorStep.vue";
 
 const fromPrevious = ref<boolean>(false);

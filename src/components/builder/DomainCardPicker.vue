@@ -21,6 +21,16 @@ import DomainCardView from "@/components/common/DomainCardView.vue";
 import gameProvider from "@/libs/game/gameProvider.ts";
 import type {DomainCard, Level} from "@/types/game/character.ts";
 import type {Domain} from "@/types/game/domain.ts";
+import arcanaProvider from "@/libs/game/domains/arcanaProvider.ts";
+import bladeProvider from "@/libs/game/domains/bladeProvider.ts";
+import boneProvider from "@/libs/game/domains/boneProvider.ts";
+import codexProvider from "@/libs/game/domains/codexProvider.ts";
+import dreadProvider from "@/libs/game/domains/dreadProvider.ts";
+import graceProvider from "@/libs/game/domains/graceProvider.ts";
+import midnightProvider from "@/libs/game/domains/midnightProvider.ts";
+import sageProvider from "@/libs/game/domains/sageProvider.ts";
+import splendorProvider from "@/libs/game/domains/splendorProvider.ts";
+import valorProvider from "@/libs/game/domains/valorProvider.ts";
 
 const props = withDefaults(
     defineProps<{

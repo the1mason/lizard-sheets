@@ -30,11 +30,16 @@ export const useBuilderStore = defineStore("builderStore", () => {
         return store.value;
     }
 
+    function clearStorage() {
+        localStorage.removeItem(LOCAL_STORE_NAME);
+    }
+
     return {
         init,
         set,
         reset,
-        get
+        get,
+        clearStorage
     }
 
 })

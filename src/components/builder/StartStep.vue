@@ -79,7 +79,6 @@ const pronouns = ref<string | undefined>()
 const characterClass = ref<CharacterClass | undefined>()
 
 onMounted(() => {
-  console.log(props.state.data)
   name.value = props.state.data.name
   pronouns.value = props.state.data.pronouns
   characterClass.value = props.state.data.class
@@ -135,6 +134,7 @@ function onChooseClass() {
   current.data.traits = current.options.classOption.defaultTraits
   current.data.ancestry = undefined
   current.steps = gameProvider.getStepsByClass(selectedClass.id)
+  current.data.state = current.options.classOption.defaultState!
 
   save()
 }
