@@ -48,6 +48,104 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/characters/': RouteRecordInfo<
+      '/characters/',
+      '/characters',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/characters/assassin/[id]': RouteRecordInfo<
+      '/characters/assassin/[id]',
+      '/characters/assassin/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
+      | never
+    >,
+    '/characters/bard/[id]': RouteRecordInfo<
+      '/characters/bard/[id]',
+      '/characters/bard/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
+      | never
+    >,
+    '/characters/brawler/[id]': RouteRecordInfo<
+      '/characters/brawler/[id]',
+      '/characters/brawler/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
+      | never
+    >,
+    '/characters/druid/[id]': RouteRecordInfo<
+      '/characters/druid/[id]',
+      '/characters/druid/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
+      | never
+    >,
+    '/characters/guardian/[id]': RouteRecordInfo<
+      '/characters/guardian/[id]',
+      '/characters/guardian/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
+      | never
+    >,
+    '/characters/ranger/[id]': RouteRecordInfo<
+      '/characters/ranger/[id]',
+      '/characters/ranger/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
+      | never
+    >,
+    '/characters/rogue/[id]': RouteRecordInfo<
+      '/characters/rogue/[id]',
+      '/characters/rogue/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
+      | never
+    >,
+    '/characters/seraph/[id]': RouteRecordInfo<
+      '/characters/seraph/[id]',
+      '/characters/seraph/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
+      | never
+    >,
+    '/characters/sorcerer/[id]': RouteRecordInfo<
+      '/characters/sorcerer/[id]',
+      '/characters/sorcerer/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
+      | never
+    >,
+    '/characters/warlock/[id]': RouteRecordInfo<
+      '/characters/warlock/[id]',
+      '/characters/warlock/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
+      | never
+    >,
+    '/characters/warrior/[id]': RouteRecordInfo<
+      '/characters/warrior/[id]',
+      '/characters/warrior/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
+      | never
+    >,
+    '/characters/witch/[id]': RouteRecordInfo<
+      '/characters/witch/[id]',
+      '/characters/witch/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
+      | never
+    >,
+    '/characters/wizard/[id]': RouteRecordInfo<
+      '/characters/wizard/[id]',
+      '/characters/wizard/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
+      | never
+    >,
   }
 
   /**
@@ -76,6 +174,90 @@ declare module 'vue-router/auto-routes' {
     'src/pages/builder/index.vue': {
       routes:
         | '/builder/'
+      views:
+        | never
+    }
+    'src/pages/characters/index.vue': {
+      routes:
+        | '/characters/'
+      views:
+        | never
+    }
+    'src/pages/characters/assassin/[id].vue': {
+      routes:
+        | '/characters/assassin/[id]'
+      views:
+        | never
+    }
+    'src/pages/characters/bard/[id].vue': {
+      routes:
+        | '/characters/bard/[id]'
+      views:
+        | never
+    }
+    'src/pages/characters/brawler/[id].vue': {
+      routes:
+        | '/characters/brawler/[id]'
+      views:
+        | never
+    }
+    'src/pages/characters/druid/[id].vue': {
+      routes:
+        | '/characters/druid/[id]'
+      views:
+        | never
+    }
+    'src/pages/characters/guardian/[id].vue': {
+      routes:
+        | '/characters/guardian/[id]'
+      views:
+        | never
+    }
+    'src/pages/characters/ranger/[id].vue': {
+      routes:
+        | '/characters/ranger/[id]'
+      views:
+        | never
+    }
+    'src/pages/characters/rogue/[id].vue': {
+      routes:
+        | '/characters/rogue/[id]'
+      views:
+        | never
+    }
+    'src/pages/characters/seraph/[id].vue': {
+      routes:
+        | '/characters/seraph/[id]'
+      views:
+        | never
+    }
+    'src/pages/characters/sorcerer/[id].vue': {
+      routes:
+        | '/characters/sorcerer/[id]'
+      views:
+        | never
+    }
+    'src/pages/characters/warlock/[id].vue': {
+      routes:
+        | '/characters/warlock/[id]'
+      views:
+        | never
+    }
+    'src/pages/characters/warrior/[id].vue': {
+      routes:
+        | '/characters/warrior/[id]'
+      views:
+        | never
+    }
+    'src/pages/characters/witch/[id].vue': {
+      routes:
+        | '/characters/witch/[id]'
+      views:
+        | never
+    }
+    'src/pages/characters/wizard/[id].vue': {
+      routes:
+        | '/characters/wizard/[id]'
       views:
         | never
     }

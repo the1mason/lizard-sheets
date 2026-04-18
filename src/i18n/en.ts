@@ -1,7 +1,38 @@
 ﻿export const en = {
     navigation: {
         builder: 'New',
-        upload: 'Upload'
+        load: 'Load',
+        characters: 'Characters'
+    },
+    characters: {
+        title: 'Characters',
+        unnamed: 'Unnamed',
+        clonedSuffix: ' (Copy)',
+        cloneSuccess: 'Cloned as {name}.',
+        empty: {
+            text: 'No characters yet. Build one or import from JSON.',
+            create: 'Create character'
+        },
+        table: {
+            level: 'Level'
+        },
+        actions: {
+            open: 'Open',
+            clone: 'Clone',
+            delete: 'Delete'
+        },
+        confirmDelete: {
+            title: 'Delete character?',
+            body: 'This will permanently remove {name} from local storage. This cannot be undone.',
+            confirm: 'Delete',
+            cancel: 'Cancel'
+        },
+        import: {
+            button: 'Import JSON',
+            success: 'Character imported.',
+            errorInvalid: 'That file is not a valid character.',
+            errorParse: 'Could not read the file as JSON.'
+        }
     },
     home: {
         welcome: 'Get your sheets together!'
@@ -176,10 +207,22 @@
             itemsLabel: 'Items',
             inventoryNotesLabel: 'Notes',
             cards: 'Domain cards',
-            saveDownload: 'Save & download',
-            toTheList: 'To the list',
+            download: 'Download JSON',
+            goToList: 'Go to list',
             savedBanner: 'Character saved locally.',
         }
+    },
+    sheet: {
+        header: {
+            nameLabel: 'Name',
+            unnamed: 'Unnamed',
+            levelLabel: 'Level',
+            subclassLabel: 'Subclass',
+        },
+        notFound: {
+            title: 'Character not found.',
+            home: 'Back to home',
+        },
     },
     game: {
         domains: {

@@ -29,12 +29,12 @@
               {{ $t('navigation.builder') }}
             </v-btn>
           </router-link>
-          <router-link to="/load">
+          <router-link to="/characters">
             <v-btn variant="tonal" color="gray">
               <template #prepend>
-                <v-icon icon="mdi-upload" />
+                <v-icon :icon="hasCharacters ? 'mdi-account-multiple' : 'mdi-upload'" />
               </template>
-              {{ $t('navigation.upload') }}
+              {{ hasCharacters ? $t('navigation.characters') : $t('navigation.load') }}
             </v-btn>
           </router-link>
         </v-row>
@@ -49,7 +49,11 @@
 </template>
 
 <script setup lang="ts">
+import {computed} from "vue"
+import {useCharacterStore} from "@/stores/characterStore.ts"
 
+const store = useCharacterStore()
+const hasCharacters = computed<boolean>(() => store.list().length > 0)
 </script>
 
 <style scoped>

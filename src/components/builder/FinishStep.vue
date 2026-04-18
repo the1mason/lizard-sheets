@@ -77,19 +77,28 @@
   </v-alert>
 
   <v-row>
-    <v-col v-if="!saved">
-      <v-btn block color="primary" @click="saveAndDownload">
-        {{ $t('builder.finish.saveDownload') }}
+    <v-col cols="12" md="6">
+      <v-btn block variant="tonal" @click="downloadAction">
+        <template #prepend>
+          <v-icon icon="mdi-download"/>
+        </template>
+        {{ $t('builder.finish.download') }}
       </v-btn>
     </v-col>
-    <v-col v-else>
-      <v-btn block color="primary">{{ $t('builder.finish.toTheList') }}</v-btn>
+    <v-col cols="12" md="6">
+      <v-btn block color="primary" @click="goToListAction">
+        <template #prepend>
+          <v-icon icon="mdi-format-list-bulleted"/>
+        </template>
+        {{ $t('builder.finish.goToList') }}
+      </v-btn>
     </v-col>
   </v-row>
 </template>
 
 <script setup lang="ts">
 import {computed, ref} from "vue"
+import {useRouter} from "vue-router"
 import type {Character} from "@/types/game/character.ts"
 import {type BuilderState, useBuilderStore} from "@/stores/builderStore.ts"
 import {useCharacterStore} from "@/stores/characterStore.ts"
@@ -101,6 +110,7 @@ const props = defineProps<{
 
 const characterStore = useCharacterStore()
 const builderStore = useBuilderStore()
+const router = useRouter()
 
 const saved = ref<boolean>(false)
 const snapshot = ref<Character>(clone(props.state.data))
@@ -114,13 +124,23 @@ const hasInventory = computed<boolean>(() =>
     || !!char.value.inventory?.text
 )
 
-function saveAndDownload() {
+function ensureSaved() {
+  if (saved.value) return
   const character = clone(props.state.data)
   snapshot.value = character
   characterStore.create(character)
-  downloadJson(character)
   saved.value = true
   builderStore.clearStorage()
+}
+
+function downloadAction() {
+  ensureSaved()
+  downloadJson(snapshot.value)
+}
+
+function goToListAction() {
+  ensureSaved()
+  router.push(`/characters/${snapshot.value.class.id}/${snapshot.value.id}`)
 }
 
 function downloadJson(character: Character) {

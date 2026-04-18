@@ -1,4 +1,5 @@
 import {defineStore} from "pinia";
+import {ref} from "vue";
 import type {Character, Level} from "@/types/game/character.ts";
 import type {ClassName} from "@/types/game/className.ts";
 
@@ -16,7 +17,10 @@ export type CharacterShort = {
 
 export const useCharacterStore = defineStore("characterStore", () => {
 
+    const revision = ref(0);
+
     function list(): CharacterShort[] {
+        void revision.value;
         const ids = readIndex();
         const result: CharacterShort[] = [];
         for (const id of ids) {
@@ -39,6 +43,7 @@ export const useCharacterStore = defineStore("characterStore", () => {
             writeIndex(ids);
         }
         writeCharacter(character);
+        revision.value++;
         return character;
     }
 
@@ -50,6 +55,7 @@ export const useCharacterStore = defineStore("characterStore", () => {
             writeIndex(ids);
         }
         writeCharacter(stored);
+        revision.value++;
         return stored;
     }
 
@@ -57,6 +63,11 @@ export const useCharacterStore = defineStore("characterStore", () => {
         localStorage.removeItem(keyFor(id));
         const ids = readIndex().filter(existing => existing !== id);
         writeIndex(ids);
+        revision.value++;
+    }
+
+    function has(id: string): boolean {
+        return readIndex().includes(id);
     }
 
     return {
@@ -64,7 +75,8 @@ export const useCharacterStore = defineStore("characterStore", () => {
         get,
         create,
         update,
-        delete: remove
+        delete: remove,
+        has
     }
 })
 
