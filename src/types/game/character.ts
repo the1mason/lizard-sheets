@@ -64,6 +64,9 @@ export type CharacterState = {
     hope: number
     hopeMax: number
     money: number // bits 19/18-10/9-0 chest/bags/handfuls
+    armorThresholdLow?: number
+    armorThresholdHigh?: number
+
 }
 
 export type WeaponSlot = 'any' | 'primary-only' | 'secondary-only' | 'two-handed'

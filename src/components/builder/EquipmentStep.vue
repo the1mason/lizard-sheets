@@ -574,6 +574,17 @@ function commit() {
     props.state.data.armor = undefined
   }
 
+  const equipped = props.state.data.armor
+  if (equipped) {
+    props.state.data.state.armorMax = equipped.score
+    props.state.data.state.armorThresholdLow = equipped.thresholdLow
+    props.state.data.state.armorThresholdHigh = equipped.thresholdHigh
+  } else {
+    props.state.data.state.armorMax = 0
+    props.state.data.state.armorThresholdLow = 0
+    props.state.data.state.armorThresholdHigh = 0
+  }
+
   const items: InventoryItem[] = [...defaultItems.value]
   for (const [groupId, chosenName] of Object.entries(localItemChoices.value)) {
     const group = itemChoiceGroups.value.find(g => g.id === groupId)
