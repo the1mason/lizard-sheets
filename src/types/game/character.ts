@@ -33,7 +33,7 @@ export type Character = {
     spellcastingSource?: string
     domainCards: DomainCard[]
     domainCardsStored: DomainCard[]
-    levelingChoices: string[]
+    levelingChoices?: Record<string, string>
     background?: string
     description?: string
     notes?: string

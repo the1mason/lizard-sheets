@@ -44,7 +44,7 @@
     <div v-if="char.weapons.length" class="mb-2">
       <b>{{ $t('builder.finish.weaponsLabel') }}:</b>
       <ul class="ms-4">
-        <li v-for="(w, i) in char.weapons" :key="`w-${i}`">{{ w.name }}</li>
+        <li v-for="(w, i) in char.weapons" :key="`w-${i}`">{{ w.custom ? w.name : $t(w.name) }}</li>
       </ul>
     </div>
     <div v-if="char.armor" class="mb-2">
@@ -140,7 +140,7 @@ function downloadAction() {
 
 function goToListAction() {
   ensureSaved()
-  router.push(`/characters/${snapshot.value.class.id}/${snapshot.value.id}`)
+  router.push(`/characters/${snapshot.value.class!.id}/${snapshot.value.id}`)
 }
 
 function downloadJson(character: Character) {
