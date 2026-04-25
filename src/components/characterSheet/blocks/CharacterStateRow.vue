@@ -31,106 +31,6 @@
 
       <v-divider class="state-divider" vertical />
 
-      <v-col class="state-stack" cols="6" md="3">
-        <div class="state-cell">
-          <div class="state-label">{{ $t('sheet.state.hitPoints') }}</div>
-          <div class="state-stepper">
-            <v-btn
-              :aria-label="$t('sheet.state.decrease')"
-              density="compact"
-              icon="mdi-minus"
-              size="small"
-              variant="text"
-              @click="bumpHealth(-1)"
-            />
-            <span class="state-value">{{ state.health }} / {{ state.healthMax }}</span>
-            <v-btn
-              :aria-label="$t('sheet.state.increase')"
-              density="compact"
-              icon="mdi-plus"
-              size="small"
-              variant="text"
-              @click="bumpHealth(1)"
-            />
-          </div>
-        </div>
-        <v-divider />
-        <div class="state-cell">
-          <div class="state-label">{{ $t('sheet.state.stress') }}</div>
-          <div class="state-stepper">
-            <v-btn
-              :aria-label="$t('sheet.state.decrease')"
-              density="compact"
-              icon="mdi-minus"
-              size="small"
-              variant="text"
-              @click="bumpStress(-1)"
-            />
-            <span class="state-value">{{ state.stress }} / {{ state.stressMax }}</span>
-            <v-btn
-              :aria-label="$t('sheet.state.increase')"
-              density="compact"
-              icon="mdi-plus"
-              size="small"
-              variant="text"
-              @click="bumpStress(1)"
-            />
-          </div>
-        </div>
-      </v-col>
-
-      <v-divider class="state-divider" vertical />
-
-      <v-col class="state-stack" cols="6" md="3">
-        <div class="state-cell">
-          <div class="state-label">{{ $t('sheet.state.hope') }}</div>
-          <div class="state-stepper">
-            <v-btn
-                :aria-label="$t('sheet.state.decrease')"
-                density="compact"
-                icon="mdi-minus"
-                size="small"
-                variant="text"
-                @click="bumpHope(-1)"
-            />
-            <span class="state-value">{{ state.hope }} / {{ state.hopeMax }}</span>
-            <v-btn
-                :aria-label="$t('sheet.state.increase')"
-                density="compact"
-                icon="mdi-plus"
-                size="small"
-                variant="text"
-                @click="bumpHope(1)"
-            />
-          </div>
-        </div>
-        <v-divider />
-        <div class="state-cell">
-          <div class="state-label">{{ $t('sheet.state.armor') }}</div>
-          <div class="state-stepper">
-            <v-btn
-                :aria-label="$t('sheet.state.decrease')"
-                density="compact"
-                icon="mdi-minus"
-                size="small"
-                variant="text"
-                @click="bumpArmor(-1)"
-            />
-            <span class="state-value">{{ state.armor }} / {{ state.armorMax }}</span>
-            <v-btn
-                :aria-label="$t('sheet.state.increase')"
-                density="compact"
-                icon="mdi-plus"
-                size="small"
-                variant="text"
-                @click="bumpArmor(1)"
-            />
-          </div>
-        </div>
-      </v-col>
-
-      <v-divider class="state-divider" vertical />
-
       <v-col class="state-cell" cols="12" md="4">
         <div class="state-label">{{ $t('sheet.state.thresholds') }}</div>
         <div class="thresholds-row">
@@ -163,6 +63,119 @@
           <div class="threshold-segment">
             <div class="threshold-tag">{{ $t('sheet.state.thresholdSevere') }}</div>
           </div>
+        </div>
+      </v-col>
+
+      <v-divider class="state-divider" vertical />
+
+      <v-col class="state-stack" cols="6" md="2">
+        <div
+          class="state-cell state-cell--health"
+          :style="{ '--fill': healthFill + '%' }"
+        >
+          <div class="state-label">{{ $t('sheet.state.hitPoints') }}</div>
+          <div class="state-stepper">
+            <v-btn
+              :aria-label="$t('sheet.state.decrease')"
+              density="compact"
+              icon="mdi-heart-outline"
+              size="small"
+              variant="text"
+              @click="bumpHealth(-1)"
+            />
+            <span class="state-value">{{ state.health }} / {{ state.healthMax }}</span>
+            <v-btn
+              :aria-label="$t('sheet.state.increase')"
+              density="compact"
+              icon="mdi-heart"
+              size="small"
+              variant="text"
+              @click="bumpHealth(1)"
+            />
+          </div>
+        </div>
+        <v-divider />
+        <div
+          class="state-cell state-cell--stress"
+          :style="{ '--fill': stressFill + '%' }"
+        >
+          <div class="state-label">{{ $t('sheet.state.stress') }}</div>
+          <div class="state-stepper">
+            <v-btn
+              :aria-label="$t('sheet.state.decrease')"
+              density="compact"
+              icon="mdi-lightning-bolt-outline"
+              size="small"
+              variant="text"
+              @click="bumpStress(-1)"
+            />
+            <span class="state-value">{{ state.stress }} / {{ state.stressMax }}</span>
+            <v-btn
+              :aria-label="$t('sheet.state.increase')"
+              density="compact"
+              icon="mdi-lightning-bolt"
+              size="small"
+              variant="text"
+              @click="bumpStress(1)"
+            />
+          </div>
+        </div>
+        <v-divider />
+        <div
+            class="state-cell state-cell--armor"
+            :style="{ '--fill': armorFill + '%' }"
+        >
+          <div class="state-label">{{ $t('sheet.state.armor') }}</div>
+          <div class="state-stepper">
+            <v-btn
+                :aria-label="$t('sheet.state.decrease')"
+                density="compact"
+                icon="mdi-shield-outline"
+                size="small"
+                variant="text"
+                @click="bumpArmor(-1)"
+            />
+            <span class="state-value">{{ state.armor }} / {{ state.armorMax }}</span>
+            <v-btn
+                :aria-label="$t('sheet.state.increase')"
+                density="compact"
+                icon="mdi-shield"
+                size="small"
+                variant="text"
+                @click="bumpArmor(1)"
+            />
+          </div>
+        </div>
+      </v-col>
+
+      <v-divider class="state-divider" vertical />
+
+      <v-col class="state-stack" cols="6" md="4">
+        <div
+          class="state-cell state-cell--hope"
+          :style="{ '--fill': hopeFill + '%' }"
+        >
+          <div class="state-label">{{ $t('sheet.state.hope') }}</div>
+          <div class="state-stepper">
+            <v-btn
+                :aria-label="$t('sheet.state.decrease')"
+                density="compact"
+                icon="mdi-square-rounded-outline"
+                size="small"
+                variant="text"
+                @click="bumpHope(-1)"
+            />
+            <span class="state-value">{{ state.hope }} / {{ state.hopeMax }}</span>
+            <v-btn
+                :aria-label="$t('sheet.state.increase')"
+                density="compact"
+                icon="mdi-square-rounded"
+                size="small"
+                variant="text"
+                @click="bumpHope(1)"
+            />
+          </div>
+          <span class="text-body-medium px-3">{{ $t(`game.classes.${character.class?.id}.hopeFeat`) }}</span>
         </div>
       </v-col>
     </v-row>
@@ -252,6 +265,16 @@
   }>()
 
   const state = computed<CharacterState>(() => props.character.state)
+
+  const healthFill = computed<number>(() => fillPct(state.value.health, state.value.healthMax))
+  const stressFill = computed<number>(() => fillPct(state.value.stress, state.value.stressMax))
+  const hopeFill = computed<number>(() => fillPct(state.value.hope, state.value.hopeMax))
+  const armorFill = computed<number>(() => fillPct(state.value.armor, state.value.armorMax))
+
+  function fillPct (current: number, max: number): number {
+    if (!max || max <= 0) return 0
+    return Math.min(100, Math.max(0, (current / max) * 100))
+  }
 
   const editingEvasion = ref<boolean>(false)
   const evasionDraft = ref<number>(state.value.evasion)
@@ -365,6 +388,38 @@
   align-items: center;
   justify-content: center;
   min-width: 0;
+}
+
+.state-cell--health {
+  background: linear-gradient(
+    to right,
+    rgba(var(--v-theme-error), 0.1) var(--fill, 0%),
+    transparent var(--fill, 0%)
+  );
+}
+
+.state-cell--stress {
+  background: linear-gradient(
+    to right,
+    rgba(var(--v-theme-info), 0.1) var(--fill, 0%),
+    transparent var(--fill, 0%)
+  );
+}
+
+.state-cell--hope {
+  background: linear-gradient(
+    to right,
+    rgba(var(--v-theme-warning), 0.1) var(--fill, 0%),
+    transparent var(--fill, 0%)
+  );
+}
+
+.state-cell--armor {
+  background: linear-gradient(
+    to right,
+    rgba(var(--v-theme-on-surface), 0.1) var(--fill, 0%),
+    transparent var(--fill, 0%)
+  );
 }
 
 .state-label {

@@ -1521,6 +1521,8 @@ This condition lasts until you move or fail a roll with Fear, or the GM spends 2
                         'What do you carry on your person at all times, and where do you keep it?',
                     ],
                 },
+                hopeFeat: 'Not This Time: Spend 3 Hope to force an adversary within\n' +
+                    'Far range to reroll an attack or damage roll.'
             }
         },
         communities: {

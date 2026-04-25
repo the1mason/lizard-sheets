@@ -1,5 +1,5 @@
 <template>
-  <v-col align="center" class="pa-1 trait-cell">
+  <v-col align="center" class="pa-1 trait-cell border">
     <v-checkbox-btn
       class="trait-checkbox"
       density="compact"

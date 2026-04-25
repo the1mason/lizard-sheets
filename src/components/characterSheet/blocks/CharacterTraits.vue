@@ -1,12 +1,13 @@
 <template>
-  <v-col class="pa-1" cols="12">
-    <v-card class="pa-2" color="lighten">
+  <v-col class="pa-0" cols="12">
+    <v-card border class="pa-0">
       <v-row dense no-gutters>
         <character-trait
           v-for="name in traitOrder"
           :key="name"
           :checked="isChecked(name)"
-          cols="2"
+          cols="4"
+          md="2"
           :trait-name="name"
           :trait-value="character.traits?.[name] ?? 0"
           @set-checked="(c: boolean) => onSetChecked(name, c)"
