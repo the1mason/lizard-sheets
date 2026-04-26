@@ -273,6 +273,16 @@
             title: 'Experiences',
             namePlaceholder: 'Experience {index}',
         },
+        inventory: {
+            title: 'Inventory',
+            nameLabel: 'Item',
+            countLabel: 'Count',
+            addItem: 'Add item',
+            remove: 'Remove',
+            notesLabel: 'Notes',
+            empty: 'No items yet.',
+        },
+        classFeature: 'Class Feature'
     },
     game: {
         domains: {
@@ -1547,7 +1557,21 @@ This condition lasts until you move or fail a roll with Fear, or the GM spends 2
                     ],
                 },
                 hopeFeat: 'Not This Time: Spend 3 Hope to force an adversary within\n' +
-                    'Far range to reroll an attack or damage roll.'
+                    'Far range to reroll an attack or damage roll.',
+                trait:
+                    `
+PRESTIDIGITATION
+You can perform harmless, subtle magical
+effects at will. For example, you can change
+an object’s color, create a smell, light a candle,
+cause a tiny object to float, illuminate a room, or
+repair a small object.
+STRANGE PATTERNS
+Choose a number between 1 and 12. When
+you roll that number on a Duality Die, gain a
+Hope or clear a Stress. You can change this
+number when you take a long rest.
+`
             }
         },
         communities: {

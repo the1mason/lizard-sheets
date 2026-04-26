@@ -1,6 +1,6 @@
 <template>
-  <v-card border class="pa-3 mb-3 fill-height experiences-card">
-    <div class="text-subtitle-2 mb-2">{{ $t('sheet.experiences.title') }}</div>
+  <v-card border class="pa-3 mb-3 experiences-card">
+    <div class="text-body-large mb-2">{{ $t('sheet.experiences.title') }}</div>
     <div
       v-for="(slot, idx) in slots"
       :key="idx"
