@@ -91,7 +91,8 @@ function getDefaultState(): BuilderState {
             appearance: [],
             domainCards: [],
             domainCardsStored: [],
-            levelingChoices: [],
+            levelingChoices: {},
+            proficiency: 1
         },
         options: {
 

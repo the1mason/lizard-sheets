@@ -269,6 +269,10 @@
             thresholdLowLabel: 'Major thr.',
             thresholdHighLabel: 'Severe thr.',
         },
+        experiences: {
+            title: 'Experiences',
+            namePlaceholder: 'Experience {index}',
+        },
     },
     game: {
         domains: {

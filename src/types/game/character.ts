@@ -37,6 +37,7 @@ export type Character = {
     background?: string
     description?: string
     notes?: string
+    proficiency: number
 }
 
 export type AncestryCard = {

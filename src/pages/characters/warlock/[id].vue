@@ -16,7 +16,10 @@
     />
     <v-row dense>
       <v-col cols="12" md="5">
-        <v-card border class="pa-4 mb-3 fill-height" />
+        <character-experiences
+          :character="character"
+          @update:experiences="(e) => { character.experiences = e; save() }"
+        />
       </v-col>
       <v-col cols="12" md="7">
         <character-equipment
@@ -32,6 +35,7 @@
 <script setup lang="ts">
   import { useRoute } from 'vue-router'
   import CharacterEquipment from '@/components/characterSheet/blocks/CharacterEquipment.vue'
+  import CharacterExperiences from '@/components/characterSheet/blocks/CharacterExperiences.vue'
   import CharacterHeader from '@/components/characterSheet/blocks/CharacterHeader.vue'
   import CharacterStateRow from '@/components/characterSheet/blocks/CharacterStateRow.vue'
   import CharacterTraits from '@/components/characterSheet/blocks/CharacterTraits.vue'
