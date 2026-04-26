@@ -19,6 +19,7 @@
         actions: {
             open: 'Open',
             clone: 'Clone',
+            export: 'Export JSON',
             delete: 'Delete'
         },
         confirmDelete: {
@@ -281,6 +282,12 @@
             remove: 'Remove',
             notesLabel: 'Notes',
             empty: 'No items yet.',
+        },
+        gold: {
+            title: 'Gold',
+            handfuls: 'Handfuls',
+            bags: 'Bags',
+            chest: 'Chest',
         },
         classFeature: 'Class Feature'
     },

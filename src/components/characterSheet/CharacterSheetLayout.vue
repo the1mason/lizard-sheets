@@ -36,7 +36,7 @@
             :character="character"
             @update:experiences="(v) => patch('experiences', v)"
           />
-          <v-card border class="pa-2 mb-3">
+          <v-card border class="pa-3 mb-3">
             <div>{{ $t('sheet.classFeature') }}</div>
             <slot :character="character" name="class-feature" :save="save" />
           </v-card>
@@ -46,6 +46,10 @@
             :character="character"
             @update:armor="(v) => patch('armor', v)"
             @update:weapons="(v) => patch('weapons', v)"
+          />
+          <character-gold
+            :character="character"
+            @update:state="(v) => patch('state', v)"
           />
           <character-inventory
             :character="character"
@@ -62,6 +66,7 @@
   import { onMounted, ref } from 'vue'
   import CharacterEquipment from '@/components/characterSheet/blocks/CharacterEquipment.vue'
   import CharacterExperiences from '@/components/characterSheet/blocks/CharacterExperiences.vue'
+  import CharacterGold from '@/components/characterSheet/blocks/CharacterGold.vue'
   import CharacterHeader from '@/components/characterSheet/blocks/CharacterHeader.vue'
   import CharacterInventory from '@/components/characterSheet/blocks/CharacterInventory.vue'
   import CharacterStateRow from '@/components/characterSheet/blocks/CharacterStateRow.vue'

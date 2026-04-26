@@ -64,7 +64,7 @@ export type CharacterState = {
     stressMax: number
     hope: number
     hopeMax: number
-    money: number // bits 19/18-10/9-0 chest/bags/handfuls
+    money: number // bits 18/17-9/8-0 chest/bags/handfuls
     armorThresholdLow?: number
     armorThresholdHigh?: number
 

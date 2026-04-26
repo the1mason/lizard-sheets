@@ -76,6 +76,12 @@
                 </template>
                 {{ $t('characters.actions.clone') }}
               </v-btn>
+              <v-btn variant="text" @click="exportCharacter(c)">
+                <template #prepend>
+                  <v-icon icon="mdi-download" />
+                </template>
+                {{ $t('characters.actions.export') }}
+              </v-btn>
               <v-btn color="error" variant="text" @click="askDelete(c)">
                 <template #prepend>
                   <v-icon icon="mdi-delete-outline" />
@@ -154,6 +160,24 @@
     copy.name = `${baseName}${t('characters.clonedSuffix')}`
     store.create(copy)
     notify('success', t('characters.cloneSuccess', { name: copy.name }))
+  }
+
+  function exportCharacter (c: CharacterShort) {
+    const full = store.get(c.id)
+    if (!full) return
+    const blob = new Blob([JSON.stringify(full, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const baseName = full.name && full.name.trim().length > 0
+      ? full.name.trim()
+      : t('characters.unnamed')
+    const safeName = baseName.replace(/[^\w\-]+/g, '_')
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${safeName}.json`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
   }
 
   function askDelete (c: CharacterShort) {
