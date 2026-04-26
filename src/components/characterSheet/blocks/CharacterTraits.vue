@@ -1,5 +1,5 @@
 <template>
-  <v-col class="pa-0" cols="12">
+  <v-col class="pa-0 mb-3" cols="12">
     <v-card border class="pa-0">
       <v-row dense no-gutters>
         <character-trait

@@ -1,5 +1,5 @@
 <template>
-  <v-card border class="pa-4 mb-4">
+  <v-card border class="pa-4 mb-3">
     <v-row align="center" dense>
       <v-col cols="12" md="6">
         <v-text-field
