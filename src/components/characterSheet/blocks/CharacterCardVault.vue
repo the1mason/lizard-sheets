@@ -97,6 +97,7 @@
             @dragstart-card="onDragStart"
             @drop-section="onDrop('stored')"
             @move-card="onMoveCard"
+            @open-picker="pickerOpen = true"
           />
         </div>
       </div>
@@ -180,11 +181,18 @@
             :entries="filteredStored"
             section="stored"
             @move-card="onMoveCard"
+            @open-picker="pickerOpen = true"
           />
         </div>
       </v-card>
     </v-bottom-sheet>
   </template>
+
+  <add-domain-cards-modal
+    v-model="pickerOpen"
+    :character="character"
+    @toggle-card="onTogglePickerCard"
+  />
 </template>
 
 <script setup lang="ts">
@@ -194,6 +202,7 @@
   import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useDisplay } from 'vuetify'
+  import AddDomainCardsModal from './AddDomainCardsModal.vue'
   import VaultFilters from './VaultFilters.vue'
   import VaultSection from './VaultSection.vue'
 
@@ -234,6 +243,7 @@
   }
 
   const open = ref(false)
+  const pickerOpen = ref(false)
   const panelRef = ref<HTMLElement | null>(null)
 
   const filtersOpen = ref<boolean>(
@@ -448,6 +458,25 @@
   function onMoveCard (payload: { id: string, from: 'equipped' | 'stored', to: 'equipped' | 'stored' }) {
     if (payload.from === payload.to) return
     moveCard(payload.id, payload.from, payload.to)
+  }
+
+  function onTogglePickerCard (card: DomainCard) {
+    const equipped = [...(props.character.domainCards ?? [])]
+    const stored = [...(props.character.domainCardsStored ?? [])]
+    const eIdx = equipped.findIndex(c => c.id === card.id)
+    if (eIdx !== -1) {
+      equipped.splice(eIdx, 1)
+      emit('update:domainCards', equipped)
+      return
+    }
+    const sIdx = stored.findIndex(c => c.id === card.id)
+    if (sIdx !== -1) {
+      stored.splice(sIdx, 1)
+      emit('update:domainCardsStored', stored)
+      return
+    }
+    stored.push(card)
+    emit('update:domainCardsStored', stored)
   }
 
   function moveCard (id: string, from: 'equipped' | 'stored', _to: 'equipped' | 'stored') {

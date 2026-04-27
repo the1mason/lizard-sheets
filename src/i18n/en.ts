@@ -297,6 +297,9 @@
             equipped: 'Equipped',
             stored: 'Stored',
             empty: 'No cards.',
+            add: 'Add',
+            pickerTitle: 'Add domain cards',
+            selected: 'selected',
             moveToEquipped: 'Move to equipped',
             moveToStored: 'Move to stored',
             filters: {

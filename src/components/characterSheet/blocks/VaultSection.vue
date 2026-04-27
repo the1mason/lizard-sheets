@@ -14,6 +14,17 @@
       >
         {{ equippedCount }} / 5
       </span>
+      <v-btn
+        v-if="section === 'stored'"
+        class="ml-2"
+        density="compact"
+        prepend-icon="mdi-plus"
+        size="small"
+        variant="tonal"
+        @click="emit('open-picker')"
+      >
+        {{ $t('sheet.vault.add') }}
+      </v-btn>
     </div>
     <div
       class="vault-section-drop"
@@ -77,7 +88,7 @@
 
   const emit = defineEmits<{
     (e: 'dragstart-card', payload: { id: string, from: 'equipped' | 'stored' }): void
-    (e: 'dragend-card' | 'dragleave-section' | 'drop-section'): void
+    (e: 'dragend-card' | 'dragleave-section' | 'drop-section' | 'open-picker'): void
     (e: 'dragover-section', ev: DragEvent): void
     (e: 'move-card', payload: { id: string, from: 'equipped' | 'stored', to: 'equipped' | 'stored' }): void
   }>()
