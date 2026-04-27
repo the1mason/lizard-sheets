@@ -57,6 +57,11 @@
           />
         </v-col>
       </v-row>
+      <character-card-vault
+        :character="character"
+        @update:domain-cards="(v) => patch('domainCards', v)"
+        @update:domain-cards-stored="(v) => patch('domainCardsStored', v)"
+      />
     </template>
   </v-container>
 </template>
@@ -64,6 +69,7 @@
 <script setup lang="ts">
   import type { Character } from '@/types/game/character.ts'
   import { onMounted, ref } from 'vue'
+  import CharacterCardVault from '@/components/characterSheet/blocks/CharacterCardVault.vue'
   import CharacterEquipment from '@/components/characterSheet/blocks/CharacterEquipment.vue'
   import CharacterExperiences from '@/components/characterSheet/blocks/CharacterExperiences.vue'
   import CharacterGold from '@/components/characterSheet/blocks/CharacterGold.vue'

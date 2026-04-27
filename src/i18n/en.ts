@@ -289,7 +289,30 @@
             bags: 'Bags',
             chest: 'Chest',
         },
-        classFeature: 'Class Feature'
+        classFeature: 'Class Feature',
+        vault: {
+            title: 'Cards',
+            open: 'Open card vault',
+            close: 'Close',
+            equipped: 'Equipped',
+            stored: 'Stored',
+            empty: 'No cards.',
+            moveToEquipped: 'Move to equipped',
+            moveToStored: 'Move to stored',
+            filters: {
+                title: 'Filters',
+                text: 'Search cards…',
+                kind: 'Type',
+                domain: 'Domain',
+                level: 'Level',
+            },
+            kinds: {
+                domain: 'Domain',
+                subclass: 'Subclass',
+                ancestry: 'Ancestry',
+                community: 'Community',
+            },
+        },
     },
     game: {
         domains: {
