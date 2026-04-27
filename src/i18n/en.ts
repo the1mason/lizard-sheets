@@ -253,6 +253,7 @@
             primary: 'Primary Weapon',
             secondary: 'Secondary Weapon',
             armor: 'Armor',
+            proficiency: 'Proficiency',
             slotLabel: 'Slot',
             slotAny: 'Any',
             slotPrimaryOnly: 'Primary only',

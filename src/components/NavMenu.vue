@@ -10,9 +10,15 @@
               color="white"
           gap="8px">
             <img
+                style="
+                image-rendering: -moz-crisp-edges;
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: pixelated;
+                image-rendering: crisp-edges;
+                -ms-interpolation-mode: nearest-neighbor;"
                 alt="logo"
                  src="../assets/logo.png"
-                 height="40px"/>
+                 height="55px"/>
             <h3 class="ml-2">
               Lizard Sheets
             </h3>

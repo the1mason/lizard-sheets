@@ -45,6 +45,7 @@
           <character-equipment
             :character="character"
             @update:armor="(v) => patch('armor', v)"
+            @update:proficiency="(v) => patch('proficiency', v)"
             @update:weapons="(v) => patch('weapons', v)"
           />
           <character-gold

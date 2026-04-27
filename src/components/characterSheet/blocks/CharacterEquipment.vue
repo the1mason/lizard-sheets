@@ -1,5 +1,23 @@
 <template>
   <v-card border class="pa-3 mb-3 equipment-card">
+    <div class="proficiency-row">
+      <span class="text-subtitle-1 font-weight-medium me-2">{{ $t('sheet.equipment.proficiency') }}</span>
+      <button
+        v-for="i in PROFICIENCY_MAX"
+        :key="`p-${i}`"
+        :aria-label="`${$t('sheet.equipment.proficiency')} ${i}`"
+        :aria-pressed="i <= proficiency"
+        class="proficiency-icon-btn"
+        :class="{ 'proficiency-icon-btn--filled': i <= proficiency }"
+        type="button"
+        @click="setProficiency(i)"
+      >
+        <v-icon :icon="i <= proficiency ? 'mdi-circle' : 'mdi-circle-outline'" size="20" />
+      </button>
+    </div>
+
+    <v-divider class="my-3" />
+
     <equipment-weapon-row
       :icon="primaryHandIcon"
       :slot-label="$t('sheet.equipment.primary')"
@@ -31,6 +49,8 @@
   import EquipmentArmorRow from '@/components/characterSheet/blocks/EquipmentArmorRow.vue'
   import EquipmentWeaponRow from '@/components/characterSheet/blocks/EquipmentWeaponRow.vue'
 
+  const PROFICIENCY_MAX = 6
+
   const props = defineProps<{
     character: Character
   }>()
@@ -38,7 +58,19 @@
   const emit = defineEmits<{
     (e: 'update:weapons', weapons: Weapon[]): void
     (e: 'update:armor', armor: Armor | undefined): void
+    (e: 'update:proficiency', proficiency: number): void
   }>()
+
+  const proficiency = computed<number>(() => {
+    const p = props.character.proficiency ?? 1
+    return Math.max(1, Math.min(PROFICIENCY_MAX, Math.trunc(p)))
+  })
+
+  function setProficiency (value: number) {
+    const next = Math.max(1, Math.min(PROFICIENCY_MAX, Math.trunc(value)))
+    if (next === proficiency.value) return
+    emit('update:proficiency', next)
+  }
 
   const primaryWeaponIndex = computed<number>(() =>
     props.character.weapons.findIndex(w => w.primary),
@@ -97,5 +129,39 @@
 .equipment-card {
   display: flex;
   flex-direction: column;
+}
+
+.proficiency-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.proficiency-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: rgba(var(--v-theme-on-surface), 0.4);
+  transition: color 0.1s, background-color 0.1s;
+}
+
+.proficiency-icon-btn:hover {
+  color: rgba(var(--v-theme-on-surface), 0.7);
+  background: rgba(var(--v-theme-on-surface), 0.05);
+}
+
+.proficiency-icon-btn--filled {
+  color: rgb(var(--v-theme-primary));
+}
+
+.proficiency-icon-btn--filled:hover {
+  color: rgb(var(--v-theme-primary));
 }
 </style>
