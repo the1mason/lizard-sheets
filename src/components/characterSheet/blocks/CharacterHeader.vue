@@ -49,7 +49,7 @@
                   v-bind="props"
                   :alt="character.class.domain1"
                   height="20"
-                  :src="`../../src/assets/domains/${character.class.domain1}.svg`"
+                  :src="`/domains/${character.class.domain1}.svg`"
                 >
               </template>
             </v-tooltip>
@@ -59,7 +59,7 @@
                   v-bind="props"
                   :alt="character.class.domain2"
                   height="20"
-                  :src="`../../src/assets/domains/${character.class.domain2}.svg`"
+                  :src="`/domains/${character.class.domain2}.svg`"
                 >
               </template>
             </v-tooltip>

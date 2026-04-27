@@ -25,13 +25,13 @@
               <v-row justify="center">
                 <v-tooltip :text="$t('game.domains.' + characterClass.domain1)" bottom>
                   <template v-slot:activator="{ props }">
-                    <img v-bind="props" :src="`../../src/assets/domains/${characterClass.domain1}.svg`" height="20"
+                    <img v-bind="props" :src="`/domains/${characterClass.domain1}.svg`" height="20"
                          :alt="characterClass.domain1"/>
                   </template>
                 </v-tooltip>
                 <v-tooltip :text="$t('game.domains.' + characterClass.domain2)" bottom>
                   <template v-slot:activator="{ props }">
-                    <img v-bind="props" :src="`../../src/assets/domains/${characterClass.domain2}.svg`" height="20"
+                    <img v-bind="props" :src="`/domains/${characterClass.domain2}.svg`" height="20"
                          :alt="characterClass.domain2"/>
                   </template>
                 </v-tooltip>

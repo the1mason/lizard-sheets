@@ -8,7 +8,7 @@
     <v-tooltip :text="$t('game.domains.' + card.domain)" location="right">
       <template v-slot:activator="{ props }">
         <div v-bind="props" class="domain-chevron">
-          <img :src="`../../src/assets/domains/${card.domain}.svg`" height="27" :alt="card.domain"/>
+          <img :src="`/domains/${card.domain}.svg`" height="27" :alt="card.domain"/>
           <span class="text-title-large mt-1"><b>{{ card.level }}</b></span>
         </div>
       </template>
