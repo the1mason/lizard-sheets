@@ -38,8 +38,16 @@
           />
           <v-card border class="pa-3 mb-3">
             <div>{{ $t('sheet.classFeature') }}</div>
-            <slot :character="character" name="class-feature" :save="save" />
+            <slot :character="character" name="class-feature" :patch="patch" :save="save" />
           </v-card>
+          <character-flavor
+            :character="character"
+            @update:appearance="(v) => patch('appearance', v)"
+            @update:background-questions="(v) => patch('backgroundQuestions', v)"
+            @update:notes="(v) => patch('notes', v)"
+            @update:spellcasting-source="(v) => patch('spellcastingSource', v)"
+            @update:ties="(v) => patch('ties', v)"
+          />
         </v-col>
         <v-col cols="12" md="7">
           <character-equipment
@@ -73,6 +81,7 @@
   import CharacterCardVault from '@/components/characterSheet/blocks/CharacterCardVault.vue'
   import CharacterEquipment from '@/components/characterSheet/blocks/CharacterEquipment.vue'
   import CharacterExperiences from '@/components/characterSheet/blocks/CharacterExperiences.vue'
+  import CharacterFlavor from '@/components/characterSheet/blocks/CharacterFlavor.vue'
   import CharacterGold from '@/components/characterSheet/blocks/CharacterGold.vue'
   import CharacterHeader from '@/components/characterSheet/blocks/CharacterHeader.vue'
   import CharacterInventory from '@/components/characterSheet/blocks/CharacterInventory.vue'

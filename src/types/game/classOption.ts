@@ -17,4 +17,5 @@ export type FlavorQuestions = {
     description: string[]
     spellcastingSource?: string
     appearance: string[]
+    appearanceHint?: string
 }

@@ -41,6 +41,27 @@ function getClassOptions() : ClassOption {
             ]
         }
     ]
+    const guardianFlavorQuestions = {
+        ties: [
+            "game.classes.guardian.flavor.ties.0",
+            "game.classes.guardian.flavor.ties.1",
+            "game.classes.guardian.flavor.ties.2",
+        ],
+        description: [
+            "game.classes.guardian.flavor.description.0",
+            "game.classes.guardian.flavor.description.1",
+            "game.classes.guardian.flavor.description.2",
+        ],
+        appearance: [
+            "game.classes.guardian.flavor.appearance.0",
+            "game.classes.guardian.flavor.appearance.1",
+            "game.classes.guardian.flavor.appearance.2",
+            "game.classes.guardian.flavor.appearance.3",
+            "game.classes.guardian.flavor.appearance.4",
+        ],
+        appearanceHint: "game.classes.guardian.flavor.appearanceHint",
+    }
+
     return {
         subclasses: ["stalwart", "vengeance"],
         defaultTraits: {agility: 1, strength: 2, finesse: -1, instinct: 0, presence: 1, knowledge: 0},
@@ -48,6 +69,7 @@ function getClassOptions() : ClassOption {
         availableArmors: armors,
         defaultItems: defaultItems,
         itemChoiceGroups: itemChoiceGroups,
+        flavorQuestions: guardianFlavorQuestions,
         defaultState: {
             evasion: 9,
             armorMax: 0,

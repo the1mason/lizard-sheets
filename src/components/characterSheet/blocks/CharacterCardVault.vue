@@ -541,7 +541,7 @@
     top: 0;
     right: 0;
     height: 100vh;
-    width: min(95vw, 960px);
+    width: min(95vw, 1300px);
     background: rgb(var(--v-theme-surface));
     color: rgb(var(--v-theme-on-surface));
     border-left: 1px solid rgba(255, 255, 255, 0.08);

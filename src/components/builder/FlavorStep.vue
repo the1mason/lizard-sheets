@@ -44,6 +44,9 @@
     <!-- Appearance -->
     <v-card v-if="flavorQuestions.appearance.length" border class="pa-3 mb-4">
       <div class="text-subtitle-1 font-weight-bold mb-2">{{ $t('builder.flavor.appearance') }}</div>
+      <p v-if="flavorQuestions.appearanceHint" class="text-body-2 text-medium-emphasis mb-3">
+        {{ $t(flavorQuestions.appearanceHint) }}
+      </p>
       <v-textarea v-for="(qKey, idx) in flavorQuestions.appearance" :key="`app-${idx}`"
                   density="compact" hide-details="auto" rows="2" auto-grow class="mb-3"
                   :label="$t(qKey)"

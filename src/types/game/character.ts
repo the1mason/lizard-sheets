@@ -38,6 +38,12 @@ export type Character = {
     description?: string
     notes?: string
     proficiency: number
+    unstoppable?: UnstoppableState
+}
+
+export type UnstoppableState = {
+    active: boolean
+    value: number
 }
 
 export type AncestryCard = {
