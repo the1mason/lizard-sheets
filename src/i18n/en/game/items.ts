@@ -1,0 +1,37 @@
+export const items = {
+    torch: { name: 'Torch' },
+    rope50ft: { name: 'Rope (50 ft)' },
+    basicSupplies: {name: 'Basic Supplies'},
+    healthPotionS: {name: 'Minor Health Potion (1d4)'},
+    staminaPotionS: {name: 'Minor Stamina Potion (1d4)'},
+    loreWizardBook: {name: 'A book you are trying to translate'},
+    loreWizardPet: {name: 'A tiny, harmless elemental pet'},
+    loreAssassinList: {name: 'A list of names with several marked of'},
+    loreAssassinMortar: {name: 'A mortar and pestle inscribed with a\n' +
+            'mysterious insignia'},
+    loreBardNovel: {name: 'A romance novel'},
+    loreBardLetter: {name: 'A letter never opened'},
+    loreBrawlerWraps: {name: 'Hand wraps from a mentor'},
+    loreBrawlerBook: {name: 'A book about your secret hobby'},
+    loreDruidBones: {name: 'A small bag of rocks and bones'},
+    loreDruidPendant: {name: 'A strange pendant found in the dirt'},
+    loreGuardianTotem: {name: 'A totem from your mentor'},
+    loreGuardianKey: {name: 'A secret key'},
+    loreRangerTrophy: {name: 'A trophy from your first kill'},
+    loreRangerCompass: {name: 'A seemingly broken compass'},
+    loreRogueForgery: {name: 'A set of forgery tools'},
+    loreRogueHook: {name: 'A grappling hook'},
+    loreSeraphOfferings: {name: 'A bundle of offerings'},
+    loreSeraphSigil: {name: 'A sigil of your god'},
+    loreSorcererOrb: {name: 'A whispering orb'},
+    loreSorcererHeirloom: {name: 'A family heirloom'},
+    loreWarlockCarving: {name: 'A carving that symbolizes your patron'},
+    loreWarlockRing: {name: "A ring you can't remove"},
+    loreWarriorDrawing: {name: 'The drawing of a lover'},
+    loreWarriorStone: {name: 'A sharpening stone'},
+    loreWitchPet: {name: 'A small, harmless pet'},
+    loreWitchSkull: {name: 'A talking skull'},
+    // note to self: inventory includes lore questions (decide what you store your spells in)
+    // it should be in the flavor section.
+    // pets/lore items are ok here though
+}
