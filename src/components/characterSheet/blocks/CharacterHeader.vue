@@ -23,8 +23,17 @@
         />
       </v-col>
       <v-col cols="4" md="2">
-        <div class="text-caption text-medium-emphasis">{{ $t('sheet.header.levelLabel') }}</div>
-        <div class="text-h6">{{ character.level }}</div>
+        <v-text-field
+          v-model="level"
+          base-color="primary"
+          density="compact"
+          hide-details
+          :label="$t('sheet.header.levelLabel')"
+          :max="10"
+          :min="1"
+          type="number"
+          @blur="onLevelBlur"
+        />
       </v-col>
     </v-row>
 
@@ -106,7 +115,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { Character } from '@/types/game/character.ts'
+  import type { Character, Level } from '@/types/game/character.ts'
   import { ref, watch } from 'vue'
 
   const props = defineProps<{
@@ -116,10 +125,12 @@
   const emit = defineEmits<{
     (e: 'update:name', name: string | undefined): void
     (e: 'update:pronouns', pronouns: string | undefined): void
+    (e: 'update:level', level: Level): void
   }>()
 
   const name = ref<string | undefined>(props.character.name)
   const pronouns = ref<string | undefined>(props.character.pronouns)
+  const level = ref<number>(props.character.level)
 
   watch(() => props.character.name, next => {
     name.value = next
@@ -127,6 +138,10 @@
 
   watch(() => props.character.pronouns, next => {
     pronouns.value = next
+  })
+
+  watch(() => props.character.level, next => {
+    level.value = next
   })
 
   function onNameBlur () {
@@ -140,6 +155,17 @@
     const next = pronouns.value?.trim() || undefined
     if (next !== props.character.pronouns) {
       emit('update:pronouns', next)
+    }
+  }
+
+  function onLevelBlur () {
+    const parsed = Math.floor(Number(level.value))
+    const clamped = Number.isFinite(parsed)
+      ? Math.min(10, Math.max(1, parsed))
+      : props.character.level
+    level.value = clamped
+    if (clamped !== props.character.level) {
+      emit('update:level', clamped as Level)
     }
   }
 </script>

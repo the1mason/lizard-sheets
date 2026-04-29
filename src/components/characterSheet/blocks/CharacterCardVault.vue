@@ -85,6 +85,8 @@
             @dragstart-card="onDragStart"
             @drop-section="onDrop('equipped')"
             @move-card="onMoveCard"
+            @downgrade-subclass="onDowngradeSubclass"
+            @upgrade-subclass="onUpgradeSubclass"
           />
           <vault-section
             :card-size="cardSize"
@@ -175,6 +177,8 @@
             :over-equipped="overEquipped"
             section="equipped"
             @move-card="onMoveCard"
+            @downgrade-subclass="onDowngradeSubclass"
+            @upgrade-subclass="onUpgradeSubclass"
           />
           <vault-section
             :card-size="cardSize"
@@ -197,7 +201,7 @@
 
 <script setup lang="ts">
   import type { CardKind, CardSize, SheetCardEntry } from './cardVaultTypes.ts'
-  import type { Character, DomainCard, Level } from '@/types/game/character.ts'
+  import type { Character, DomainCard, Level, Subclass } from '@/types/game/character.ts'
   import type { Domain } from '@/types/game/domain.ts'
   import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
@@ -216,6 +220,7 @@
 
   const emit = defineEmits<{
     (e: 'update:domainCards' | 'update:domainCardsStored', value: DomainCard[]): void
+    (e: 'update:subclasses', value: Subclass[]): void
   }>()
 
   const { t } = useI18n()
@@ -477,6 +482,24 @@
     }
     stored.push(card)
     emit('update:domainCardsStored', stored)
+  }
+
+  function onUpgradeSubclass (id: string) {
+    const next = props.character.subclasses.map(sc =>
+      sc.id === id && sc.level < 3
+        ? { ...sc, level: (sc.level + 1) as 1 | 2 | 3 }
+        : sc,
+    )
+    emit('update:subclasses', next)
+  }
+
+  function onDowngradeSubclass (id: string) {
+    const next = props.character.subclasses.map(sc =>
+      sc.id === id && sc.level > 1
+        ? { ...sc, level: (sc.level - 1) as 1 | 2 | 3 }
+        : sc,
+    )
+    emit('update:subclasses', next)
   }
 
   function moveCard (id: string, from: 'equipped' | 'stored', _to: 'equipped' | 'stored') {

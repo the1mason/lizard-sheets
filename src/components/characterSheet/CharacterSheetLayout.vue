@@ -18,6 +18,7 @@
     <template v-else>
       <character-header
         :character="character"
+        @update:level="(v) => patch('level', v)"
         @update:name="(v) => patch('name', v)"
         @update:pronouns="(v) => patch('pronouns', v)"
       />
@@ -70,6 +71,7 @@
         :character="character"
         @update:domain-cards="(v) => patch('domainCards', v)"
         @update:domain-cards-stored="(v) => patch('domainCardsStored', v)"
+        @update:subclasses="(v) => patch('subclasses', v)"
       />
     </template>
   </v-container>

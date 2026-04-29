@@ -57,6 +57,28 @@
             variant="tonal"
             @click.stop="onMoveClick(entry)"
           />
+          <v-btn
+            v-if="entry.kind === 'subclass' && entry.tier === entry.subclass.level && entry.tier < 3"
+            :aria-label="$t('sheet.vault.upgrade')"
+            class="vault-card-upgrade"
+            color="primary"
+            density="compact"
+            icon="mdi-chevron-double-up"
+            size="x-small"
+            variant="tonal"
+            @click.stop="onUpgradeClick(entry)"
+          />
+          <v-btn
+            v-if="entry.kind === 'subclass' && entry.tier === entry.subclass.level && entry.tier > 1"
+            :aria-label="$t('sheet.vault.downgrade')"
+            class="vault-card-downgrade"
+            color="grey"
+            density="compact"
+            icon="mdi-chevron-double-down"
+            size="x-small"
+            variant="tonal"
+            @click.stop="onDowngradeClick(entry)"
+          />
         </div>
       </template>
       <div v-else class="vault-section-empty text-medium-emphasis">
@@ -91,6 +113,7 @@
     (e: 'dragend-card' | 'dragleave-section' | 'drop-section' | 'open-picker'): void
     (e: 'dragover-section', ev: DragEvent): void
     (e: 'move-card', payload: { id: string, from: 'equipped' | 'stored', to: 'equipped' | 'stored' }): void
+    (e: 'upgrade-subclass' | 'downgrade-subclass', id: string): void
   }>()
 
   function entryKey (e: SheetCardEntry, idx: number): string {
@@ -136,6 +159,16 @@
       from: props.section,
       to: props.section === 'equipped' ? 'stored' : 'equipped',
     })
+  }
+
+  function onUpgradeClick (entry: SheetCardEntry) {
+    if (entry.kind !== 'subclass') return
+    emit('upgrade-subclass', entry.subclass.id)
+  }
+
+  function onDowngradeClick (entry: SheetCardEntry) {
+    if (entry.kind !== 'subclass') return
+    emit('downgrade-subclass', entry.subclass.id)
   }
 </script>
 
@@ -196,5 +229,21 @@
     transform: translateX(-50%);
     z-index: 1;
     opacity: 0.85;
+  }
+
+  .vault-card-upgrade {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 1;
+    opacity: 0.9;
+  }
+
+  .vault-card-downgrade {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 1;
+    opacity: 0.9;
   }
 </style>
