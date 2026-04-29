@@ -17,6 +17,7 @@ export const classes = {
     },
     guardian: {
         name: 'Guardian',
+        hopeFeat: 'Frontline Tank: Spend 3 Hope to clear 2 Armor Slots.',
         description: 'As a guardian, you run into danger to protect your party, keeping watch over those who might not survive without you there.',
         flavor: {
             ties: [
