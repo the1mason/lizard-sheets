@@ -6,12 +6,12 @@
       <div class="text-subtitle-1 font-weight-bold mb-2">{{ $t('sheet.flavor.notes') }}</div>
       <v-textarea
         auto-grow
+        class="flavor-input"
         density="compact"
         hide-details="auto"
-        :label="$t('sheet.flavor.notesLabel')"
         :model-value="character.notes ?? ''"
         :placeholder="$t('sheet.flavor.notesPlaceholder')"
-        rows="4"
+        rows="3"
         @update:model-value="updateNotes"
       />
     </v-card>
@@ -25,45 +25,54 @@
     <template v-else>
       <v-card v-if="flavorQuestions.ties.length > 0" border class="pa-3 mb-3">
         <div class="text-subtitle-1 font-weight-bold mb-2">{{ $t('sheet.flavor.ties') }}</div>
-        <v-textarea
+        <div
           v-for="(qKey, idx) in flavorQuestions.ties"
           :key="`tie-${idx}`"
-          auto-grow
           class="mb-3"
-          density="compact"
-          hide-details="auto"
-          :label="$t(qKey)"
-          :model-value="character.ties?.[idx] ?? ''"
-          :placeholder="$t('sheet.flavor.answerPlaceholder')"
-          rows="2"
-          @update:model-value="(v: string) => updateArray('ties', idx, v)"
-        />
+        >
+          <div class="text-body-2 font-weight-medium mb-1">{{ $t(qKey) }}</div>
+          <v-textarea
+            auto-grow
+            class="flavor-input"
+            density="compact"
+            hide-details="auto"
+            :model-value="character.ties?.[idx] ?? ''"
+            :placeholder="$t('sheet.flavor.answerPlaceholder')"
+            rows="2"
+            @update:model-value="(v: string) => updateArray('ties', idx, v)"
+          />
+        </div>
       </v-card>
 
       <v-card v-if="flavorQuestions.description.length > 0" border class="pa-3 mb-3">
         <div class="text-subtitle-1 font-weight-bold mb-2">{{ $t('sheet.flavor.descriptionSection') }}</div>
-        <v-textarea
+        <div
           v-for="(qKey, idx) in flavorQuestions.description"
           :key="`desc-${idx}`"
-          auto-grow
           class="mb-3"
-          density="compact"
-          hide-details="auto"
-          :label="$t(qKey)"
-          :model-value="character.backgroundQuestions?.[idx] ?? ''"
-          :placeholder="$t('sheet.flavor.answerPlaceholder')"
-          rows="2"
-          @update:model-value="(v: string) => updateArray('backgroundQuestions', idx, v)"
-        />
+        >
+          <div class="text-body-2 font-weight-medium mb-1">{{ $t(qKey) }}</div>
+          <v-textarea
+            auto-grow
+            class="flavor-input"
+            density="compact"
+            hide-details="auto"
+            :model-value="character.backgroundQuestions?.[idx] ?? ''"
+            :placeholder="$t('sheet.flavor.answerPlaceholder')"
+            rows="2"
+            @update:model-value="(v: string) => updateArray('backgroundQuestions', idx, v)"
+          />
+        </div>
       </v-card>
 
       <v-card v-if="flavorQuestions.spellcastingSource" border class="pa-3 mb-3">
         <div class="text-subtitle-1 font-weight-bold mb-2">{{ $t('sheet.flavor.spellcastingSource') }}</div>
+        <div class="text-body-2 font-weight-medium mb-1">{{ $t(flavorQuestions.spellcastingSource) }}</div>
         <v-textarea
           auto-grow
+          class="flavor-input"
           density="compact"
           hide-details="auto"
-          :label="$t(flavorQuestions.spellcastingSource)"
           :model-value="character.spellcastingSource ?? ''"
           :placeholder="$t('sheet.flavor.answerPlaceholder')"
           rows="2"
@@ -76,19 +85,23 @@
         <p v-if="flavorQuestions.appearanceHint" class="text-body-2 text-medium-emphasis mb-3">
           {{ $t(flavorQuestions.appearanceHint) }}
         </p>
-        <v-textarea
+        <div
           v-for="(qKey, idx) in flavorQuestions.appearance"
           :key="`app-${idx}`"
-          auto-grow
           class="mb-3"
-          density="compact"
-          hide-details="auto"
-          :label="$t(qKey)"
-          :model-value="character.appearance?.[idx] ?? ''"
-          :placeholder="$t('sheet.flavor.answerPlaceholder')"
-          rows="2"
-          @update:model-value="(v: string) => updateArray('appearance', idx, v)"
-        />
+        >
+          <div class="text-body-2 font-weight-medium mb-1">{{ $t(qKey) }}</div>
+          <v-textarea
+            auto-grow
+            class="flavor-input"
+            density="compact"
+            hide-details="auto"
+            :model-value="character.appearance?.[idx] ?? ''"
+            :placeholder="$t('sheet.flavor.answerPlaceholder')"
+            rows="2"
+            @update:model-value="(v: string) => updateArray('appearance', idx, v)"
+          />
+        </div>
       </v-card>
     </template>
   </v-card>
@@ -135,4 +148,10 @@
 </script>
 
 <style scoped>
+  .flavor-input :deep(.v-field__input) {
+    font-size: 0.875rem;
+    min-height: 32px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
 </style>

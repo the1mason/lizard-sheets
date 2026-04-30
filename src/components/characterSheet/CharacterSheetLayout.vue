@@ -73,6 +73,7 @@
         @update:domain-cards-stored="(v) => patch('domainCardsStored', v)"
         @update:subclasses="(v) => patch('subclasses', v)"
       />
+      <dice-roller :character="character" />
     </template>
   </v-container>
 </template>
@@ -89,6 +90,7 @@
   import CharacterInventory from '@/components/characterSheet/blocks/CharacterInventory.vue'
   import CharacterStateRow from '@/components/characterSheet/blocks/CharacterStateRow.vue'
   import CharacterTraits from '@/components/characterSheet/blocks/CharacterTraits.vue'
+  import DiceRoller from '@/components/characterSheet/blocks/DiceRoller.vue'
   import { useCharacterStore } from '@/stores/characterStore.ts'
 
   const props = defineProps<{
