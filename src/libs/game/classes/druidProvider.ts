@@ -49,6 +49,27 @@ function getClassOptions() : ClassOption {
             ]
         }
     ]
+    const druidFlavorQuestions = {
+        ties: [
+            "game.classes.druid.flavor.ties.0",
+            "game.classes.druid.flavor.ties.1",
+            "game.classes.druid.flavor.ties.2",
+        ],
+        description: [
+            "game.classes.druid.flavor.description.0",
+            "game.classes.druid.flavor.description.1",
+            "game.classes.druid.flavor.description.2",
+        ],
+        appearance: [
+            "game.classes.druid.flavor.appearance.0",
+            "game.classes.druid.flavor.appearance.1",
+            "game.classes.druid.flavor.appearance.2",
+            "game.classes.druid.flavor.appearance.3",
+            "game.classes.druid.flavor.appearance.4",
+        ],
+        appearanceHint: "game.classes.druid.flavor.appearanceHint",
+    }
+
     return {
         subclasses: ["elements", "renewal"],
         defaultTraits: {agility: 1, strength: 0, finesse: 1, instinct: 2, presence: -1, knowledge: 0},
@@ -56,6 +77,7 @@ function getClassOptions() : ClassOption {
         availableArmors: armors,
         defaultItems: defaultItems,
         itemChoiceGroups: itemChoiceGroups,
+        flavorQuestions: druidFlavorQuestions,
         defaultState: {
             evasion: 10,
             armorMax: 0,

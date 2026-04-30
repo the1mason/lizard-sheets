@@ -1,4 +1,4 @@
-<template>
+фв<template>
   <character-sheet-layout :id="id" />
 </template>
 
