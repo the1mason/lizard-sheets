@@ -41,6 +41,27 @@ function getClassOptions() : ClassOption {
             ]
         }
     ]
+    const brawlerFlavorQuestions = {
+        ties: [
+            "game.classes.brawler.flavor.ties.0",
+            "game.classes.brawler.flavor.ties.1",
+            "game.classes.brawler.flavor.ties.2",
+        ],
+        description: [
+            "game.classes.brawler.flavor.description.0",
+            "game.classes.brawler.flavor.description.1",
+            "game.classes.brawler.flavor.description.2",
+        ],
+        appearance: [
+            "game.classes.brawler.flavor.appearance.0",
+            "game.classes.brawler.flavor.appearance.1",
+            "game.classes.brawler.flavor.appearance.2",
+            "game.classes.brawler.flavor.appearance.3",
+            "game.classes.brawler.flavor.appearance.4",
+        ],
+        appearanceHint: "game.classes.brawler.flavor.appearanceHint",
+    }
+
     return {
         subclasses: ["juggernaut", "martial"],
         defaultTraits: {agility: 1, strength: 1, finesse: 0, instinct: 2, presence: 0, knowledge: -1},
@@ -48,6 +69,7 @@ function getClassOptions() : ClassOption {
         availableArmors: armors,
         defaultItems: defaultItems,
         itemChoiceGroups: itemChoiceGroups,
+        flavorQuestions: brawlerFlavorQuestions,
         defaultState: {
             evasion: 10,
             armorMax: 0,

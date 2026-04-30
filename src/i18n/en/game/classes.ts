@@ -9,7 +9,43 @@ export const classes = {
     },
     brawler: {
         name: 'Brawler',
-        description: 'As a brawler, you can use your fists just as well as any weapon to fight off the threats that get in your way.'
+        description: 'As a brawler, you can use your fists just as well as any weapon to fight off the threats that get in your way.',
+        hopeFeat: 'Staggering Strike: Spend 3 Hope when you succeed on an attack to temporarily Stagger your target and force them to mark a Stress. While Staggered, they have disadvantage on attack rolls.',
+        comboDie: {
+            title: 'Combo Die',
+        },
+        flavor: {
+            ties: [
+                'What is one thing we\'re both afraid of?',
+                'I rely on you for something important during our travels together. What is it and how do you feel about it?',
+                'I still haven\'t forgiven you for something you said to me. What was it and why did you say it?',
+            ],
+            description: [
+                'Where did you spend time during your formative years that taught you, directly or indirectly, how to fight in the style you use?',
+                'What group or organization has always had your back, and how did you get in their good graces?',
+                'Who did you lose a fight to long ago that you are desperate for a rematch against?',
+            ],
+            appearance: [
+                'Clothes that are: practical, haphazard, pristine, standard-issue, bright, someone else\'s',
+                'Eyes like: carnations, earth, endless ocean, fire, ivy, lilacs, night, seafoam, winter',
+                'Body that\'s: broad, carved, curvy, lanky, rotund, short, stocky, tall, thin, tiny, toned',
+                'Skin the color of: ashes, clover, falling snow, fine sand, obsidian, rose, sapphire, wisteria',
+                'Attitude like: a loose cannon, a parent, a veteran, a flowing river, a golden retriever, a protector',
+            ],
+            appearanceHint: 'Choose one (or more) from each line, or write your own description.',
+        },
+        trait:
+            `
+**I AM THE WEAPON**
+While you don't have any equipped weapons:
+- You gain a +1 bonus to Evasion.
+- Your unarmed strikes are considered a Melee weapon, use the trait of your choice, and deal d8+d6 phy damage using your Proficiency.
+
+**COMBO STRIKES**
+After making a damage roll with a Melee weapon but before dealing that damage to the target, mark a Stress to start a combo strike. When you do, roll your Combo Die and note its value. Then, roll your Combo Die again. If the value of the second roll is equal to or greater than your first roll, continue rolling until the latest Combo Die's roll is less than the roll that preceeded it. Total all rolled values and add that amount to your weapon's damage. These values cannot be adjusted by features that affect damage dice.
+
+Your Combo Die starts as a d4. When you level up, once per tier you may use one of your advancement options to increase your Combo Die instead.
+`
     },
     druid: {
         name: 'Druid',

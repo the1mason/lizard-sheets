@@ -39,12 +39,15 @@ export type Character = {
     notes?: string
     proficiency: number
     unstoppable?: UnstoppableState
+    comboDie?: ComboDie
 }
 
 export type UnstoppableState = {
     active: boolean
     value: number
 }
+
+export type ComboDie = 'd4' | 'd6' | 'd8' | 'd10' | 'd12'
 
 export type AncestryCard = {
     id: string
