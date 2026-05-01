@@ -49,6 +49,27 @@ function getClassOptions() : ClassOption {
             ]
         }
     ]
+    const seraphFlavorQuestions = {
+        ties: [
+            "game.classes.seraph.flavor.ties.0",
+            "game.classes.seraph.flavor.ties.1",
+            "game.classes.seraph.flavor.ties.2",
+        ],
+        description: [
+            "game.classes.seraph.flavor.description.0",
+            "game.classes.seraph.flavor.description.1",
+            "game.classes.seraph.flavor.description.2",
+        ],
+        appearance: [
+            "game.classes.seraph.flavor.appearance.0",
+            "game.classes.seraph.flavor.appearance.1",
+            "game.classes.seraph.flavor.appearance.2",
+            "game.classes.seraph.flavor.appearance.3",
+            "game.classes.seraph.flavor.appearance.4",
+        ],
+        appearanceHint: "game.classes.seraph.flavor.appearanceHint",
+    }
+
     return {
         subclasses: ["wielder", "sentinel"],
         defaultTraits: {agility: 0, strength: 2, finesse: 0, instinct: 1, presence: 1, knowledge: -1},
@@ -56,6 +77,7 @@ function getClassOptions() : ClassOption {
         availableArmors: armors,
         defaultItems: defaultItems,
         itemChoiceGroups: itemChoiceGroups,
+        flavorQuestions: seraphFlavorQuestions,
         defaultState: {
             evasion: 9,
             armorMax: 0,

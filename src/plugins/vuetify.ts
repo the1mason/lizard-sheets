@@ -34,8 +34,7 @@ export default createVuetify({
           secondaryBg: "#ba68c830",
           lighten: "#2a2b2b"
         },
-      },
+      }
     },
-
   },
 })

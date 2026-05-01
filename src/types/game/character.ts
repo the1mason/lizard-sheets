@@ -40,6 +40,9 @@ export type Character = {
     proficiency: number
     unstoppable?: UnstoppableState
     comboDie?: ComboDie
+    prayerDice?: PrayerDiceState
+    warlock?: WarlockState
+    strangePatterns?: number
 }
 
 export type UnstoppableState = {
@@ -48,6 +51,21 @@ export type UnstoppableState = {
 }
 
 export type ComboDie = 'd4' | 'd6' | 'd8' | 'd10' | 'd12'
+
+export type PrayerDiceState = {
+    slots: (number | null)[]
+}
+
+export type WarlockSphere = {
+    name: string
+    value: number
+}
+
+export type WarlockState = {
+    patronName?: string
+    spheres: WarlockSphere[]
+    favor: number
+}
 
 export type AncestryCard = {
     id: string

@@ -42,6 +42,27 @@ function getClassOptions() : ClassOption {
             ]
         }
     ]
+    const warlockFlavorQuestions = {
+        ties: [
+            "game.classes.warlock.flavor.ties.0",
+            "game.classes.warlock.flavor.ties.1",
+            "game.classes.warlock.flavor.ties.2",
+        ],
+        description: [
+            "game.classes.warlock.flavor.description.0",
+            "game.classes.warlock.flavor.description.1",
+            "game.classes.warlock.flavor.description.2",
+        ],
+        appearance: [
+            "game.classes.warlock.flavor.appearance.0",
+            "game.classes.warlock.flavor.appearance.1",
+            "game.classes.warlock.flavor.appearance.2",
+            "game.classes.warlock.flavor.appearance.3",
+            "game.classes.warlock.flavor.appearance.4",
+        ],
+        appearanceHint: "game.classes.warlock.flavor.appearanceHint",
+    }
+
     return {
         subclasses: ["wrathful", "endless"],
         defaultTraits: {agility: 1, strength: -1, finesse: 0, instinct: 1, presence: 2, knowledge: 0},
@@ -49,6 +70,7 @@ function getClassOptions() : ClassOption {
         availableArmors: armors,
         defaultItems: defaultItems,
         itemChoiceGroups: itemChoiceGroups,
+        flavorQuestions: warlockFlavorQuestions,
         defaultState: {
             evasion: 11,
             armorMax: 0,

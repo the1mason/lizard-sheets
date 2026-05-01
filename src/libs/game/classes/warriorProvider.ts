@@ -41,6 +41,27 @@ function getClassOptions() : ClassOption {
             ]
         }
     ]
+    const warriorFlavorQuestions = {
+        ties: [
+            "game.classes.warrior.flavor.ties.0",
+            "game.classes.warrior.flavor.ties.1",
+            "game.classes.warrior.flavor.ties.2",
+        ],
+        description: [
+            "game.classes.warrior.flavor.description.0",
+            "game.classes.warrior.flavor.description.1",
+            "game.classes.warrior.flavor.description.2",
+        ],
+        appearance: [
+            "game.classes.warrior.flavor.appearance.0",
+            "game.classes.warrior.flavor.appearance.1",
+            "game.classes.warrior.flavor.appearance.2",
+            "game.classes.warrior.flavor.appearance.3",
+            "game.classes.warrior.flavor.appearance.4",
+        ],
+        appearanceHint: "game.classes.warrior.flavor.appearanceHint",
+    }
+
     return {
         subclasses: ["brave", "slayer"],
         defaultTraits: {agility: 2, strength: 1, finesse: 0, instinct: 1, presence: -1, knowledge: 0},
@@ -48,6 +69,7 @@ function getClassOptions() : ClassOption {
         availableArmors: armors,
         defaultItems: defaultItems,
         itemChoiceGroups: itemChoiceGroups,
+        flavorQuestions: warriorFlavorQuestions,
         defaultState: {
             evasion: 11,
             armorMax: 0,

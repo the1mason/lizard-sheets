@@ -41,6 +41,27 @@ function getClassOptions() : ClassOption {
             ]
         }
     ]
+    const sorcererFlavorQuestions = {
+        ties: [
+            "game.classes.sorcerer.flavor.ties.0",
+            "game.classes.sorcerer.flavor.ties.1",
+            "game.classes.sorcerer.flavor.ties.2",
+        ],
+        description: [
+            "game.classes.sorcerer.flavor.description.0",
+            "game.classes.sorcerer.flavor.description.1",
+            "game.classes.sorcerer.flavor.description.2",
+        ],
+        appearance: [
+            "game.classes.sorcerer.flavor.appearance.0",
+            "game.classes.sorcerer.flavor.appearance.1",
+            "game.classes.sorcerer.flavor.appearance.2",
+            "game.classes.sorcerer.flavor.appearance.3",
+            "game.classes.sorcerer.flavor.appearance.4",
+        ],
+        appearanceHint: "game.classes.sorcerer.flavor.appearanceHint",
+    }
+
     return {
         subclasses: ["primal", "elemental"],
         defaultTraits: {agility: 0, strength: -1, finesse: 1, instinct: 2, presence: 1, knowledge: 0},
@@ -48,6 +69,7 @@ function getClassOptions() : ClassOption {
         availableArmors: armors,
         defaultItems: defaultItems,
         itemChoiceGroups: itemChoiceGroups,
+        flavorQuestions: sorcererFlavorQuestions,
         defaultState: {
             evasion: 10,
             armorMax: 0,
