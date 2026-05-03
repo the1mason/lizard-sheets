@@ -3,7 +3,7 @@
     <v-card class="pa-3">
       <v-card-title>
         <template v-if="builderState?.data.name!">
-          <b>{{ builderState?.data.name }}</b> - Character Builder
+          <b>{{ builderState?.data.name }}</b> - {{ $t('builder.title') }}
         </template>
         <template v-else>
           <b>{{ $t('builder.title') }}</b>

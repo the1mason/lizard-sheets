@@ -226,6 +226,12 @@
   const { t } = useI18n()
   const { mobile } = useDisplay()
 
+  const subclassTierKeys = {
+    1: 'foundation',
+    2: 'specialization',
+    3: 'mastery',
+  } as const
+
   const STORAGE_KEY_FILTERS_OPEN = 'lizard-sheets:vault.filtersOpen'
   const STORAGE_KEY_CARD_SIZE = 'lizard-sheets:vault.cardSize'
 
@@ -367,6 +373,10 @@
   const equippedDomainCount = computed(() => (props.character.domainCards ?? []).length)
   const overEquipped = computed(() => equippedDomainCount.value > 5)
 
+  function subclassTierKey (tier: keyof typeof subclassTierKeys): string {
+    return subclassTierKeys[tier]
+  }
+
   function entryText (e: SheetCardEntry): string {
     switch (e.kind) {
       case 'domain': {
@@ -378,11 +388,11 @@
         ].join(' ')
       }
       case 'subclass': {
-        const tierKey = t(`game.subclasses.levels.${e.tier}`)
+        const tierKey = subclassTierKey(e.tier)
         return [
           t(`game.subclasses.${e.subclass.id}.name`),
           t(`game.subclasses.${e.subclass.id}.${tierKey}`),
-          tierKey,
+          t(`game.subclasses.levels.${e.tier}`),
         ].join(' ')
       }
       case 'ancestry': {

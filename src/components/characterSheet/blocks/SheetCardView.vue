@@ -34,6 +34,15 @@
   )
 
   const { t } = useI18n()
+  const subclassTierKeys = {
+    1: 'foundation',
+    2: 'specialization',
+    3: 'mastery',
+  } as const
+
+  function subclassTierKey (tier: keyof typeof subclassTierKeys): string {
+    return subclassTierKeys[tier]
+  }
 
   const title = computed(() => {
     switch (props.entry.kind) {
@@ -68,7 +77,7 @@
   const body = computed(() => {
     switch (props.entry.kind) {
       case 'subclass': {
-        const tierKey = t(`game.subclasses.levels.${props.entry.tier}`)
+        const tierKey = subclassTierKey(props.entry.tier)
         return t(`game.subclasses.${props.entry.subclass.id}.${tierKey}`)
       }
       case 'ancestry': {

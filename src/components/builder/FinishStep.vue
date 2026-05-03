@@ -48,13 +48,13 @@
       </ul>
     </div>
     <div v-if="char.armor" class="mb-2">
-      <b>{{ $t('builder.finish.armorLabel') }}:</b> {{ char.armor.name }}
+      <b>{{ $t('builder.finish.armorLabel') }}:</b> {{ char.armor.custom ? char.armor.name : $t(char.armor.name) }}
     </div>
     <div v-if="(char.inventory?.items.length ?? 0) > 0" class="mb-2">
       <b>{{ $t('builder.finish.itemsLabel') }}:</b>
       <ul class="ms-4">
         <li v-for="(it, i) in char.inventory!.items" :key="`i-${i}`">
-          {{ it.name }}<template v-if="it.count > 1"> ×{{ it.count }}</template>
+          {{ it.custom ? it.name : $t(it.name) }}<template v-if="it.count > 1"> ×{{ it.count }}</template>
         </li>
       </ul>
     </div>
