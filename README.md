@@ -12,7 +12,9 @@ and does not try to be smarter than it's users with complicated calculations.
 
 Artem - card descriptipons, translation help
 
-the1mason - code, design, translation, data
+[the1mason](https://github.com/the1mason) - code, design, translation, data
+
+[bmpolonsky](https://github.com/bmpolonsky) - russian locale, minor bug fixes
 
 Issues may or may not be reviewed.  
 
