@@ -1,31 +1,14 @@
 import type {ClassOption} from "@/types/game/classOption.ts";
-import type {Weapon, WeaponSlot} from "@/types/game/character.ts";
+import equipment from "@/libs/game/equipmentProvider.ts";
 
 function getClassOptions() : ClassOption {
-    const w = (name: string, trait: string, distance: string, damageDice: string, damageKind: string, feature: string, weaponSlot: WeaponSlot, featureDescription?: string): Weapon =>
-        ({ name, trait, distance, damageDice, damageKind, feature, featureDescription, weaponSlot, primary: false, secondary: false, left: false, right: false })
-
     const weapons = [
-        w("game.weapons.broadsword.name",
-            "game.traits.agility.name",
-            "game.distances.melee",
-            "d8",
-            "game.damageKinds.physical",
-            "game.weapons.broadsword.featureName",
-            "primary-only",
-            "game.weapons.broadsword.featureDescription"),
-        w("game.weapons.shortsword.name",
-            "game.traits.agility.name",
-            "game.distances.melee",
-            "d8",
-            "game.damageKinds.physical",
-            "game.weapons.shortsword.featureName",
-            "secondary-only",
-            "game.weapons.shortsword.featureDescription"),
+        equipment.makeWeapon('broadsword'),
+        equipment.makeWeapon('shortsword'),
     ]
 
     const armors = [
-        { name: "game.armors.leatherArmor.name", thresholdLow: 6,  thresholdHigh: 13, score: 3, feature: "" },
+        equipment.makeArmor('leather-armor'),
     ]
     const defaultItems = [
         { name: "game.items.torch.name",           count: 1 },

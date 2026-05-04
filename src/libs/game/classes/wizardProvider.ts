@@ -1,23 +1,13 @@
 import type {ClassOption} from "@/types/game/classOption.ts";
-import type {Weapon, WeaponSlot} from "@/types/game/character.ts";
+import equipment from "@/libs/game/equipmentProvider.ts";
 
 function getClassOptions() : ClassOption {
-    const w = (name: string, trait: string, distance: string, damageDice: string, damageKind: string, feature: string, weaponSlot: WeaponSlot, featureDescription?: string): Weapon =>
-        ({ name, trait, distance, damageDice, damageKind, feature, featureDescription, weaponSlot, primary: false, secondary: false, left: false, right: false })
-
     const wizardWeapons = [
-        w("game.weapons.greatstaff.name",
-            "game.traits.knowledge.name",
-            "game.distances.veryfar",
-            "d6",
-            "game.damageKinds.magic",
-            "game.weapons.greatstaff.featureName",
-            "two-handed",
-            "game.weapons.greatstaff.featureDescription"),
+        equipment.makeWeapon('greatstaff'),
     ]
 
     const wizardArmors = [
-        { name: "game.armors.leatherArmor.name", thresholdLow: 6,  thresholdHigh: 13, score: 3, feature: "" },
+        equipment.makeArmor('leather-armor'),
     ]
     const wizardDefaultItems = [
         { name: "game.items.torch.name",           count: 1 },

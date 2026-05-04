@@ -13,6 +13,12 @@ import { classes as generatedClasses } from '@/i18n/ru/game/classes.ts'
 import { communities } from '@/i18n/ru/game/communities.ts'
 import { items as generatedItems } from '@/i18n/ru/game/items.ts'
 import { subclasses as generatedSubclasses } from '@/i18n/ru/game/subclasses.ts'
+import { armors as equipmentArmors } from '@/i18n/ru/game/equipment/armors.ts'
+import { primaryWeapons as equipmentPrimaryWeapons } from '@/i18n/ru/game/equipment/primaryWeapons.ts'
+import { secondaryWeapons as equipmentSecondaryWeapons } from '@/i18n/ru/game/equipment/secondaryWeapons.ts'
+import { combatWheelchairs as equipmentCombatWheelchairs } from '@/i18n/ru/game/equipment/combatWheelchairs.ts'
+import { items as equipmentItems } from '@/i18n/ru/game/equipment/items.ts'
+import { consumables as equipmentConsumables } from '@/i18n/ru/game/equipment/consumables.ts'
 
 const appearanceHint = 'Выберите один или несколько вариантов из каждой строки либо опишите своего персонажа сами.'
 const appearanceFields = ['clothes', 'eyes', 'body', 'color', 'attitude'] as const
@@ -307,6 +313,7 @@ export const game = {
   distances: {
     melee: 'Вплотную',
     meleeClose: 'Вплотную/Средне',
+    veryclose: 'Близко',
     close: 'Средне',
     far: 'Далеко',
     veryfar: 'Очень далеко',
@@ -314,6 +321,19 @@ export const game = {
   damageKinds: {
     physical: 'Физический',
     magic: 'Магический',
+    any: 'Любой',
+  },
+  burdens: {
+    'one-handed': 'Одноручное',
+    'two-handed': 'Двуручное',
+  },
+  equipment: {
+    armors: equipmentArmors,
+    primaryWeapons: equipmentPrimaryWeapons,
+    secondaryWeapons: equipmentSecondaryWeapons,
+    combatWheelchairs: equipmentCombatWheelchairs,
+    items: equipmentItems,
+    consumables: equipmentConsumables,
   },
   items,
   itemChoiceGroups: {

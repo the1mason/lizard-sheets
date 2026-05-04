@@ -12,6 +12,7 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "generate:i18n:ru": "node scripts/generate-ru-i18n.mjs",
+    "generate:i18n:equipment": "node scripts/generate-equipment-i18n.mjs",
     "mcp": "ruler apply",
     "mcp:revert": "ruler revert"
   },

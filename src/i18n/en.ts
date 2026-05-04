@@ -14,12 +14,21 @@ import { classes } from '@/i18n/en/game/classes.ts'
 import { communities } from '@/i18n/en/game/communities.ts'
 import { items } from '@/i18n/en/game/items.ts'
 import { subclasses } from '@/i18n/en/game/subclasses.ts'
+import { armors as equipmentArmors } from '@/i18n/en/game/equipment/armors.ts'
+import { primaryWeapons as equipmentPrimaryWeapons } from '@/i18n/en/game/equipment/primaryWeapons.ts'
+import { secondaryWeapons as equipmentSecondaryWeapons } from '@/i18n/en/game/equipment/secondaryWeapons.ts'
+import { combatWheelchairs as equipmentCombatWheelchairs } from '@/i18n/en/game/equipment/combatWheelchairs.ts'
+import { items as equipmentItems } from '@/i18n/en/game/equipment/items.ts'
+import { consumables as equipmentConsumables } from '@/i18n/en/game/equipment/consumables.ts'
 
 export const en = {
   navigation: {
     builder: 'New',
     load: 'Load',
     characters: 'Characters',
+  },
+  footer: {
+    github: "GitHub - Issues, Feedback, Feature Requests"
   },
   characters: {
     title: 'Characters',
@@ -320,6 +329,7 @@ export const en = {
     distances: {
       melee: 'Melee',
       meleeClose: 'Melee/Close',
+      veryclose: 'Very Close',
       close: 'Close',
       far: 'Far',
       veryfar: 'Very Far',
@@ -327,6 +337,19 @@ export const en = {
     damageKinds: {
       physical: 'Physical',
       magic: 'Magic',
+      any: 'Any',
+    },
+    burdens: {
+      'one-handed': 'One-Handed',
+      'two-handed': 'Two-Handed',
+    },
+    equipment: {
+      armors: equipmentArmors,
+      primaryWeapons: equipmentPrimaryWeapons,
+      secondaryWeapons: equipmentSecondaryWeapons,
+      combatWheelchairs: equipmentCombatWheelchairs,
+      items: equipmentItems,
+      consumables: equipmentConsumables,
     },
     items,
     itemChoiceGroups: {
