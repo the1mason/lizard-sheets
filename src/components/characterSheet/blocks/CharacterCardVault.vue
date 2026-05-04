@@ -1,6 +1,15 @@
 <template>
-  <!-- desktop: peek panel slides to center -->
+  <!-- desktop: pull-handle on right edge, panel slides flush right -->
   <template v-if="!mobile">
+    <button
+      v-show="!open"
+      :aria-label="$t('sheet.vault.open')"
+      class="card-vault-handle"
+      type="button"
+      @click="openPanel"
+    >
+      <span class="card-vault-handle__label">{{ $t('sheet.vault.title') }}</span>
+    </button>
     <transition name="vault-fade">
       <div
         v-if="open"
@@ -12,9 +21,7 @@
       ref="panelRef"
       class="card-vault-panel"
       :class="{ open }"
-      :style="panelStyle"
       tabindex="-1"
-      @click="onPanelClick"
       @keydown.esc="close"
     >
       <div class="card-vault-inner">
@@ -327,21 +334,6 @@
     return n
   })
 
-  const peekWidth = computed<string>(() => {
-    switch (cardSize.value) {
-      case 'small': { return '120px'
-      }
-      case 'large': { return '180px'
-      }
-      default: { return '150px'
-      }
-    }
-  })
-
-  const panelStyle = computed(() => ({
-    '--peek-width': peekWidth.value,
-  }))
-
   const equippedEntries = computed<SheetCardEntry[]>(() => {
     const out: SheetCardEntry[] = []
     for (const sc of props.character.subclasses) {
@@ -430,11 +422,9 @@
     dragOver.value = null
   }
 
-  function onPanelClick (ev: MouseEvent) {
-    if (open.value) return
+  function openPanel () {
     open.value = true
     void focusPanel()
-    ev.stopPropagation()
   }
 
   async function focusPanel () {
@@ -578,18 +568,45 @@
     background: rgb(var(--v-theme-surface));
     color: rgb(var(--v-theme-on-surface));
     border-left: 1px solid rgba(255, 255, 255, 0.08);
-    transform: translateX(calc(100% - var(--peek-width, 150px)));
+    transform: translateX(100%);
     transition: transform 200ms ease-out, box-shadow 200ms ease-out;
     z-index: 1006;
-    cursor: pointer;
     box-shadow: -2px 0 8px rgba(0, 0, 0, 0.25);
     outline: none;
   }
 
   .card-vault-panel.open {
-    transform: translateX(calc((100vw - 100%) / -2));
-    cursor: default;
+    transform: translateX(0);
     box-shadow: -8px 0 32px rgba(0, 0, 0, 0.45);
+  }
+
+  .card-vault-handle {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    z-index: 1006;
+    padding: 16px 6px;
+    background: rgb(var(--v-theme-surface));
+    color: rgb(var(--v-theme-on-surface));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    writing-mode: vertical-rl;
+    transform: translateY(-50%) rotate(180deg);
+    transition: background-color 150ms ease-out;
+  }
+
+  .card-vault-handle:hover {
+    background: rgba(var(--v-theme-on-surface), 0.06);
+  }
+
+  .card-vault-handle__label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .card-vault-inner {

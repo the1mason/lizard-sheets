@@ -33,21 +33,13 @@
       />
       <v-row dense>
         <v-col cols="12" md="5">
-          <character-experiences
-            :character="character"
-            @update:experiences="(v) => patch('experiences', v)"
-          />
           <v-card border class="pa-3 mb-3">
             <div>{{ $t('sheet.classFeature') }}</div>
             <slot :character="character" name="class-feature" :patch="patch" :save="save" />
           </v-card>
-          <character-flavor
+          <character-experiences
             :character="character"
-            @update:appearance="(v) => patch('appearance', v)"
-            @update:background-questions="(v) => patch('backgroundQuestions', v)"
-            @update:notes="(v) => patch('notes', v)"
-            @update:spellcasting-source="(v) => patch('spellcastingSource', v)"
-            @update:ties="(v) => patch('ties', v)"
+            @update:experiences="(v) => patch('experiences', v)"
           />
         </v-col>
         <v-col cols="12" md="7">
@@ -66,6 +58,18 @@
             @update:inventory="(v) => patch('inventory', v)"
           />
         </v-col>
+        <v-row>
+          <v-col>
+            <character-flavor
+                :character="character"
+                @update:appearance="(v) => patch('appearance', v)"
+                @update:background-questions="(v) => patch('backgroundQuestions', v)"
+                @update:notes="(v) => patch('notes', v)"
+                @update:spellcasting-source="(v) => patch('spellcastingSource', v)"
+                @update:ties="(v) => patch('ties', v)"
+            />
+          </v-col>
+        </v-row>
       </v-row>
       <character-card-vault
         :character="character"
